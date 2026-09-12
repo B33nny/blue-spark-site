@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Download — Blue Spark</title>
+  <meta name="description" content="Get the signed Blue Spark installer for Windows 10/11. System requirements, activation flow, SmartScreen expectations, and how to verify the artifact.">
+  <meta property="og:title" content="Blue Spark — Download">
+  <meta property="og:image" content="assets/img/medallion.png">
+  <meta name="theme-color" content="#06080F">
+  <link rel="icon" type="image/png" href="assets/img/star.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .dl-panel { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px; align-items: center; padding: clamp(28px, 5vw, 56px); }
+    .dl-meta { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; color: var(--steel-3); display: grid; gap: 6px; }
+    .dl-meta b { color: var(--spark-cool); font-weight: 500; }
+    .step-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: step; }
+    .step { counter-increment: step; padding-top: 16px; }
+    .step::before { content: "0" counter(step); font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; color: var(--deep-5); display: block; margin-bottom: 8px; }
+    .step h3 { color: var(--spark-warm); font-family: var(--font-display); font-weight: 500; margin-bottom: 6px; font-size: 1rem; }
+    .step p { font-size: 0.9rem; color: var(--steel-2); }
+    @media (max-width: 900px) { .dl-panel { grid-template-columns: 1fr; } .step-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body data-page="download">
+  <canvas id="cosmos" aria-hidden="true"></canvas>
+  <div class="grid-veil" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <div class="topbar-status mono" aria-hidden="true">
+    <span class="status-dot ok"></span><span>LOCAL:NOMINAL</span>
+    <span class="sep">·</span><span>V1.0.5</span>
+    <span class="sep">·</span><span class="tnum" data-utc>00:00:00 UTC</span>
+    <span class="right">SOVEREIGN&nbsp;&nbsp;·&nbsp;&nbsp;LOCAL&nbsp;&nbsp;·&nbsp;&nbsp;PRIVATE</span>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="index.html" aria-label="Blue Spark home">
+      <img class="brand-star" src="assets/img/star.png" alt="" width="26" height="26">
+      <span class="wordmark">Blue&nbsp;Spar<span class="k-wrap">k<i class="spark-tip" aria-hidden="true"></i></span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="product.html">Product</a>
+      <a href="technology.html">Technology</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="about.html">About</a>
+      <a href="community.html">Community</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="learn.html">Learn</a>
+      <a class="nav-cta" href="download.html">Download</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </header>
+  <div class="mobile-menu" role="dialog" aria-label="Menu">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="product.html">Product</a>
+      <a href="technology.html">Technology</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="about.html">About</a>
+      <a href="community.html">Community</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="download.html">Download</a>
+      <a href="learn.html">Learn</a>
+    </nav>
+  </div>
+
+  <main id="main">
+    <!-- HERO / INSTALLER -->
+    <section class="hero" style="min-height:auto">
+      <div class="container">
+        <div class="glass-card dl-panel hud anim" data-reveal><span class="hud-b"></span>
+          <div style="display:grid;gap:16px;justify-items:start">
+            <span class="pill"><span class="dot"></span> v1.0.5 · signed installer · Windows</span>
+            <h1 class="display-64" data-split>The installer is the whole story.</h1>
+            <p class="lead">One file. Standard office hardware. First chat in about five minutes from download to activation.</p>
+            <div class="btn-row">
+              <a class="btn btn-primary" href="https://github.com" rel="noopener">Download for Windows</a>
+              <a class="btn btn-ghost" href="https://github.com" rel="noopener">GitHub Releases mirror</a>
+            </div>
+          </div>
+          <div class="dl-meta" aria-label="Installer metadata">
+            <span><b>CHANNEL</b> — production</span>
+            <span><b>VERSION</b> — v1.0.5</span>
+            <span><b>TARGET</b> — Windows 10 / 11 · x64</span>
+            <span><b>SIGNATURE</b> — Authenticode, self-signed (see SmartScreen note)</span>
+            <span><b>SHA-256</b> — published at release, on the release page</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10.1 REQUIREMENTS -->
+    <section class="section anim" data-stagger>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>01 — System requirements</span>
+          <h2 class="display-32" data-reveal>Standard office hardware. No GPU required.</h2>
+        </div>
+        <table class="data-table glass-card" style="border-radius:8px;max-width:760px" data-reveal>
+          <tbody>
+            <tr><th scope="row">OS</th><td>Windows 10 or 11</td></tr>
+            <tr><th scope="row">Memory</th><td>8 GB RAM (16 GB recommended)</td></tr>
+            <tr><th scope="row">Disk</th><td>2 GB free</td></tr>
+            <tr><th scope="row">Microphone</th><td>Optional — voice is local; text works without it</td></tr>
+            <tr><th scope="row">GPU</th><td>Not required</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 10.4 ACTIVATION FLOW -->
+    <section class="section anim" data-stagger>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>02 — Activation flow</span>
+          <h2 class="display-32" data-reveal>What to expect.</h2>
+        </div>
+        <div class="step-grid">
+          <div class="glass-card step hud" data-reveal><span class="hud-b"></span>
+            <h3>Download and open</h3>
+            <p>You download the installer. You open it. Windows may show a SmartScreen warning first — see below.</p>
+          </div>
+          <div class="glass-card step hud" data-reveal><span class="hud-b"></span>
+            <h3>Give your email</h3>
+            <p>Email auto-activation via Jade Seal. No license key to copy, no form to fight.</p>
+          </div>
+          <div class="glass-card step hud" data-reveal><span class="hud-b"></span>
+            <h3>Start</h3>
+            <p>Activation takes about nine seconds. You can start typing or talking immediately.</p>
+          </div>
+        </div>
+        <p class="muted" data-reveal style="margin-top:16px">v1.0.5 closes the manual license-form bug from earlier builds — the legacy entry point is fixed in this release.</p>
+      </div>
+    </section>
+
+    <!-- 10.5 SMARTSCREEN -->
+    <section class="section anim">
+      <div class="container narrow">
+        <div class="glass-card hud" data-reveal style="background:rgba(250,250,247,0.04)"><span class="hud-b"></span>
+          <span class="eyebrow" style="display:block;margin-bottom:10px">03 — SmartScreen</span>
+          <h2 class="display-32" style="margin-bottom:14px">What you'll see, and why.</h2>
+          <p class="lead">Windows shows a warning the first time you install, because the installer is signed by us and not yet through Microsoft's vendor signing program. The warning is expected. Click <span class="mono" style="color:var(--spark-cool)">More info → Run anyway</span>.</p>
+          <p class="lead" style="margin-top:12px">It goes away in v1.1, when the signing chain migrates to Azure Trusted Signing. We would rather tell you about the click-through than pretend it doesn't happen.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10.6 VERIFY -->
+    <section class="section anim">
+      <div class="container narrow">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>04 — Verify the installer</span>
+          <h2 class="display-32" data-reveal>For the sovereign builder.</h2>
+        </div>
+        <div class="code-block" data-reveal><span class="cmt"># hash check — compare against the value published on the release page</span>
+Get-FileHash .\BlueSpark-Setup-v1.0.5.exe -Algorithm SHA256
+
+<span class="cmt"># signature check — confirm the Authenticode signature</span>
+Get-AuthenticodeSignature .\BlueSpark-Setup-v1.0.5.exe | Format-List</div>
+        <p class="muted" data-reveal style="margin-top:14px">The SHA-256 value is published alongside each release artifact, never inside it. Same artifact, both channels: direct download and GitHub Releases.</p>
+        <div class="btn-row" data-reveal style="margin-top:28px">
+          <a class="btn btn-primary" href="https://github.com" rel="noopener">Download for Windows</a>
+          <a class="btn btn-ghost" href="download.html#changelog-notes">Release notes</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <img class="brand-star" src="assets/img/star.png" alt="" width="24" height="24">
+            <span class="wordmark">Blue&nbsp;Spar<span class="k-wrap">k<i class="spark-tip" aria-hidden="true"></i></span></span>
+          </a>
+          <p>Clarity, on your machine. A premium desktop AI that runs locally, remembers what matters, speaks when spoken to, and stays out of the way.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul role="list">
+            <li><a href="product.html">Product</a></li>
+            <li><a href="technology.html">Technology</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="download.html">Download</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Trust</h4>
+          <ul role="list">
+            <li><a href="dashboard.html">Public dashboard</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="legal.html#security">Security</a></li>
+            <li><a href="legal.html#status">Status</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>More</h4>
+          <ul role="list">
+            <li><a href="learn.html">Learn</a></li>
+            <li><a href="useful.html">Useful</a></li>
+            <li><a href="philosophical.html">Philosophical</a></li>
+            <li><a href="comical.html">Comical</a></li>
+            <li><a href="legal.html#terms">Terms</a> · <a href="legal.html#privacy">Privacy</a> · <a href="legal.html#license">License</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-base">
+        <span>BLUE SPARK — CLARITY, ON YOUR MACHINE.</span>
+        <span class="byben">by ben</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/vendor/gsap.min.js"></script>
+  <script src="assets/js/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/js/vendor/SplitText.min.js"></script>
+  <script src="assets/js/cosmos.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

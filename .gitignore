@@ -1,0 +1,6 @@
+# Local dev artifacts
+.DS_Store
+Thumbs.db
+
+# Local server cache
+*.log

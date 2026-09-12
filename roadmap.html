@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roadmap — Blue Spark</title>
+  <meta name="description" content="What we've shipped, what we plan, what we won't. A roadmap with dates we are willing to defend out loud.">
+  <meta property="og:title" content="Blue Spark — Roadmap">
+  <meta property="og:image" content="assets/img/medallion.png">
+  <meta name="theme-color" content="#06080F">
+  <link rel="icon" type="image/png" href="assets/img/star.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .tl-wrap { position: relative; }
+    .spine { position: absolute; left: 9px; top: 4px; bottom: 4px; width: 1px; background: linear-gradient(var(--deep-4), var(--glass-border)); }
+    .spine-marker { position: absolute; left: 0; top: 0; width: 19px; height: 19px; display: grid; place-items: center; will-change: transform; }
+    .spine-marker img { width: 15px; height: 15px; filter: drop-shadow(0 0 8px rgba(64,104,209,0.9)) drop-shadow(0 0 2px rgba(255,248,231,0.7)); }
+    .phase { padding-left: 44px; position: relative; padding-bottom: clamp(30px, 4vw, 46px); }
+    .phase::before { content: ""; position: absolute; left: 5px; top: 8px; width: 9px; height: 9px; background: var(--deep-4); border: 1px solid var(--spark-cool); transform: rotate(45deg); box-shadow: 0 0 10px rgba(64,104,209,0.6); }
+    .phase .when { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--spark-cool); margin-bottom: 6px; display: block; }
+    .phase h3 { font-family: var(--font-display); font-weight: 500; color: var(--spark-warm); font-size: 1.15rem; margin-bottom: 8px; }
+    .phase p { max-width: 66ch; }
+    .state-tag { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; padding: 3px 8px; border-radius: 3px; border: 1px solid var(--glass-border-hi); color: var(--steel-3); text-transform: uppercase; vertical-align: middle; }
+    .state-tag.shipped { color: var(--success); border-color: rgba(74,222,128,0.4); }
+    .state-tag.inchain { color: var(--spark-cool); border-color: rgba(147,197,253,0.35); }
+    .dual { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 10px; }
+    .dual .col h4 { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--steel-4); margin-bottom: 6px; }
+    .dual .col p { font-size: 0.9rem; color: var(--steel-2); }
+    @media (max-width: 760px) { .dual { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body data-page="roadmap">
+  <canvas id="cosmos" aria-hidden="true"></canvas>
+  <div class="grid-veil" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <div class="topbar-status mono" aria-hidden="true">
+    <span class="status-dot ok"></span><span>LOCAL:NOMINAL</span>
+    <span class="sep">·</span><span>V1.0.5</span>
+    <span class="sep">·</span><span class="tnum" data-utc>00:00:00 UTC</span>
+    <span class="right">SOVEREIGN&nbsp;&nbsp;·&nbsp;&nbsp;LOCAL&nbsp;&nbsp;·&nbsp;&nbsp;PRIVATE</span>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="index.html" aria-label="Blue Spark home">
+      <img class="brand-star" src="assets/img/star.png" alt="" width="26" height="26">
+      <span class="wordmark">Blue&nbsp;Spar<span class="k-wrap">k<i class="spark-tip" aria-hidden="true"></i></span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="product.html">Product</a>
+      <a href="technology.html">Technology</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="about.html">About</a>
+      <a href="community.html">Community</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="learn.html">Learn</a>
+      <a class="nav-cta" href="download.html">Download</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </header>
+  <div class="mobile-menu" role="dialog" aria-label="Menu">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="product.html">Product</a>
+      <a href="technology.html">Technology</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="about.html">About</a>
+      <a href="community.html">Community</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="download.html">Download</a>
+      <a href="learn.html">Learn</a>
+    </nav>
+  </div>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" style="min-height:auto">
+      <div class="container" style="display:grid;gap:22px">
+        <span class="pill anim"><span class="dot"></span> /roadmap</span>
+        <h1 class="display-64" data-split>What we've shipped. What we plan. What we won't.</h1>
+        <p class="lead" data-reveal>We've shipped an early version. We have a plan for the next twelve months. We have a list of things we are deliberately not doing, with reasons. Each row has a date we are willing to defend out loud.</p>
+        <p class="lead" data-reveal style="color:var(--spark-warm)">If a row on this page stops being true, the page gets updated.</p>
+      </div>
+    </section>
+
+    <!-- R1 SHIPPED -->
+    <section class="section anim" data-stagger>
+      <div class="container narrow">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>R1 — Shipped</span>
+          <h2 class="display-32" data-reveal>What's in production today.</h2>
+        </div>
+        <div class="glass-card hud" data-reveal><span class="hud-b"></span>
+          <h3 style="color:var(--spark-warm);font-family:var(--font-display)">v1.0.4.5 <span class="state-tag shipped">SHIPPED</span></h3>
+          <p class="muted" style="margin-top:6px">The build the first 50 users are running. Activation flow closed. License integrity fixed. Email-based auto-activation working.</p>
+        </div>
+        <div class="glass-card hud" data-reveal style="margin-top:14px"><span class="hud-b"></span>
+          <h3 style="color:var(--spark-warm);font-family:var(--font-display)">v1.0.5 <span class="state-tag inchain">IN CHAIN</span></h3>
+          <p class="muted" style="margin-top:6px">The production build: pipeline cutover that retires the legacy installer, the signer, the bundled installer, and the auto-update channel in final form. This row is marked Shipped when the first external tester downloads it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- R2 TIMELINE -->
+    <section class="section anim">
+      <div class="container narrow">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>R2 — Twelve months, two columns</span>
+          <h2 class="display-32" data-reveal>Product and architecture, quarter by quarter.</h2>
+        </div>
+        <div class="tl-wrap" data-scrub-wrap>
+          <div class="spine" aria-hidden="true"></div>
+          <div class="spine-marker" data-scrub-y aria-hidden="true"><img src="assets/img/star.png" alt=""></div>
+          <div class="phase" data-reveal>
+            <span class="when">September 2026</span>
+            <h3>Public V1 ships</h3>
+            <div class="dual">
+              <div class="col"><h4>Product</h4><p>V1 ships. Two hundred paid Pro users in the launch month. The Useful daily content track goes live.</p></div>
+              <div class="col"><h4>Architecture</h4><p>The v1.0.5 build pipeline cutover completes. The seven-gate release contract becomes the default for every future build.</p></div>
+            </div>
+          </div>
+          <div class="phase" data-reveal>
+            <span class="when">October 2026</span>
+            <h3>Acquisition + first creators</h3>
+            <div class="dual">
+              <div class="col"><h4>Product</h4><p>Five hundred paid Pro users. First cohort of fifty Marketplace creators onboarded. First community skills published.</p></div>
+              <div class="col"><h4>Architecture</h4><p>Email-relay v2 hardening. Auto-update channel pinning. Internal dogfooding on the v1.0.5 build before public release.</p></div>
+            </div>
+          </div>
+          <div class="phase" data-reveal>
+            <span class="when">November 2026</span>
+            <h3>The Marketplace plan + community vote</h3>
+            <div class="dual">
+              <div class="col"><h4>Product</h4><p>Preliminary plan published. Vote opens on fee structure, revenue split, sale-vs-rental, quality bar, payout cadence, creator protections.</p></div>
+              <div class="col"><h4>Architecture</h4><p>Sleep-cycle consolidation runs on production data for the first time. Persona-layer promotion verified end-to-end.</p></div>
+            </div>
+          </div>
+          <div class="phase" data-reveal>
+            <span class="when">Q1 2027</span>
+            <h3>Marketplace launch</h3>
+            <div class="dual">
+              <div class="col"><h4>Product</h4><p>Marketplace launches with the community-approved rules. First creator revenue-share payouts. Premium add-ons: voice cloning, custom persona.</p></div>
+              <div class="col"><h4>Architecture</h4><p>Apple Silicon build ships if users ask. The signing chain migrates to vendor-signed — the SmartScreen click-through goes away.</p></div>
+            </div>
+          </div>
+          <div class="phase" data-reveal>
+            <span class="when">Q2 2027</span>
+            <h3>Studio tier + i18n</h3>
+            <div class="dual">
+              <div class="col"><h4>Product</h4><p>Studio tier launches. The first Sovereign Builders event. Localization to Japanese, Korean, and Chinese.</p></div>
+              <div class="col"><h4>Architecture</h4><p>The license-verification chain is end-to-end signed on the desktop verifier — the last leg of the trust gap closes.</p></div>
+            </div>
+          </div>
+          <div class="phase" data-reveal>
+            <span class="when">Q3 2027</span>
+            <h3>Scale + ecosystem</h3>
+            <div class="dual">
+              <div class="col"><h4>Product</h4><p>One thousand Marketplace skills installed. Blue Spark for Teams private beta.</p></div>
+              <div class="col"><h4>Architecture</h4><p>Target state: a separately-managed sidecar for the consolidation loop. Linux build ships.</p></div>
+            </div>
+          </div>
+        </div>
+        <p class="muted" data-reveal style="margin-top:8px;font-size:0.9rem">Dependencies, named: the November vote shapes the Q1 mechanics. The Apple Silicon build ships on demand, not speculatively. Localization was deferred since v1 and is picked up now.</p>
+      </div>
+    </section>
+
+    <!-- R3 WON'T DO -->
+    <section class="section anim" data-stagger>
+      <div class="container narrow">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>R3 — What we won't do, and why</span>
+          <h2 class="display-32" data-reveal>Decisions we are deliberately not making.</h2>
+        </div>
+        <div style="display:grid;gap:14px">
+          <div class="glass-card hud" data-reveal><span class="hud-b"></span><h3 style="color:var(--spark-warm);font-family:var(--font-display)">No medical field in v1.</h3><p class="muted" style="margin-top:6px">The consent and liability surface is too wide for a v1 product to cover credibly. We revisit at roughly five thousand paid Pro users. Until then, this category stays out — stated as confidence, not weakness.</p></div>
+          <div class="glass-card hud" data-reveal><span class="hud-b"></span><h3 style="color:var(--spark-warm);font-family:var(--font-display)">No manufactured urgency anywhere.</h3><p class="muted" style="margin-top:6px">No fake "two minutes left" banners. No "X people viewing." No pre-checked opt-ins. No decoy tiers. No hidden auto-renewal.</p></div>
+          <div class="glass-card hud" data-reveal><span class="hud-b"></span><h3 style="color:var(--spark-warm);font-family:var(--font-display)">No SaaS-bill framing for Pro.</h3><p class="muted" style="margin-top:6px">Pro is the cost of keeping your spark bright, not a monthly bill. The framing holds on every page.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- R5 PROMISES -->
+    <section class="section anim" data-stagger>
+      <div class="container grid-3">
+        <div class="glass-card hud" data-reveal><span class="hud-b"></span><span class="eyebrow">Promise 01</span><h3>The kill switch is the last to fail.</h3><p class="muted">The sovereignty overrides work. They don't degrade under load.</p></div>
+        <div class="glass-card hud" data-reveal><span class="hud-b"></span><span class="eyebrow">Promise 02</span><h3>The local store has one copy.</h3><p class="muted">Memory, conversations, audit ledger, persona — one place, one machine. No replication, no drift.</p></div>
+        <div class="glass-card hud" data-reveal><span class="hud-b"></span><span class="eyebrow">Promise 03</span><h3>The license check is the only ungranted request.</h3><p class="muted">Everything else happens locally, and the license check is opt-out-able in the offline grace period.</p></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-tight anim">
+      <div class="container" style="display:flex;justify-content:center">
+        <div class="btn-row" data-reveal>
+          <a class="btn btn-primary" href="download.html">Download for Windows</a>
+          <a class="btn btn-ghost" href="pricing.html">See pricing</a>
+          <a class="link-quiet" href="technology.html">Read the architecture →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <img class="brand-star" src="assets/img/star.png" alt="" width="24" height="24">
+            <span class="wordmark">Blue&nbsp;Spar<span class="k-wrap">k<i class="spark-tip" aria-hidden="true"></i></span></span>
+          </a>
+          <p>Clarity, on your machine. A premium desktop AI that runs locally, remembers what matters, speaks when spoken to, and stays out of the way.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul role="list">
+            <li><a href="product.html">Product</a></li>
+            <li><a href="technology.html">Technology</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="download.html">Download</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Trust</h4>
+          <ul role="list">
+            <li><a href="dashboard.html">Public dashboard</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="legal.html#security">Security</a></li>
+            <li><a href="legal.html#status">Status</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>More</h4>
+          <ul role="list">
+            <li><a href="learn.html">Learn</a></li>
+            <li><a href="useful.html">Useful</a></li>
+            <li><a href="philosophical.html">Philosophical</a></li>
+            <li><a href="comical.html">Comical</a></li>
+            <li><a href="legal.html#terms">Terms</a> · <a href="legal.html#privacy">Privacy</a> · <a href="legal.html#license">License</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-base">
+        <span>BLUE SPARK — CLARITY, ON YOUR MACHINE.</span>
+        <span class="byben">by ben</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/vendor/gsap.min.js"></script>
+  <script src="assets/js/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/js/vendor/SplitText.min.js"></script>
+  <script src="assets/js/cosmos.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

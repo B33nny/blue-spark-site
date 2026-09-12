@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Technology — Blue Spark</title>
+  <meta name="description" content="How Blue Spark is built: where the data lives, the five-layer memory architecture, the three sovereignty controls, and what we are hardening next.">
+  <meta property="og:title" content="Blue Spark — Technology">
+  <meta property="og:image" content="assets/img/medallion.png">
+  <meta name="theme-color" content="#06080F">
+  <link rel="icon" type="image/png" href="assets/img/star.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .diagram-card { padding: clamp(20px, 3.5vw, 40px); }
+    .diagram-card svg { width: 100%; height: auto; }
+    .dbox { fill: rgba(147,197,253,0.05); stroke: rgba(147,197,253,0.45); stroke-width: 1; rx: 6; }
+    .dbox-local { stroke: #4ADE80; }
+    .dbox-cloud { stroke: #6366F1; }
+    .dbox-third { stroke: #E69A4D; }
+    .dlabel { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; fill: #C5CCD8; text-transform: uppercase; }
+    .dtitle { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; fill: #93C5FD; }
+    .dline { stroke: rgba(147,197,253,0.35); stroke-width: 1; fill: none; }
+    .dlegend { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 16px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--steel-3); }
+    .dlegend i { display: inline-block; width: 14px; height: 2px; margin-right: 6px; vertical-align: middle; }
+    .moment { border-left: 1px solid rgba(147,197,253,0.3); padding: 14px 0 14px 22px; margin-left: 4px; }
+    .moment h3 { color: var(--spark-warm); font-family: var(--font-display); font-weight: 500; font-size: 1rem; margin-bottom: 4px; }
+    .moment .where { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--success); }
+    .layer-list { display: grid; gap: 0; }
+    .layer-item { display: grid; grid-template-columns: 40px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--glass-border); align-items: baseline; }
+    .layer-item .ln { font-family: var(--font-display); font-weight: 600; color: var(--deep-5); }
+    .layer-item h3 { color: var(--spark-warm); font-family: var(--font-display); font-weight: 500; font-size: 1rem; }
+    .layer-item p { font-size: 0.9rem; color: var(--steel-2); margin-top: 2px; }
+    .control-card .ctl-name { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--lcars-orange); margin-bottom: 10px; display: block; }
+    .health-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .health-grid ul { list-style: none; padding: 0; display: grid; gap: 8px; }
+    .health-grid li { font-size: 0.85rem; color: var(--steel-2); padding-left: 16px; position: relative; }
+    .health-grid li::before { content: "·"; position: absolute; left: 2px; color: var(--spark-cool); }
+    .glossary { columns: 2; column-gap: 40px; }
+    .glossary p { break-inside: avoid; margin-bottom: 14px; font-size: 0.9rem; color: var(--steel-2); }
+    .glossary b { color: var(--spark-warm); font-weight: 500; }
+    @media (max-width: 900px) { .health-grid { grid-template-columns: 1fr; } .glossary { columns: 1; } }
+  </style>
+</head>
+<body data-page="technology">
+  <canvas id="cosmos" aria-hidden="true"></canvas>
+  <div class="grid-veil" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <div class="topbar-status mono" aria-hidden="true">
+    <span class="status-dot ok"></span><span>LOCAL:NOMINAL</span>
+    <span class="sep">·</span><span>V1.0.5</span>
+    <span class="sep">·</span><span class="tnum" data-utc>00:00:00 UTC</span>
+    <span class="right">SOVEREIGN&nbsp;&nbsp;·&nbsp;&nbsp;LOCAL&nbsp;&nbsp;·&nbsp;&nbsp;PRIVATE</span>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="index.html" aria-label="Blue Spark home">
+      <img class="brand-star" src="assets/img/star.png" alt="" width="26" height="26">
+      <span class="wordmark">Blue&nbsp;Spar<span class="k-wrap">k<i class="spark-tip" aria-hidden="true"></i></span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="product.html">Product</a>
+      <a href="technology.html">Technology</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="about.html">About</a>
+      <a href="community.html">Community</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="learn.html">Learn</a>
+      <a class="nav-cta" href="download.html">Download</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </header>
+  <div class="mobile-menu" role="dialog" aria-label="Menu">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="product.html">Product</a>
+      <a href="technology.html">Technology</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="about.html">About</a>
+      <a href="community.html">Community</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="download.html">Download</a>
+      <a href="learn.html">Learn</a>
+    </nav>
+  </div>
+
+  <main id="main">
+    <!-- HERO + HUMAN BRIDGE -->
+    <section class="hero" style="min-height:auto">
+      <div class="container" style="display:grid;gap:22px">
+        <span class="pill anim"><span class="dot"></span> /technology · black-box proof</span>
+        <h1 class="display-64" data-split>Three boxes. That is the whole system.</h1>
+        <p class="lead" data-reveal>You're on the technical page. If you're an engineer, a sovereign builder, a security researcher, or a journalist who needs the receipts, you're in the right place.</p>
+        <p class="lead" data-reveal>If you're a tired professional who came here from the product page, you can close the tab and pick this up later. The product page already told you what the product does. This page tells you how.</p>
+      </div>
+    </section>
+
+    <!-- T1 SYSTEM CONTEXT DIAGRAM -->
+    <section class="section anim">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>T1 — System context</span>
+          <h2 class="display-32" data-reveal>Where the data lives.</h2>
+        </div>
+        <div class="glass-card diagram-card hud" data-reveal><span class="hud-b"></span>
+          <svg viewBox="0 0 900 400" role="img" aria-label="System context diagram: your machine holds the local brain, memory, voice and hands; the cloud is reached only for reasoning, license checks, updates and email; third-party services handle payment and email delivery." data-draw>
+            <!-- YOUR MACHINE -->
+            <rect class="dbox dbox-local" x="30" y="40" width="380" height="320" rx="8"/>
+            <text class="dtitle" x="50" y="70">YOUR MACHINE</text>
+            <rect class="dbox" x="60" y="90" width="320" height="42" rx="4"/><text class="dlabel" x="76" y="116">Local brain — thinks here</text>
+            <rect class="dbox" x="60" y="144" width="320" height="42" rx="4"/><text class="dlabel" x="76" y="170">Local memory — remembers you</text>
+            <rect class="dbox" x="60" y="198" width="320" height="42" rx="4"/><text class="dlabel" x="76" y="224">Local voice — hears and speaks</text>
+            <rect class="dbox" x="60" y="252" width="320" height="42" rx="4"/><text class="dlabel" x="76" y="278">Local hands — acts with your grant</text>
+            <rect class="dbox" x="60" y="306" width="320" height="38" rx="4"/><text class="dlabel" x="76" y="330">You, in control — toggle · kill switch · ledger</text>
+            <!-- CLOUD -->
+            <rect class="dbox dbox-cloud" x="560" y="60" width="310" height="150" rx="8"/>
+            <text class="dtitle" x="580" y="90">THE CLOUD — ONLY WHEN NEEDED</text>
+            <text class="dlabel" x="580" y="118">reasoning when local can't</text>
+            <text class="dlabel" x="580" y="142">license check</text>
+            <text class="dlabel" x="580" y="166">software update</text>
+            <text class="dlabel" x="580" y="190">email, if you send it</text>
+            <!-- THIRD PARTY -->
+            <rect class="dbox dbox-third" x="560" y="250" width="310" height="110" rx="8"/>
+            <text class="dtitle" x="580" y="280">THIRD-PARTY — MINIMAL</text>
+            <text class="dlabel" x="580" y="308">payment processor</text>
+            <text class="dlabel" x="580" y="332">email delivery</text>
+            <!-- LINES -->
+            <path class="dline" d="M 410 180 C 470 180, 500 135, 560 135"/>
+            <path class="dline" d="M 410 325 C 480 325, 500 305, 560 305"/>
+          </svg>
+          <div class="dlegend">
+            <span><i style="background:#4ADE80"></i> On your machine</span>
+            <span><i style="background:#6366F1"></i> Cloud — the exception</span>
+            <span><i style="background:#E69A4D"></i> Third-party — minimal</span>
+          </div>
+        </div>
+        <div class="grid-3" style="margin-top:24px" data-stagger>
+          <div class="glass-card hud" data-reveal><span class="hud-b"></span><h3>Your machine</h3><p class="muted">The assistant thinks, remembers, hears, speaks, and acts locally. Your voice and your conversations never leave the disk unless you send them somewhere yourself.</p></div>
+          <div class="glass-card hud" data-reveal><span class="hud-b"></span><h3>The cloud</h3><p class="muted">A small set of edges that go to the cloud, only when a specific job needs it: complex reasoning the local model can't handle, a license check, a software update, and outbound email if and when you send one.</p></div>
+          <div class="glass-card hud" data-reveal><span class="hud-b"></span><h3>Third-party services</h3><p class="muted">Payment and email delivery. We don't write the payment processor or the email sender; we use the standard ones.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- T2 SIX MOMENTS -->
+    <section class="section anim" data-stagger>
+      <div class="container narrow">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>T2 — A working day inside the system</span>
+          <h2 class="display-32" data-reveal>Six times a day, the assistant does work on your machine.</h2>
+        </div>
+        <div class="moment" data-reveal><h3>When you dictate to the assistant</h3><p>You say something. The product hears it on your laptop. The transcribed text is processed by the local brain. Nothing is sent to the cloud for transcription. The cloud never hears your voice.</p><span class="where">Local voice</span></div>
+        <div class="moment" data-reveal><h3>When the assistant remembers something</h3><p>You say <em>I got promoted to manager</em>. The episode is saved on your machine, in your memory store. Later, when you say <em>what did I tell you about my job?</em>, the assistant recalls it from local memory, weights it by source, and answers.</p><span class="where">Local memory</span></div>
+        <div class="moment" data-reveal><h3>When the assistant reads a file</h3><p>You ask the assistant to read the binder. The hands process asks for the grant. You grant it. The binder is read. The audit ledger records what was read, when, and from which folder. The binder never left the disk.</p><span class="where">Local hands, with your permission</span></div>
+        <div class="moment" data-reveal><h3>When the assistant thinks hard</h3><p>You ask a question the local model can't answer well on its own. The brain routes to the cloud model. The cloud model sees the question, the retrieved context, and the answer — not your memory outside the scope of the question, and nothing stored beyond the request lifecycle.</p><span class="where">Local brain, sometimes cloud</span></div>
+        <div class="moment" data-reveal><h3>When you send an email</h3><p>The assistant drafts it. The assistant asks for confirmation before sending. You confirm. The email is sent through a relay we run, which uses a standard email delivery service. The audit ledger records the send.</p><span class="where">Hands and email relay, with confirmation</span></div>
+        <div class="moment" data-reveal><h3>When you turn the hardware toggle off</h3><p>The microphone is cut at the device level. The telemetry that the cloud might receive is cut at the source. The assistant continues to work in text only. The cloud sees that the toggle is off and respects it.</p><span class="where">You, in control</span></div>
+      </div>
+    </section>
+
+    <!-- T3 FIVE LAYERS -->
+    <section class="section anim">
+      <div class="container grid-2" style="align-items:start">
+        <div>
+          <div class="section-head">
+            <span class="eyebrow" data-reveal>T3 — How memory works</span>
+            <h2 class="display-32" data-reveal>Five layers.</h2>
+          </div>
+          <div class="layer-list" data-stagger>
+            <div class="layer-item" data-reveal><span class="ln">L1</span><div><h3>Working</h3><p>What's happening right now. The current conversation and the immediate task. Released when the conversation is done — unless something earns a longer life.</p></div></div>
+            <div class="layer-item" data-reveal><span class="ln">L2</span><div><h3>Episodic</h3><p>What just happened. Conversations, files touched, requests made. Each an episode with a moment, an outcome, and a confidence weight.</p></div></div>
+            <div class="layer-item" data-reveal><span class="ln">L3</span><div><h3>Semantic</h3><p>Durable facts about you and your work, promoted from episodic memory because you kept returning to them.</p></div></div>
+            <div class="layer-item" data-reveal><span class="ln">L4</span><div><h3>Procedural</h3><p>Learned skills. When you ask for a summary of a deposition exhibit, you want the page numbers. Each skill is a pattern, stored on your machine.</p></div></div>
+            <div class="layer-item" data-reveal><span class="ln">L5</span><div><h3>Persona</h3><p>Who you are, over time. Your tone, your preferences, your sense of a good answer. Persona is yours to change, rewrite, or ask the assistant to forget.</p></div></div>
+          </div>
+          <p class="muted" data-reveal style="margin-top:18px">The layers talk through a quiet consolidation step — call it a <em>sleep cycle</em>. Recurring episodes become semantic facts; recurring patterns become procedures; recurring patterns-of-you become persona. A fact that recurs three times in a week is a fact worth keeping. The system does not grow without you.</p>
+        </div>
+        <div class="glass-card diagram-card hud" data-reveal><span class="hud-b"></span>
+          <svg viewBox="0 0 400 400" role="img" aria-label="Five concentric memory arcs, working at the center through persona at the rim" data-arc-scrub>
+            <circle data-arc cx="200" cy="200" r="60" fill="none" stroke="#4ADE80" stroke-width="2"/>
+            <circle data-arc cx="200" cy="200" r="95" fill="none" stroke="#93C5FD" stroke-width="2"/>
+            <circle data-arc cx="200" cy="200" r="130" fill="none" stroke="#4068D1" stroke-width="2"/>
+            <circle data-arc cx="200" cy="200" r="165" fill="none" stroke="#2E4DB8" stroke-width="2"/>
+            <circle data-arc cx="200" cy="200" r="190" fill="none" stroke="#5C6473" stroke-width="2" stroke-dasharray="4 6"/>
+            <circle cx="200" cy="200" r="26" fill="#FFF8E7" opacity="0.9"/>
+            <text class="dtitle" x="200" y="204" text-anchor="middle" fill="#06080F">YOU</text>
+            <text class="dlabel" x="200" y="30" text-anchor="middle">PERSONA</text>
+            <text class="dlabel" x="200" y="65" text-anchor="middle">PROCEDURAL</text>
+            <text class="dlabel" x="200" y="100" text-anchor="middle">SEMANTIC</text>
+            <text class="dlabel" x="200" y="135" text-anchor="middle">EPISODIC</text>
+            <text class="dlabel" x="200" y="170" text-anchor="middle">WORKING</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- T4 CONTROLS -->
+    <section class="section anim" data-stagger>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>T4 — You stay in control</span>
+          <h2 class="display-32" data-reveal>Three controls. They are non-negotiable.</h2>
+        </div>
+        <div class="grid-3">
+          <div class="glass-card control-card hud" data-reveal><span class="hud-b"></span>
+            <span class="ctl-name">Override 01</span>
+            <h3>The hardware toggle</h3>
+            <p class="muted">A physical switch that cuts the microphone and device-level telemetry at the source. Toggle off, the product works in text only. The cloud respects the off state.</p>
+          </div>
+          <div class="glass-card control-card hud" data-reveal><span class="hud-b"></span>
+            <span class="ctl-name">Override 02</span>
+            <h3>The kill switch</h3>
+            <p class="muted">A button, visible at any time, that stops outbound action. No email, no posts, no writes outside your machine. The local brain continues to think. The hands will not move.</p>
+          </div>
+          <div class="glass-card control-card hud" data-reveal><span class="hud-b"></span>
+            <span class="ctl-name">Override 03</span>
+            <h3>The audit ledger</h3>
+            <p class="muted">A live panel that records what the assistant has read, written, and proposed to send. Yours to read, export, and clear. Clear happens on your machine, never on the cloud.</p>
+          </div>
+        </div>
+        <div class="quote-band" data-reveal>
+          <blockquote>The kill switch is the last to fail. Sovereignty beats autonomy. Every time.</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- T5 LICENSE -->
+    <section class="section anim" data-stagger>
+      <div class="container grid-2" style="align-items:start">
+        <div class="glass-card hud" data-reveal><span class="hud-b"></span>
+          <span class="eyebrow" style="display:block;margin-bottom:10px">T5 — What you'll see</span>
+          <p class="lead">You download the installer. You open it. You give your email. The product verifies the license and opens. Activation takes about nine seconds. You can start typing or talking immediately.</p>
+        </div>
+        <div class="glass-card hud" data-reveal><span class="hud-b"></span>
+          <span class="eyebrow" style="display:block;margin-bottom:10px">T5 — What we never do with the license</span>
+          <p class="lead">We don't tie the license to your name unless you tell us your name. We don't use the license to track you. We can revoke a license; we cannot read the assistant's memory of your work.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- T6 HEALTH -->
+    <section class="section anim" data-stagger>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>T6 — Architecture health</span>
+          <h2 class="display-32" data-reveal>What we ship with confidence, and what we're hardening.</h2>
+        </div>
+        <div class="health-grid">
+          <div class="glass-card hud" data-reveal><span class="hud-b"></span>
+            <h3><span class="status-dot ok"></span> Solid</h3>
+            <ul role="list">
+              <li>Memory: the local-only store has not lost a byte in production through v1.0.x</li>
+              <li>Auth: signed license, machine fingerprint, offline grace</li>
+              <li>Audit ledger: append-only, scoped per user, visible</li>
+              <li>Local voice pipeline: no cloud round-trip</li>
+            </ul>
+          </div>
+          <div class="glass-card hud" data-reveal><span class="hud-b"></span>
+            <h3><span class="status-dot warn"></span> Watch</h3>
+            <ul role="list">
+              <li>The anti-tamper guard — working by design; we'll tell you if that changes</li>
+              <li>Daily backups — you set the cadence, the system honors it</li>
+              <li>The signed installer — self-signed today; vendor-signed is what to watch for</li>
+            </ul>
+          </div>
+          <div class="glass-card hud" data-reveal><span class="hud-b"></span>
+            <h3><span class="status-dot err"></span> Tension</h3>
+            <ul role="list">
+              <li>Installer pipeline cutover — the next installer starts faster and installs quieter</li>
+              <li>SmartScreen friction — goes away with vendor signing, targeted v1.1</li>
+              <li>The manual license form — fixed or removed in v1.0.5; you should know it exists</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- T7 OPEN QUESTIONS + T8 GLOSSARY -->
+    <section class="section anim" data-stagger>
+      <div class="container grid-2" style="align-items:start">
+        <div class="narrow">
+          <div class="section-head">
+            <span class="eyebrow" data-reveal>T7 — Open questions</span>
+            <h2 class="display-32" data-reveal>Decisions open. Published.</h2>
+          </div>
+          <ul class="notfor" role="list" style="margin-top:8px" data-stagger>
+            <li data-reveal>License grace window — 14 days today, kept at the default for now.</li>
+            <li data-reveal>Lapse behavior — degrade to text, memory and files accessible. Locked in.</li>
+            <li data-reveal>Cross-platform support — exploration only. We don't promise macOS or Linux yet.</li>
+            <li data-reveal>Proactive suggestions — not enabled by default, and not without your opt-in.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="section-head">
+            <span class="eyebrow" data-reveal>T8 — Glossary</span>
+            <h2 class="display-32" data-reveal>Plain English for the words we use.</h2>
+          </div>
+          <div class="glossary">
+            <p data-reveal><b>Audit ledger.</b> A live log of what the assistant has read, written, and proposed to send. It lives on your machine.</p>
+            <p data-reveal><b>Consolidation ("sleep cycle").</b> The quiet background step that promotes recurring episodes to facts, patterns to procedures, habits to persona.</p>
+            <p data-reveal><b>Fingerprint (license).</b> A one-way summary of your hardware. Not your name, not your email. Used only to bind the license to the machine.</p>
+            <p data-reveal><b>Jade Seal.</b> The license and integrity service. Signs licenses, checks signatures. Sees only what's required to verify a license.</p>
+            <p data-reveal><b>Kill switch.</b> Stops outbound action. Local brain keeps thinking. Hands stop moving. Last to fail, by design.</p>
+            <p data-reveal><b>Persona.</b> Long-lived sense of you, built from how you talk to the assistant. Yours to change.</p>
+            <p data-reveal><b>Procedural.</b> Learned skills — patterns the assistant applies without asking again.</p>
+            <p data-reveal><b>Sovereignty.</b> You decide what runs, what listens, what gets sent out. Hardware toggle + kill switch + audit ledger.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-tight anim">
+      <div class="container" style="display:flex;justify-content:center">
+        <div class="btn-row" data-reveal>
+          <a class="btn btn-primary" href="download.html">Download for Windows</a>
+          <a class="btn btn-ghost" href="pricing.html">See pricing</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <img class="brand-star" src="assets/img/star.png" alt="" width="24" height="24">
+            <span class="wordmark">Blue&nbsp;Spar<span class="k-wrap">k<i class="spark-tip" aria-hidden="true"></i></span></span>
+          </a>
+          <p>Clarity, on your machine. A premium desktop AI that runs locally, remembers what matters, speaks when spoken to, and stays out of the way.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul role="list">
+            <li><a href="product.html">Product</a></li>
+            <li><a href="technology.html">Technology</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="download.html">Download</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Trust</h4>
+          <ul role="list">
+            <li><a href="dashboard.html">Public dashboard</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="legal.html#security">Security</a></li>
+            <li><a href="legal.html#status">Status</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>More</h4>
+          <ul role="list">
+            <li><a href="learn.html">Learn</a></li>
+            <li><a href="useful.html">Useful</a></li>
+            <li><a href="philosophical.html">Philosophical</a></li>
+            <li><a href="comical.html">Comical</a></li>
+            <li><a href="legal.html#terms">Terms</a> · <a href="legal.html#privacy">Privacy</a> · <a href="legal.html#license">License</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-base">
+        <span>BLUE SPARK — CLARITY, ON YOUR MACHINE.</span>
+        <span class="byben">by ben</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/vendor/gsap.min.js"></script>
+  <script src="assets/js/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/js/vendor/SplitText.min.js"></script>
+  <script src="assets/js/cosmos.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

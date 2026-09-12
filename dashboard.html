@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard — Blue Spark</title>
+  <meta name="description" content="The public record of Blue Spark's working numbers: what we earn, what it costs, what we ship. Honesty is the marketing.">
+  <meta property="og:title" content="Blue Spark — Public Dashboard">
+  <meta property="og:image" content="assets/img/medallion.png">
+  <meta name="theme-color" content="#06080F">
+  <link rel="icon" type="image/png" href="assets/img/star.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .live-cell { text-align: left; }
+    .live-cell .value { font-family: var(--font-display); font-weight: 600; font-size: clamp(2.2rem, 4.5vw, 3.2rem); color: var(--spark-warm); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+    .live-cell .placeholder { color: var(--steel-4); font-family: var(--font-mono); font-size: 1.4rem; letter-spacing: 0.2em; }
+    .live-note { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--steel-3); text-transform: uppercase; display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+    @media (max-width: 860px) { .metric-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body data-page="dashboard">
+  <canvas id="cosmos" aria-hidden="true"></canvas>
+  <div class="grid-veil" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <div class="topbar-status mono" aria-hidden="true">
+    <span class="status-dot ok"></span><span>LOCAL:NOMINAL</span>
+    <span class="sep">·</span><span>V1.0.5</span>
+    <span class="sep">·</span><span class="tnum" data-utc>00:00:00 UTC</span>
+    <span class="right">SOVEREIGN&nbsp;&nbsp;·&nbsp;&nbsp;LOCAL&nbsp;&nbsp;·&nbsp;&nbsp;PRIVATE</span>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="index.html" aria-label="Blue Spark home">
+      <img class="brand-star" src="assets/img/star.png" alt="" width="26" height="26">
+      <span class="wordmark">Blue&nbsp;Spar<span class="k-wrap">k<i class="spark-tip" aria-hidden="true"></i></span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="product.html">Product</a>
+      <a href="technology.html">Technology</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="about.html">About</a>
+      <a href="community.html">Community</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="learn.html">Learn</a>
+      <a class="nav-cta" href="download.html">Download</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </header>
+  <div class="mobile-menu" role="dialog" aria-label="Menu">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="product.html">Product</a>
+      <a href="technology.html">Technology</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="about.html">About</a>
+      <a href="community.html">Community</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="download.html">Download</a>
+      <a href="learn.html">Learn</a>
+    </nav>
+  </div>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" style="min-height:auto">
+      <div class="container" style="display:grid;gap:22px">
+        <span class="pill anim"><span class="dot"></span> /dashboard · public record</span>
+        <h1 class="display-64" data-split>What we earn. What it costs. What we ship.</h1>
+        <p class="lead" data-reveal>This page is the public record of the company's working numbers. Every figure on it can be defended. Every figure on it can be challenged. The page updates when the underlying number changes.</p>
+        <p class="lead" data-reveal style="color:var(--spark-warm)">Honesty is the marketing.</p>
+      </div>
+    </section>
+
+    <!-- D1 TODAY -->
+    <section class="section anim" data-stagger>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>D1 — Today</span>
+          <h2 class="display-32" data-reveal>Right now.</h2>
+        </div>
+        <div class="metric-grid">
+          <div class="glass-card live-cell hud" data-reveal><span class="hud-b"></span>
+            <span class="metric-label">Paid Pro users</span>
+            <span class="placeholder" aria-label="not yet published">——</span>
+            <span class="live-note"><span class="status-dot cool"></span> publishes with the first reporting cycle</span>
+          </div>
+          <div class="glass-card live-cell hud" data-reveal><span class="hud-b"></span>
+            <span class="metric-label">Monthly Pro revenue (MRR)</span>
+            <span class="placeholder" aria-label="not yet published">——</span>
+            <span class="live-note"><span class="status-dot cool"></span> publishes with the first reporting cycle</span>
+          </div>
+          <div class="glass-card live-cell hud" data-reveal><span class="hud-b"></span>
+            <span class="metric-label">Free-tier installs (cumulative)</span>
+            <span class="placeholder" aria-label="not yet published">——</span>
+            <span class="live-note"><span class="status-dot cool"></span> publishes with the first reporting cycle</span>
+          </div>
+        </div>
+        <p class="muted" data-reveal style="margin-top:16px;font-size:0.9rem">Numbers update on the same day as the underlying event. Until the feeds go live, the page shows the targets we published before launch — and nothing invented in their place.</p>
+      </div>
+    </section>
+
+    <!-- D2 PROJECTIONS -->
+    <section class="section anim" data-stagger>
+      <div class="container grid-2" style="align-items:start">
+        <div class="glass-card hud" data-reveal><span class="hud-b"></span>
+          <span class="eyebrow" style="display:block;margin-bottom:12px">D2 — The projections we published before launch</span>
+          <div class="metric" style="margin-bottom:16px"><span class="metric-value">200 / $24K</span><span class="metric-label">Month 1 — September 2026 · paid Pro / MRR</span></div>
+          <div class="metric"><span class="metric-value">500 / $60K</span><span class="metric-label">Month 2 — October 2026 · paid Pro / MRR</span></div>
+        </div>
+        <div class="glass-card hud" data-reveal><span class="hud-b"></span>
+          <span class="eyebrow" style="display:block;margin-bottom:12px">When a miss happens, this is where it shows up.</span>
+          <p class="lead">Both targets are anchored against comparable indie launches. They are targets, not stretch scenarios. If a number lands below target, the page names the gap and explains the diagnosis — not as an apology, but as the working record. No evergreen early-days framing. No "we hit 95% of target" spin. The page hits, misses, or beats the target, and says so.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- D3 METHODOLOGY -->
+    <section class="section anim">
+      <div class="container narrow">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>D3 — Methodology</span>
+          <h2 class="display-32" data-reveal>How the numbers are calculated.</h2>
+        </div>
+        <div class="glass-card hud" data-reveal><span class="hud-b"></span>
+          <p class="body-text">Paid Pro users are counted once per unique payment-processor customer with an active license at the moment the page reads. Free-tier installs are counted once per unique machine fingerprint, deduplicated against re-installs on the same machine. MRR is the sum of paid Pro licenses at the standard monthly rate, prorated for any partial-month subscriptions. Studio tier revenue, when it ships, is added on top at the standard monthly rate.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- D4 COSTS -->
+    <section class="section anim" data-stagger>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>D4 — Cost structure</span>
+          <h2 class="display-32" data-reveal>The other side of the dashboard.</h2>
+        </div>
+        <table class="data-table glass-card" style="border-radius:8px" data-reveal>
+          <thead><tr><th scope="col">Line item</th><th scope="col">Estimated monthly (Q4 2026)</th><th scope="col">Scales to (Q3 2027, ~3,500 users)</th></tr></thead>
+          <tbody>
+            <tr><td>Founder salary</td><td class="num">$2,000 – $4,000</td><td class="num">$6,000 – $10,000</td></tr>
+            <tr><td>Cloud infrastructure</td><td class="num">$300 – $800</td><td class="num">$2,000 – $5,000</td></tr>
+            <tr><td>Email relay</td><td class="num">$50 – $200</td><td class="num">$200 – $500</td></tr>
+            <tr><td>Jade Seal license server</td><td class="num">$200 – $500</td><td class="num">$800 – $1,500</td></tr>
+            <tr><td>Domain + DNS + CDN</td><td class="num">$50</td><td class="num">$100</td></tr>
+            <tr><td>Content engine</td><td class="num">$200 – $500</td><td class="num">$500 – $1,000</td></tr>
+            <tr><td><strong style="color:var(--spark-warm)">Total, year 1</strong></td><td class="num"><strong style="color:var(--spark-warm)">$3,000 – $6,000</strong></td><td class="num"><strong style="color:var(--spark-warm)">$10,000 – $18,000</strong></td></tr>
+          </tbody>
+        </table>
+        <p class="muted" data-reveal style="margin-top:14px;font-size:0.9rem">The reader can do the math: at the Month 2 projection the operation crosses operating profit, which is what the business plan says. The page doesn't editorialize the math. The math is the page.</p>
+      </div>
+    </section>
+
+    <!-- D5 COHORTS -->
+    <section class="section anim">
+      <div class="container grid-2" style="align-items:start">
+        <div>
+          <div class="section-head">
+            <span class="eyebrow" data-reveal>D5 — Cohorts</span>
+            <h2 class="display-32" data-reveal>Who is paying.</h2>
+          </div>
+          <table class="data-table glass-card" style="border-radius:8px" data-reveal>
+            <thead><tr><th scope="col">Cohort</th><th scope="col">Paid Pro users</th></tr></thead>
+            <tbody>
+              <tr><td>Legal — IP lawyers and niche practitioners</td><td class="num">with first cycle</td></tr>
+              <tr><td>Finance — banking, analysts, accountants</td><td class="num">with first cycle</td></tr>
+              <tr><td>Creative &amp; content — copywriters, creators</td><td class="num">with first cycle</td></tr>
+              <tr><td>(Adjacent) Sovereign Builders</td><td class="num">with first cycle</td></tr>
+              <tr><td>Studio (future tier)</td><td class="num">when it ships</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="glass-card hud" data-reveal><span class="hud-b"></span>
+          <span class="eyebrow" style="display:block;margin-bottom:12px">What this page does not publish</span>
+          <p class="lead">Estimated lifetime value per cohort appears in our internal plan as a working estimate. This page does not publish estimated LTV until retention data exists. We will not publish a number we cannot defend with measurements.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- D6 + D7 -->
+    <section class="section anim" data-stagger>
+      <div class="container grid-2" style="align-items:start">
+        <div class="glass-card hud" data-reveal><span class="hud-b"></span>
+          <span class="eyebrow" style="display:block;margin-bottom:12px">D6 — Founder reflections</span>
+          <p class="lead">Reflections ship on the last business day of each month, covering the month just closed. Four parts, every time: what we tried, what worked, what didn't, what we changed. The first reflection lands after Month 1 closes.</p>
+        </div>
+        <div class="glass-card hud" data-reveal><span class="hud-b"></span>
+          <span class="eyebrow" style="display:block;margin-bottom:12px">D7 — Marketplace creator revenue share</span>
+          <p class="lead">Marketplace revenue share is published when the marketplace launches in Q1 2027 with the community-approved mechanics. We will not publish preliminary numbers before the vote closes on November 30, 2026.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-tight anim">
+      <div class="container" style="display:flex;justify-content:center">
+        <div class="btn-row" data-reveal>
+          <a class="btn btn-primary" href="download.html">Download for Windows</a>
+          <a class="btn btn-ghost" href="pricing.html">See pricing</a>
+          <a class="link-quiet" href="technology.html">Read the architecture →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <img class="brand-star" src="assets/img/star.png" alt="" width="24" height="24">
+            <span class="wordmark">Blue&nbsp;Spar<span class="k-wrap">k<i class="spark-tip" aria-hidden="true"></i></span></span>
+          </a>
+          <p>Clarity, on your machine. A premium desktop AI that runs locally, remembers what matters, speaks when spoken to, and stays out of the way.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul role="list">
+            <li><a href="product.html">Product</a></li>
+            <li><a href="technology.html">Technology</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="download.html">Download</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Trust</h4>
+          <ul role="list">
+            <li><a href="dashboard.html">Public dashboard</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="legal.html#security">Security</a></li>
+            <li><a href="legal.html#status">Status</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>More</h4>
+          <ul role="list">
+            <li><a href="learn.html">Learn</a></li>
+            <li><a href="useful.html">Useful</a></li>
+            <li><a href="philosophical.html">Philosophical</a></li>
+            <li><a href="comical.html">Comical</a></li>
+            <li><a href="legal.html#terms">Terms</a> · <a href="legal.html#privacy">Privacy</a> · <a href="legal.html#license">License</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-base">
+        <span>BLUE SPARK — CLARITY, ON YOUR MACHINE.</span>
+        <span class="byben">by ben</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/vendor/gsap.min.js"></script>
+  <script src="assets/js/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/js/vendor/SplitText.min.js"></script>
+  <script src="assets/js/cosmos.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marketplace — Blue Spark</title>
+  <meta name="description" content="A creator-first Marketplace where the people who built the skill own it. The community votes on the mechanics. Jade Seal keeps your skill yours.">
+  <meta property="og:title" content="Blue Spark — Marketplace">
+  <meta property="og:image" content="assets/img/medallion.png">
+  <meta name="theme-color" content="#06080F">
+  <link rel="icon" type="image/png" href="assets/img/star.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .rules-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .status-table td:first-child { color: var(--spark-warm); font-family: var(--font-display); font-weight: 500; }
+    .stub-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .stub-slot { border: 1px dashed rgba(147,197,253,0.25); border-radius: 8px; min-height: 130px; display: grid; place-items: center; color: var(--steel-5); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; }
+    .ws-diagram { width: 100%; height: auto; }
+    @media (max-width: 860px) { .rules-3, .stub-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body data-page="marketplace">
+  <canvas id="cosmos" aria-hidden="true"></canvas>
+  <div class="grid-veil" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <div class="topbar-status mono" aria-hidden="true">
+    <span class="status-dot ok"></span><span>LOCAL:NOMINAL</span>
+    <span class="sep">·</span><span>V1.0.5</span>
+    <span class="sep">·</span><span class="tnum" data-utc>00:00:00 UTC</span>
+    <span class="right">SOVEREIGN&nbsp;&nbsp;·&nbsp;&nbsp;LOCAL&nbsp;&nbsp;·&nbsp;&nbsp;PRIVATE</span>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="index.html" aria-label="Blue Spark home">
+      <img class="brand-star" src="assets/img/star.png" alt="" width="26" height="26">
+      <span class="wordmark">Blue&nbsp;Spar<span class="k-wrap">k<i class="spark-tip" aria-hidden="true"></i></span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="product.html">Product</a>
+      <a href="technology.html">Technology</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="about.html">About</a>
+      <a href="community.html">Community</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="learn.html">Learn</a>
+      <a class="nav-cta" href="download.html">Download</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </header>
+  <div class="mobile-menu" role="dialog" aria-label="Menu">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="product.html">Product</a>
+      <a href="technology.html">Technology</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="about.html">About</a>
+      <a href="community.html">Community</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="download.html">Download</a>
+      <a href="learn.html">Learn</a>
+    </nav>
+  </div>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" style="min-height:auto">
+      <div class="container" style="display:grid;gap:22px">
+        <span class="pill anim"><span class="dot"></span> /marketplace · vision</span>
+        <h1 class="display-64" data-split>A marketplace where the people who built the skill own it.</h1>
+        <p class="lead" data-reveal>You've spent a decade becoming the person in your firm who knows what the binder means, what the reconciliation needs, or what the brief missed. That knowledge is yours. It should publish on your terms.</p>
+        <p class="lead" data-reveal>The Marketplace is where you list that knowledge as a skill the assistant can use. Other people buy or rent it. You set the price, the license, and the rules. You can revoke access at any time.</p>
+        <div class="btn-row" data-reveal>
+          <a class="btn btn-primary" href="community.html#creator-cohort">Apply to the first 50 cohort</a>
+          <a class="btn btn-ghost" href="community.html#vote">How the community vote works</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- M1 RULES -->
+    <section class="section anim" data-stagger>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>M1 — What the Marketplace is</span>
+          <h2 class="display-32" data-reveal>A creator-first economy. Three rules hold.</h2>
+        </div>
+        <div class="rules-3">
+          <div class="glass-card hud" data-reveal><span class="hud-b"></span><h3>You wrote it, you own it.</h3><p class="muted">Skill code, skill name, skill pricing, skill license terms. Yours.</p></div>
+          <div class="glass-card hud" data-reveal><span class="hud-b"></span><h3>You set the price.</h3><p class="muted">Free, one-time purchase, monthly rental, or any combination. Pricing is your call. We do not pick a default — you do.</p></div>
+          <div class="glass-card hud" data-reveal><span class="hud-b"></span><h3>You can take it back.</h3><p class="muted">A creator can revoke a skill even after a user has installed it. The license check respects the revocation. The IP is yours. The leverage is yours.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- M2 WHY -->
+    <section class="section anim">
+      <div class="container narrow">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>M2 — Why this exists</span>
+          <h2 class="display-32" data-reveal>The assistant doesn't know your domain. You do.</h2>
+        </div>
+        <p class="lead" data-reveal>Blue Spark is good at the parts of your day that look like everyone else's day. It drafts the email. It summarizes the binder. It reconciles the spreadsheet. It remembers what you said last Tuesday.</p>
+        <p class="lead" data-reveal style="margin-top:14px">Blue Spark is not good at the parts of your day that look like <em>your</em> day. The specifics of IP prior-art search. The way your firm reconciles a multi-currency balance. The voice your client expects on a Series B deck.</p>
+        <p class="lead" data-reveal style="margin-top:14px">You have spent years on the specifics. The Marketplace is where those specifics become a product other people can install. The first 500 creators solve the long tail for the first 50,000 users. After that, the network takes over.</p>
+      </div>
+    </section>
+
+    <!-- M3 VOTE -->
+    <section class="section anim" data-stagger>
+      <div class="container grid-2" style="align-items:start">
+        <div>
+          <div class="section-head">
+            <span class="eyebrow" data-reveal>M3 — The community vote</span>
+            <h2 class="display-32" data-reveal>The monetization model is decided by the people who use it.</h2>
+          </div>
+          <p class="body-text" data-reveal>There is no forced, top-down selling model at launch. This is a deliberate decision, not a deferred one. The plan publishes November 1, 2026. The community votes on the final mechanics between November 15 and November 30. The Marketplace launches in Q1 2027 with the community-approved rules.</p>
+          <p class="body-text" data-reveal style="margin-top:12px"><strong style="color:var(--spark-warm)">Quadratic voting.</strong> A Pro subscriber gets 100 voice-credits; a creator with a submitted skill gets 50 more. Spending all your credits on one topic weighs more than spreading them — the most passionate voter has a louder voice, but not total control. The mechanism is open-source; anyone can audit the result.</p>
+        </div>
+        <div class="glass-card hud" data-reveal><span class="hud-b"></span>
+          <h3>Six topics up for vote</h3>
+          <div class="timeline" style="margin-top:14px">
+            <div class="timeline-item"><span class="when">Nov 1, 2026</span><p class="muted" style="font-size:0.9rem">Preliminary plan published. No fee schedule locked.</p></div>
+            <div class="timeline-item"><span class="when">Nov 8</span><p class="muted" style="font-size:0.9rem">Community AMA. Live, public. We answer.</p></div>
+            <div class="timeline-item"><span class="when">Nov 15</span><p class="muted" style="font-size:0.9rem">Vote opens.</p></div>
+            <div class="timeline-item"><span class="when">Nov 22</span><p class="muted" style="font-size:0.9rem">Position paper: the case for creator-first monetization.</p></div>
+            <div class="timeline-item"><span class="when">Nov 30</span><p class="muted" style="font-size:0.9rem">Vote closes. Results published. Mechanics locked.</p></div>
+            <div class="timeline-item"><span class="when">Q1 2027</span><p class="muted" style="font-size:0.9rem">Marketplace launches with the community-approved rules.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- M4 JADE SEAL -->
+    <section class="section anim" data-stagger>
+      <div class="container grid-2" style="align-items:start">
+        <div>
+          <div class="section-head">
+            <span class="eyebrow" data-reveal>M4 — How your skill stays yours</span>
+            <h2 class="display-32" data-reveal>Your skill runs locally. You can revoke it any time.</h2>
+          </div>
+          <p class="body-text" data-reveal>A skill is a compiled workflow — voice, persona, prompt chains, and tool integrations tuned to your domain. When a buyer installs it, the skill runs <em>on the buyer's machine, against the buyer's data, with the buyer's permission</em>. The skill does not phone home unless a license check needs to run.</p>
+          <p class="body-text" data-reveal style="margin-top:12px"><strong style="color:var(--spark-warm)">Revocation.</strong> If you decide — for any reason, or for no reason — to revoke a skill, the next license check turns it off on every machine it's installed on. The buyer's memory of having used it stays; the skill itself does not. Revocation is unilateral. It is yours to use.</p>
+          <p class="body-text" data-reveal style="margin-top:12px"><strong style="color:var(--spark-warm)">Provenance.</strong> Every skill carries a signed record of who built it and when — a modern digital signature that says <em>this is what it claims to be; the creator is who they claim to be</em>. It does not say more than that.</p>
+        </div>
+        <div class="glass-card hud" data-reveal><span class="hud-b"></span>
+          <h3>The integration layer, in design</h3>
+          <svg class="ws-diagram" viewBox="0 0 400 300" role="img" aria-label="Three local tools connecting through a persistent local connection to the assistant" data-draw>
+            <rect x="20" y="40" width="110" height="44" rx="4" fill="rgba(147,197,253,0.05)" stroke="rgba(147,197,253,0.4)"/>
+            <text x="75" y="66" text-anchor="middle" class="dlabel" fill="#C5CCD8" font-size="10">CASE SYSTEM</text>
+            <rect x="20" y="128" width="110" height="44" rx="4" fill="rgba(147,197,253,0.05)" stroke="rgba(147,197,253,0.4)"/>
+            <text x="75" y="154" text-anchor="middle" class="dlabel" fill="#C5CCD8" font-size="10">LEDGER</text>
+            <rect x="20" y="216" width="110" height="44" rx="4" fill="rgba(147,197,253,0.05)" stroke="rgba(147,197,253,0.4)"/>
+            <text x="75" y="242" text-anchor="middle" class="dlabel" fill="#C5CCD8" font-size="10">CODE REPO</text>
+            <rect x="270" y="118" width="110" height="64" rx="6" fill="rgba(64,104,209,0.12)" stroke="#4068D1"/>
+            <text x="325" y="145" text-anchor="middle" class="dlabel" fill="#93C5FD" font-size="10">JADE SEAL</text>
+            <text x="325" y="163" text-anchor="middle" class="dlabel" fill="#93C5FD" font-size="10">NODE</text>
+            <path d="M130 62 C 200 62, 220 135, 270 142" fill="none" stroke="rgba(147,197,253,0.45)" stroke-width="1.2"/>
+            <path d="M130 150 C 190 150, 220 150, 270 150" fill="none" stroke="rgba(147,197,253,0.45)" stroke-width="1.2"/>
+            <path d="M130 238 C 200 238, 220 165, 270 158" fill="none" stroke="rgba(147,197,253,0.45)" stroke-width="1.2"/>
+          </svg>
+          <p class="muted" style="margin-top:12px;font-size:0.85rem">Creators connect their own local tools into the assistant's nervous system via a persistent local connection. This is what makes a skill feel like theirs to the buyer.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- M5 CONSTITUTION -->
+    <section class="section anim">
+      <div class="container narrow">
+        <div class="glass-card hud" data-reveal style="border-color:rgba(147,197,253,0.3)"><span class="hud-b"></span>
+          <span class="eyebrow" style="display:block;margin-bottom:10px">M5 — The constitution</span>
+          <h2 class="display-32" style="margin-bottom:16px">What we never do.</h2>
+          <ul class="never-list" role="list" style="display:grid;gap:10px">
+            <li style="list-style:none;padding:8px 0 8px 26px;position:relative;border-bottom:1px solid var(--glass-border)"><span style="position:absolute;left:2px;color:var(--error);font-family:var(--font-mono)">×</span>No fake countdown. The vote closes on November 30 because that's when the vote closes.</li>
+            <li style="list-style:none;padding:8px 0 8px 26px;position:relative;border-bottom:1px solid var(--glass-border)"><span style="position:absolute;left:2px;color:var(--error);font-family:var(--font-mono)">×</span>No "X people viewing this." If 12 people are looking at a skill, we tell you 12.</li>
+            <li style="list-style:none;padding:8px 0 8px 26px;position:relative;border-bottom:1px solid var(--glass-border)"><span style="position:absolute;left:2px;color:var(--error);font-family:var(--font-mono)">×</span>No hidden fees. Every fee the platform takes is published and confirmed by the vote.</li>
+            <li style="list-style:none;padding:8px 0 8px 26px;position:relative;border-bottom:1px solid var(--glass-border)"><span style="position:absolute;left:2px;color:var(--error);font-family:var(--font-mono)">×</span>No pre-checked boxes. Marketplace email opt-ins are off by default.</li>
+            <li style="list-style:none;padding:8px 0 8px 26px;position:relative"><span style="position:absolute;left:2px;color:var(--error);font-family:var(--font-mono)">×</span>No decoy pricing tier. No top-down marketplace mechanics at launch.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- M6 STATUS -->
+    <section class="section anim" data-stagger>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>M6 — Status</span>
+          <h2 class="display-32" data-reveal>What is built and what is not. Right now.</h2>
+        </div>
+        <table class="data-table glass-card status-table" style="border-radius:8px" data-reveal>
+          <tbody>
+            <tr><td>Licensing &amp; IP service (Jade Seal)</td><td><span class="status-dot ok"></span></td><td class="mono">DEPLOYED</td><td class="muted">Signed-license verification runs.</td></tr>
+            <tr><td>Ed25519 signing chain</td><td><span class="status-dot ok"></span></td><td class="mono">LIVE</td><td class="muted">Licenses carry a modern digital signature.</td></tr>
+            <tr><td>Integration layer (WebSocket foundation)</td><td><span class="status-dot warn"></span></td><td class="mono">IN DESIGN</td><td class="muted">The persistent local connection for creator tools.</td></tr>
+            <tr><td>Marketplace user interface</td><td><span class="status-dot err"></span></td><td class="mono">NOT STARTED</td><td class="muted">Q1 2027 launch.</td></tr>
+            <tr><td>Creator onboarding portal</td><td><span class="status-dot err"></span></td><td class="mono">NOT STARTED</td><td class="muted">Opens with the first cohort of 50.</td></tr>
+            <tr><td>Community vote</td><td><span class="status-dot cool"></span></td><td class="mono">SCHEDULED</td><td class="muted">November 15–30, 2026.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- M7 CATALOG STUB -->
+    <section class="section-tight anim">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>[planned] — Skill catalog</span>
+          <h2 class="display-32" data-reveal>Catalog opens when the community-approved mechanics ship.</h2>
+        </div>
+        <div class="stub-grid" data-stagger>
+          <div class="stub-slot" data-reveal>Slot 001</div>
+          <div class="stub-slot" data-reveal>Slot 002</div>
+          <div class="stub-slot" data-reveal>Slot 003</div>
+          <div class="stub-slot" data-reveal>Slot 004</div>
+          <div class="stub-slot" data-reveal>Slot 005</div>
+          <div class="stub-slot" data-reveal>Be the first to publish</div>
+        </div>
+        <p class="muted" data-reveal style="margin-top:14px">No fake listings. The grid fills when real creators publish real skills.</p>
+      </div>
+    </section>
+
+    <!-- M7 QUIET PASSAGE -->
+    <section class="section-tight anim">
+      <div class="container narrow" style="text-align:center">
+        <p class="lead" data-reveal>If you have spent a decade becoming the person who knows what the binder means, you have built intellectual property. The Marketplace is a place to publish it. It is one way the work you have already done becomes the work that pays you back.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <img class="brand-star" src="assets/img/star.png" alt="" width="24" height="24">
+            <span class="wordmark">Blue&nbsp;Spar<span class="k-wrap">k<i class="spark-tip" aria-hidden="true"></i></span></span>
+          </a>
+          <p>Clarity, on your machine. A premium desktop AI that runs locally, remembers what matters, speaks when spoken to, and stays out of the way.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul role="list">
+            <li><a href="product.html">Product</a></li>
+            <li><a href="technology.html">Technology</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="download.html">Download</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Trust</h4>
+          <ul role="list">
+            <li><a href="dashboard.html">Public dashboard</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="legal.html#security">Security</a></li>
+            <li><a href="legal.html#status">Status</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>More</h4>
+          <ul role="list">
+            <li><a href="learn.html">Learn</a></li>
+            <li><a href="useful.html">Useful</a></li>
+            <li><a href="philosophical.html">Philosophical</a></li>
+            <li><a href="comical.html">Comical</a></li>
+            <li><a href="legal.html#terms">Terms</a> · <a href="legal.html#privacy">Privacy</a> · <a href="legal.html#license">License</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-base">
+        <span>BLUE SPARK — CLARITY, ON YOUR MACHINE.</span>
+        <span class="byben">by ben</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/vendor/gsap.min.js"></script>
+  <script src="assets/js/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/js/vendor/SplitText.min.js"></script>
+  <script src="assets/js/cosmos.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

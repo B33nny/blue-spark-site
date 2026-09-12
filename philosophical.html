@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Philosophical — The Last Honest Computer — Blue Spark</title>
+  <meta name="description" content="Slow, deliberate, slightly melancholic essays for engineers, founders, writers, and the I-deleted-my-Facebook crowd.">
+  <meta property="og:title" content="Blue Spark — Philosophical">
+  <meta property="og:image" content="assets/img/medallion.png">
+  <meta name="theme-color" content="#06080F">
+  <link rel="icon" type="image/png" href="assets/img/star.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .essay-teaser { padding: clamp(28px, 4vw, 48px) 0; border-top: 1px solid var(--glass-border); }
+    .essay-teaser:first-of-type { border-top: 0; }
+    .essay-teaser .when { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--spark-cool); }
+    .essay-teaser h3 { font-family: var(--font-display); font-weight: 500; color: var(--spark-warm); font-size: clamp(1.2rem, 2.4vw, 1.6rem); margin: 10px 0; }
+    .essay-teaser p { max-width: 62ch; color: var(--steel-2); }
+    .status-pending { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--steel-4); }
+  </style>
+</head>
+<body data-page="philosophical">
+  <canvas id="cosmos" aria-hidden="true"></canvas>
+  <div class="grid-veil" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="topbar-status mono" aria-hidden="true">
+    <span class="status-dot ok"></span><span>LOCAL:NOMINAL</span>
+    <span class="sep">·</span><span>V1.0.5</span>
+    <span class="sep">·</span><span class="tnum" data-utc>00:00:00 UTC</span>
+    <span class="right">SOVEREIGN&nbsp;&nbsp;·&nbsp;&nbsp;LOCAL&nbsp;&nbsp;·&nbsp;&nbsp;PRIVATE</span>
+  </div>
+  <header class="nav">
+    <a class="brand" href="index.html" aria-label="Blue Spark home">
+      <img class="brand-star" src="assets/img/star.png" alt="" width="26" height="26">
+      <span class="wordmark">Blue&nbsp;Spar<span class="k-wrap">k<i class="spark-tip" aria-hidden="true"></i></span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="product.html">Product</a>
+      <a href="technology.html">Technology</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="about.html">About</a>
+      <a href="community.html">Community</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="learn.html">Learn</a>
+      <a class="nav-cta" href="download.html">Download</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </header>
+  <div class="mobile-menu" role="dialog" aria-label="Menu">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="product.html">Product</a>
+      <a href="technology.html">Technology</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="about.html">About</a>
+      <a href="community.html">Community</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="download.html">Download</a>
+      <a href="learn.html">Learn</a>
+    </nav>
+  </div>
+
+  <main id="main">
+    <section class="hero" style="min-height:auto">
+      <div class="container" style="display:grid;gap:22px">
+        <span class="pill anim"><span class="dot"></span> track · philosophical</span>
+        <h1 class="display-64" data-split>The Last Honest Computer.</h1>
+        <p class="lead" data-reveal>Slow, deliberate, slightly melancholic. Long-form essays of eight to fifteen minutes for engineers, founders, writers, and the crowd that deleted the account and felt better. Essays about what a computer owes the person in front of it.</p>
+      </div>
+    </section>
+
+    <section class="section anim" data-stagger>
+      <div class="container narrow">
+        <div class="essay-teaser" data-reveal>
+          <span class="when">September 1, 2026 · the launch manifesto</span>
+          <h3>The Last Honest Computer</h3>
+          <p>A machine that keeps your words to itself, remembers you without being asked to forget, and asks before it touches anything — that isn't a feature list. It's a position about what a computer is for. The full manifesto lands September 1, 2026.</p>
+          <span class="status-pending" style="display:inline-block;margin-top:10px">Publishes Sept 1, 2026</span>
+        </div>
+        <div class="essay-teaser" data-reveal>
+          <span class="when">In drafting</span>
+          <h3>The price of free</h3>
+          <p>Every free product is priced in something. This essay is about what, and why the answer is usually you. Status: in drafting — no publish date is promised before the draft is done.</p>
+          <span class="status-pending" style="display:inline-block;margin-top:10px">In drafting</span>
+        </div>
+        <div class="essay-teaser" data-reveal>
+          <span class="when">In drafting</span>
+          <h3>Local as a moral position</h3>
+          <p>The cloud made computing somebody else's job. This essay is about what got lost when the work moved out of the room where the work happens. Status: in drafting.</p>
+          <span class="status-pending" style="display:inline-block;margin-top:10px">In drafting</span>
+        </div>
+        <div class="btn-row" data-reveal style="margin-top:28px">
+          <a class="btn btn-ghost" href="index.html">Back to start</a>
+          <a class="link-quiet" href="community.html">Follow the channels →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <img class="brand-star" src="assets/img/star.png" alt="" width="24" height="24">
+            <span class="wordmark">Blue&nbsp;Spar<span class="k-wrap">k<i class="spark-tip" aria-hidden="true"></i></span></span>
+          </a>
+          <p>Clarity, on your machine. A premium desktop AI that runs locally, remembers what matters, speaks when spoken to, and stays out of the way.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul role="list">
+            <li><a href="product.html">Product</a></li>
+            <li><a href="technology.html">Technology</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="download.html">Download</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Trust</h4>
+          <ul role="list">
+            <li><a href="dashboard.html">Public dashboard</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="legal.html#security">Security</a></li>
+            <li><a href="legal.html#status">Status</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>More</h4>
+          <ul role="list">
+            <li><a href="learn.html">Learn</a></li>
+            <li><a href="useful.html">Useful</a></li>
+            <li><a href="philosophical.html">Philosophical</a></li>
+            <li><a href="comical.html">Comical</a></li>
+            <li><a href="legal.html#terms">Terms</a> · <a href="legal.html#privacy">Privacy</a> · <a href="legal.html#license">License</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-base">
+        <span>BLUE SPARK — CLARITY, ON YOUR MACHINE.</span>
+        <span class="byben">by ben</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/vendor/gsap.min.js"></script>
+  <script src="assets/js/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/js/vendor/SplitText.min.js"></script>
+  <script src="assets/js/cosmos.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
