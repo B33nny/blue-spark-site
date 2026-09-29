@@ -4,3 +4,7 @@ Thumbs.db
 
 # Local server cache
 *.log
+
+# DAG harness session store — kept in its own private repo, never deployed.
+# Pages serves the repo root, so committing this would publish the audit trail.
+.qoder/
