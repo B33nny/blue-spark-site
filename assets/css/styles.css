@@ -569,7 +569,7 @@ table.data td { color: var(--text-dim); }
   flex: none;
 }
 .brand:hover { text-decoration: none; }
-.brand-mark { width: 22px; height: 22px; }
+.brand-mark { width: 44px; height: 44px; }
 .wordmark {
   font-family: var(--font-display);
   font-weight: 500;
