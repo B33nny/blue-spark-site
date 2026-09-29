@@ -1,7 +1,10 @@
-# Blue Spark — routing for the static host (Cloudflare Pages reads this file
-# from the output directory; the repo root is the output directory).
+# Blue Spark — routing for the static host.
+# Cloudflare Pages reads this file from the output directory; the repo root IS
+# the output directory. No build step.
 
-# --- legacy route renames (301): only the four paths that exist in the repo ---
+# --- Legacy route renames (301) -------------------------------------------------
+# Only the four paths that actually existed in this repo are retired here.
+
 /useful /work 301
 /useful.html /work 301
 /philosophical /journal/perspectives 301
@@ -11,26 +14,19 @@
 /dashboard /transparency 301
 /dashboard.html /transparency 301
 
-# --- clean-URL rewrites (200) so every canonical path resolves deterministically ---
-/ /index.html 200
-/product /product.html 200
-/technology /technology.html 200
-/pricing /pricing.html 200
-/founding-500 /founding-500.html 200
-/marketplace /marketplace.html 200
-/roadmap /roadmap.html 200
-/about /about.html 200
-/community /community.html 200
-/transparency /transparency.html 200
-/download /download.html 200
-/learn /learn.html 200
-/work /work.html 200
-/legal /legal.html 200
-/enterprise /enterprise.html 200
-/partners /partners.html 200
-/contact /contact.html 200
-/security /security.html 200
-/status /status.html 200
-/journal /journal/index.html 200
-/journal/perspectives /journal/perspectives.html 200
-/journal/lighter-side /journal/lighter-side.html 200
+# --- Do NOT add 200 rewrites for the clean URLs ---------------------------------
+# An earlier revision of this file rewrote every canonical path to its .html file
+# (/product -> /product.html 200, and 21 more). That broke every page on the site.
+#
+# Cloudflare Pages already serves /product from product.html natively, and it
+# 308-redirects /product.html back to the extensionless /product. So an explicit
+# 200 rewrite produced an infinite loop:
+#
+#     /product --(200 rewrite)--> /product.html --(Pages 308)--> /product --> ...
+#
+# Verified against the live deployment on 2026-09-29: /product, /about, /work,
+# /transparency, /journal/perspectives and /journal/lighter-side each returned
+# 308 to themselves, and curl aborted after 5 hops. The apex / returned 200 only
+# because it was in the same rewrite table.
+#
+# The four legacy 301s above are unaffected and are the whole point of this file.
