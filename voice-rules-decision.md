@@ -9,7 +9,7 @@ python scripts/audit_voice_rules.py
 
 It exits `0` with `PASS — {N} pages audited, 0 voice-rule violations.` when the
 site is clean and exits `1` with a numbered `VIOLATIONS (n):` list when it is
-not. `EXPECTED_PAGES = 23`.
+not. `EXPECTED_PAGES = 27` at the v3 baseline (was 23 in v1).
 
 This document describes that gate. Its previous revision described a gate that
 did not exist; the correction is recorded below rather than inherited.
@@ -27,7 +27,9 @@ did not exist; the correction is recorded below rather than inherited.
 | A7 | No subscription noun, on any page, with no allowance | Blueprint Part 3 §04: the word does not appear in approved copy, which says recurring charge or monthly licence instead. |
 | A8 | Forbidden markup: `<video>`, `<source>`, `poster=`, `<iframe>`, `<embed>`, `<object>`, media file extensions, YouTube/Vimeo/Wistia/Loom, `<form>`, `<input>`, `<textarea>`, `<select>`, `mailto:`, `tel:`, `href="#"`, `href=""`, `javascript:`, `<style`, ` style=` | Founder decisions 1 and 4; blueprint §4.6, §5.2, Part 7. It is the mechanical expression of "no fabricated media", "no fake UI capture", "no dead form or button destination", and one design system with no page-local styling. |
 | A9 | Every referenced local asset (`src`/`href` ending in an image, font, media, CSS or JS extension, excluding remote URLs and `assets/js/vendor/`) must exist on disk | Same clauses: a page may not reference media that is not present. This is what makes "no fabricated screenshots" checkable. |
-| A10 | Required head and structure on every page: `<html lang="en">`, a non-empty `<title>`, a non-empty `meta name="description"`, `rel="canonical"` on `https://blue-spark.io`, `name="viewport"`, `id="main"`, `href="/assets/css/styles.css"`; and the HTML page count must equal 23 | Protects the canonical/SEO work in blueprint §6.3 and makes an accidental deletion or an unrewritten page fail loudly. |
+| A10 | Required head and structure on every page: `<html lang="en">`, a non-empty `<title>`, a non-empty `meta name="description"`, `rel="canonical"` on `https://blue-spark.io`, `name="viewport"`, `id="main"`, `href="/assets/css/styles.css"`; and the HTML page count must equal 27 | Protects the canonical/SEO work in blueprint §6.3 and makes an accidental deletion or an unrewritten page fail loudly. |
+
+A10 page-count value. At the v3 baseline (`4f96aba` carried the v1 value of 23), the page-count value rises to `EXPECTED_PAGES = 27` to account for the four new `/legal/<x>` sub-routes. The `collect_pages()` glob is widened to also include `legal/*.html` so the audit scans the new files. Both edits are additive; the check is otherwise unchanged.
 | A11 | Retired CTA labels must not appear (`Request a private demonstration`, `Apply for a guided pilot`, `Request access for your team`, `Book a workflow clinic`, `Submit a workflow`, `Speak with the founder`, `Join the professional waitlist`, `Install free`, `Start for free`, `Upgrade from free`, `Unlimited free`) | Founder decision 1 replaces the old CTA whitelist with the blueprint's action-label set. The negative list is the part that can be machine-enforced honestly. |
 | A12 | Every `$` figure must have `currency`, `taxes`, `usage allowance` or `checkout` within 200 characters after it | Founder decision 4 and blueprint §Pricing editor notes: the currency/tax/allowance gap stays explicit, and a bare `$120` cannot ship. |
 
@@ -129,6 +131,7 @@ The last one still stands.
 | Dashboard placeholders: "publishes with the first reporting cycle" | Superseded | Blueprint §3.4.10 retires the metrics wall entirely; `/dashboard` becomes `/transparency` with no metric values at all. |
 | Founder access description: structured office hours, clinics, track sessions, selected one-to-one calls | Superseded | Blueprint Part 3 §05 describes founder-led interaction as structured group sessions, and states what membership does not promise. |
 | Footer credit "by ben" as a subordinate, lowercase founder credit | **Standing** | Blueprint §4.5 keeps the founder credit subordinate and out of the core mark, which is what the footer does. |
+| Home-page and global `.nav-action` primary CTA as `Apply for Founding 500` → `/founding-500` | **Superseded** | Blueprint §3.3.3 (Action Resolution Table): v3 retires `Apply for Founding 500` from the home hero and from every global `.nav-action`. The label survives deliberately on `/founding-500`, the two Pricing offer cards, and the `/work` closing. Every `.nav-action` (27 places) becomes `Get Blue Spark → /pricing`. |
 
 ## Brand-bible allowances that no longer exist
 

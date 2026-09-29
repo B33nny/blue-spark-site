@@ -3,6 +3,11 @@
 The blue-spark.io marketing site. **Static HTML, one stylesheet, vanilla plus
 vendored GSAP. No framework, no bundler, no build step, no npm dependency.**
 
+A personal and professional AI assistant, honest by design. v3 of the public
+content (Pages 01–22 modified; four new `/legal/<x>` sub-routes as honest-state
+pages; `_redirects`, the design system, and the audit gate carry forward
+unchanged).
+
 Deploy via **Cloudflare Pages** with these settings:
 
 | Setting | Value |
@@ -12,8 +17,9 @@ Deploy via **Cloudflare Pages** with these settings:
 | Build output directory | `.` (repo root) |
 | Production branch | `main` |
 
-The deployed output is 23 HTML files, `assets/` (CSS, JS, images), `_redirects`,
-`sitemap.xml`, `robots.txt` and this README. Open `index.html` in any modern
+The deployed output is 27 HTML files (22 existing surfaces + `404.html` + 4 new
+`/legal/<x>` sub-routes served extensionless), `assets/` (CSS, JS, images),
+`_redirects`, `sitemap.xml`, `robots.txt` and this README. Open `index.html` in any modern
 browser and the site renders.
 
 ## The design system, in three lines
@@ -44,7 +50,7 @@ python scripts/audit_voice_rules.py
 Expected on a clean tree:
 
 ```
-PASS — 23 pages audited, 0 voice-rule violations.
+PASS — 27 pages audited, 0 voice-rule violations.
 ```
 
 Exit `0` when clean, `1` with a numbered `VIOLATIONS (n):` list otherwise. The
@@ -53,24 +59,29 @@ gate's known limits are documented in `voice-rules-decision.md`.
 
 ## Routes
 
-Twenty-two canonical surfaces, served extensionless, plus one error surface:
+Twenty-six canonical surfaces, served extensionless, plus one error surface. The
+`/legal/<x>` sub-routes are full pages, not in-page anchors:
 
 `/` · `/product` · `/technology` · `/pricing` · `/founding-500` · `/marketplace`
 · `/roadmap` · `/about` · `/community` · `/transparency` · `/download` ·
-`/learn` · `/work` · `/legal` · `/enterprise` · `/partners` · `/contact` ·
-`/security` · `/status` · `/journal` · `/journal/perspectives` ·
+`/learn` · `/work` · `/legal` · `/legal/terms` · `/legal/privacy` ·
+`/legal/licence` · `/legal/professional-use` · `/enterprise` · `/partners` ·
+`/contact` · `/security` · `/status` · `/journal` · `/journal/perspectives` ·
 `/journal/lighter-side`, and `404.html` for an unmatched address.
 
-`_redirects` carries the eight 301s for the four renamed legacy paths
+`_redirects` carries only the eight 301s for the four renamed legacy paths
 (`/useful` → `/work`, `/philosophical` → `/journal/perspectives`, `/comical` →
 `/journal/lighter-side`, `/dashboard` → `/transparency`, each with and without
-`/.html`) and the 22 explicit 200 rewrites that make every canonical path
-resolve. `sitemap.xml` lists the 22 canonical URLs; `robots.txt` allows
-everything and points at the sitemap.
+`/.html`). The file deliberately does NOT contain any 200 rewrite for the
+clean URLs; an earlier 200-rewrite revision produced an infinite redirect
+loop on Cloudflare Pages (verified against the live deployment on
+2026-09-29). `sitemap.xml` lists 26 canonical URLs (22 existing + the four
+new `/legal/<x>` sub-routes). `robots.txt` allows everything and points at
+the sitemap.
 
 ## Repo contents
 
-- 23 HTML files — 22 canonical surfaces plus `404.html`.
+- 27 HTML files — 26 canonical surfaces plus `404.html`.
 - `assets/css/styles.css` — the design system: tokens, type roles, layout,
   components, states and the accessibility floor.
 - `assets/js/main.js` — the disclosure menus, the mobile menu, the current-page

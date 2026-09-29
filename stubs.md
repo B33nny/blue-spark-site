@@ -50,8 +50,8 @@ page; each item is rendered as a designed state until the real thing exists.
 
 | Stub | Where the state sits | What triggers it |
 |------|----------------------|------------------|
-| The four legal documents (terms, privacy notice, licence, professional-use notice) | `/legal` — introductions with the hub's description of each and `Not yet published` | Supplier identity and jurisdiction, then the final document text |
-| Currency, tax treatment and the included usage allowance for the monthly licence | `/pricing` and `/founding-500` — the amount is published with its qualifier, `Not yet published` alongside | The published price terms |
+| The four legal documents (terms, privacy notice, licence, professional-use notice) — now honest-state pages at `/legal/terms`, `/legal/privacy`, `/legal/licence`, `/legal/professional-use` | Each sub-route — `Not yet published` with the supplier identity / jurisdiction sentence | Supplier identity and jurisdiction, then the final document text |
+| Currency, tax treatment and the included usage allowance for the monthly licence | `/pricing` and `/founding-500` — the amount is published with its qualifier clause: "Currency, taxes and included usage are confirmed at the offer before payment." | The published price terms |
 | Checkout and purchase controls | Not rendered anywhere | A complete offer, with currency, taxes and allowance stated before checkout |
 | Creator marketplace | `/marketplace` — the whole surface is `Planned for 2027`, with one labelled illustrative concept | The planned 2027 marketplace and its published terms |
 

@@ -32,7 +32,7 @@ from pathlib import Path
 
 SITE = Path(__file__).resolve().parent.parent
 
-EXPECTED_PAGES = 23
+EXPECTED_PAGES = 27  # v3: 4 new legal sub-routes
 
 # --------------------------------------------------------------------------
 # Rule definitions
@@ -355,7 +355,7 @@ def audit_page(path):
 # --------------------------------------------------------------------------
 
 def collect_pages():
-    pages = sorted(SITE.glob("*.html")) + sorted(SITE.glob("journal/*.html"))
+    pages = sorted(SITE.glob("*.html")) + sorted(SITE.glob("journal/*.html")) + sorted(SITE.glob("legal/*.html"))
     return pages
 
 
