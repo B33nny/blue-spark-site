@@ -3,276 +3,220 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About — Blue Spark</title>
-  <meta name="description" content="Blue Spark is a premium desktop AI, built in private, shipped in public. Press kit, brand guardrails, and the one sharp sentence.">
-  <meta property="og:title" content="Blue Spark — About">
-  <meta property="og:image" content="assets/img/medallion.png">
-  <meta name="theme-color" content="#06080F">
-  <link rel="icon" type="image/png" href="assets/img/star.png">
+  <title>About Blue Spark | Useful Automation, Built by Ben</title>
+  <meta name="description" content="Why Blue Spark exists, who is building it, how the founding programme is taught, and the standard the product is held to.">
+  <link rel="canonical" href="https://bluespark.io/about">
+  <meta property="og:title" content="About Blue Spark | Useful Automation, Built by Ben">
+  <meta property="og:description" content="Why Blue Spark exists, who is building it, how the founding programme is taught, and the standard the product is held to.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bluespark.io/about">
+  <meta property="og:image" content="https://bluespark.io/assets/img/og-star-1200x630.png">
+  <meta name="theme-color" content="#FAFAF7">
+  <link rel="icon" type="image/png" href="/assets/img/favicon-32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <style>
-    .about-hero { text-align: center; display: grid; gap: 22px; justify-items: center; padding-block: clamp(56px, 8vw, 110px) clamp(40px, 6vw, 80px); }
-    .proof-press p { max-width: 68ch; }
-    .word-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .word-grid .words { border: 1px solid var(--glass-border); border-radius: 8px; padding: 22px; background: var(--glass-bg); }
-    .word-grid .dont { border-color: rgba(248,113,113,0.25); }
-    .word-grid h4 { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 12px; color: var(--success); }
-    .word-grid .dont h4 { color: var(--error); }
-    .word-grid p { font-size: 0.95rem; line-height: 1.8; color: var(--spark-dim); }
-    .founder-card { display: grid; gap: 12px; }
-    .tbd { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warn); border: 1px dashed rgba(252,211,77,0.4); border-radius: 4px; padding: 10px 14px; display: inline-block; }
-    @media (max-width: 760px) { .word-grid { grid-template-columns: 1fr; } }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-<body data-page="about">
-  <canvas id="cosmos" aria-hidden="true"></canvas>
-  <canvas id="starfield-scene" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height:100vh;z-index:-1;pointer-events:none"></canvas>
-  <div class="grid-veil" aria-hidden="true"></div>
-  <div class="scroll-progress" aria-hidden="true"></div>
-
-  <div class="topbar-status mono" aria-hidden="true">
-    <span class="status-dot ok"></span><span>LOCAL:NOMINAL</span>
-    <span class="sep">·</span><span>V1.0.5</span>
-    <span class="sep">·</span><span class="tnum" data-utc>00:00:00 UTC</span>
-    <span class="right">SOVEREIGN&nbsp;&nbsp;·&nbsp;&nbsp;LOCAL&nbsp;&nbsp;·&nbsp;&nbsp;PRIVATE</span>
-  </div>
+<body class="band" data-page="/about">
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="nav">
-    <a class="brand" href="index.html" aria-label="Blue Spark home">
-      <img class="brand-star" src="assets/img/star.png" alt="" width="26" height="26">
-      <span class="wordmark">Blue&nbsp;Spar<span class="k-wrap">k<i class="spark-tip" aria-hidden="true"></i></span></span>
-    </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="product.html">Product</a>
-      <a href="technology.html">Technology</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="marketplace.html">Marketplace</a>
-      <a href="roadmap.html">Roadmap</a>
-      <a href="about.html">About</a>
-      <a href="community.html">Community</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="learn.html">Learn</a>
-      <a class="nav-cta" href="download.html">Download</a>
-    </nav>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    <div class="container nav-inner">
+      <a class="brand" href="/" aria-label="Blue Spark home">
+        <img class="brand-mark" src="/assets/img/mark-128.png" alt="" width="22" height="22">
+        <span class="wordmark">Blue Spark</span>
+      </a>
+      <nav class="nav-groups" aria-label="Primary">
+        <details class="menu"><summary>Product</summary>
+          <div class="menu-panel">
+            <a href="/product">Product</a>
+            <a href="/technology">How it works</a>
+            <a href="/marketplace">Marketplace</a>
+            <a href="/roadmap">Roadmap</a>
+            <a href="/enterprise">For your business</a>
+            <a href="/download">Download and install</a>
+          </div></details>
+        <a href="/work">Work in practice</a>
+        <a href="/founding-500">Founding 500</a>
+        <a href="/pricing">Pricing</a>
+        <details class="menu"><summary>Company</summary>
+          <div class="menu-panel">
+            <a href="/about">About</a>
+            <a href="/community">Community</a>
+            <a href="/journal">Journal</a>
+            <a href="/journal/perspectives">Perspectives</a>
+            <a href="/journal/lighter-side">The lighter side</a>
+            <a href="/partners">Partnerships</a>
+            <a href="/transparency">Transparency</a>
+            <a href="/contact">Contact</a>
+            <a href="/legal">Legal</a>
+            <a href="/security">Security</a>
+            <a href="/status">Status</a>
+          </div></details>
+      </nav>
+      <a class="btn btn-primary nav-action" href="/founding-500">Apply for Founding 500</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
   </header>
-  <div class="mobile-menu" role="dialog" aria-label="Menu">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="product.html">Product</a>
-      <a href="technology.html">Technology</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="marketplace.html">Marketplace</a>
-      <a href="roadmap.html">Roadmap</a>
-      <a href="about.html">About</a>
-      <a href="community.html">Community</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="download.html">Download</a>
-      <a href="learn.html">Learn</a>
-    </nav>
+
+  <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="stack">
+      <nav aria-label="Product">
+        <h3 class="h3">Product</h3>
+        <a href="/product">Product</a>
+        <a href="/technology">How it works</a>
+        <a href="/marketplace">Marketplace</a>
+        <a href="/roadmap">Roadmap</a>
+        <a href="/enterprise">For your business</a>
+        <a href="/download">Download and install</a>
+      </nav>
+      <nav aria-label="Company">
+        <h3 class="h3">Company</h3>
+        <a href="/about">About</a>
+        <a href="/community">Community</a>
+        <a href="/journal">Journal</a>
+        <a href="/journal/perspectives">Perspectives</a>
+        <a href="/journal/lighter-side">The lighter side</a>
+        <a href="/partners">Partnerships</a>
+        <a href="/transparency">Transparency</a>
+        <a href="/contact">Contact</a>
+        <a href="/legal">Legal</a>
+        <a href="/security">Security</a>
+        <a href="/status">Status</a>
+      </nav>
+      <nav aria-label="More">
+        <h3 class="h3">More</h3>
+        <a href="/work">Work in practice</a>
+        <a href="/founding-500">Founding 500</a>
+        <a href="/pricing">Pricing</a>
+      </nav>
+      <a class="btn btn-primary" href="/founding-500">Apply for Founding 500</a>
+    </div>
   </div>
 
   <main id="main">
-    <!-- HERO with medallion + starfield -->
-    <section class="hero" style="min-height:auto">
-      <div class="container about-hero">
-        <div class="medallion-stage" style="width:min(220px,48vw)" data-medallion-parallax>
-          <div class="medallion-glow" aria-hidden="true"></div>
-          <img class="medallion-img" src="assets/img/medallion.png" alt="The Blue Spark medallion — a polished silver ring around a faceted deep blue eight-point compass star." width="220" height="220">
-        </div>
-        <span class="pill anim"><span class="dot"></span> /about</span>
-        <h1 class="display-64" data-split>About Blue Spark.</h1>
-        <p class="lead" style="text-align:center">A premium desktop AI, built in private, shipped in public.</p>
-        <div class="btn-row" style="justify-content:center" data-reveal>
-          <a class="btn btn-secondary" href="legal.html#contact">Press contact</a>
-          <a class="btn btn-ghost" href="#press-kit">Press kit</a>
-          <a class="btn btn-ghost" href="legal.html#security">Security disclosure</a>
-        </div>
-      </div>
-    </section>
 
-    <!-- A1 ORIGIN -->
-    <section class="section anim">
-      <div class="container narrow" style="text-align:center">
-        <span class="eyebrow" data-reveal>A1 — Where the name comes from</span>
-        <h2 class="display-32" data-reveal style="margin-top:12px">A small clear moment, on your own machine.</h2>
-        <p class="lead" data-reveal style="margin:18px auto 0">If a journalist asks, the public answer is one sentence: <em>we chose the name because it captures what the product does — a small clear moment, on your own machine.</em> That's it. There's a longer story, and it stays private. We chose the name for the machine claim, not for a metaphysical one. The rest of the brand reads from that.</p>
-      </div>
-    </section>
-
-    <!-- A3 FIVE PROOF POINTS -->
-    <section class="section anim" data-stagger>
+    <div class="band">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow" data-reveal>A3 — The five proof points</span>
-          <h2 class="display-32" data-reveal>Five things we lead with. Each one we will defend.</h2>
-        </div>
-        <div class="proof-press" style="display:grid;gap:22px;max-width:800px">
-          <div class="glass-card hud" data-reveal><span class="hud-b"></span><h3>1. Runs on your machine.</h3><p class="muted">The product runs locally, on the office hardware the audience already owns. No GPU upgrade required. No dedicated machine required. The standard office laptop is the standard office server — that is the central go-to-market advantage and it is also the architectural commitment.</p></div>
-          <div class="glass-card hud" data-reveal><span class="hud-b"></span><h3>2. Remembers you in five layers.</h3><p class="muted">Working. Episodic. Semantic. Procedural. Persona. The five layers describe memory from "what's happening right now" to "who you are, over time." Trust is weighted by source. Recurring facts strengthen; one-time facts fade. The memory is yours; it lives on your disk.</p></div>
-          <div class="glass-card hud" data-reveal><span class="hud-b"></span><h3>3. Low latency, scaled to your local hardware.</h3><p class="muted">We don't publish a millisecond benchmark. Speed is real, and it is a function of your disk and your CPU, not a number we benchmark. A slow office laptop gets a slow Blue Spark; a fast office laptop gets a fast Blue Spark. We don't change the framing to look better.</p></div>
-          <div class="glass-card hud" data-reveal><span class="hud-b"></span><h3>4. No cloud round-trip.</h3><p class="muted">Voice, conversations, and memory never leave the disk. The cloud receives only what the architecture requires it to receive — a license check, a software update, an outbound email you explicitly sent, or a reasoning call when the local model can't handle the question. The cloud sees the request, not the rest of you.</p></div>
-          <div class="glass-card hud" data-reveal><span class="hud-b"></span><h3>5. Free base product.</h3><p class="muted">The base experience is uncrippled and uncapped. Pro is $120 a month, framed as the cost of keeping your spark bright. Premium add-ons ship on top of Pro. The base is the base; Pro is what you pay when you want more.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- A4 BRIGHT LINE -->
-    <section class="section anim">
-      <div class="container narrow">
-        <div class="section-head">
-          <span class="eyebrow" data-reveal>A4 — Bright-line guardrails</span>
-          <h2 class="display-32" data-reveal>Words we don't use. Words we do.</h2>
-          <p class="muted" data-reveal>We publish the line because the reader who knows what we're not saying can trust what we are saying.</p>
-        </div>
-        <div class="word-grid" data-stagger>
-          <div class="words dont" data-reveal>
-            <h4>Words we don't use</h4>
-            <p>Lotus. Flame. Aura. Mandala. Awakening. Illumination. Stillness. Enlightenment. Sacred. Divine.</p>
-            <p class="muted" style="margin-top:10px;font-size:0.85rem">These words describe a category of experience the product does not belong to. They appear in marketing decks, spiritual-tech launches, and product pages about meditation apps. They do not appear here.</p>
+        <section class="section">
+          <h1 class="h1">Useful AI should not belong only to technical people.</h1>
+          <p class="lead">Blue Spark exists to make practical automation accessible to people with work to do and ideas to build. You should not have to become a developer before you can begin.</p>
+        </section>
+        <section class="section">
+          <h2 class="h2">A professional tool with a human purpose.</h2>
+          <div class="prose">
+            <p>For a professional, automation can create room for better work. For a business owner, it can reduce repeated administration. For someone developing a service, it can provide a way to apply expertise beyond doing every step by hand.</p>
+            <p>That is the opportunity Blue Spark is being built around: helping people grow their capability, not simply giving them another place to ask questions.</p>
           </div>
-          <div class="words" data-reveal>
-            <h4>Words we do use</h4>
-            <p>Calm. Quiet. Clarity. Precise. Sovereign. On your machine.</p>
-            <p class="muted" style="margin-top:10px;font-size:0.85rem">Six words. Each one does its work. <em>Precise</em> is the metric the audit log is held to. <em>Sovereign</em> is the user's relationship to the product. <em>On your machine</em> is where the product runs.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- A5 PRATFALL — ABOUT ONLY -->
-    <section class="quote-band anim">
-      <div class="container">
-        <span class="eyebrow" data-reveal>A5 — The one sharp sentence</span>
-        <blockquote data-reveal style="margin-top:16px">If you want ChatGPT, use ChatGPT.</blockquote>
-        <p class="muted" data-reveal style="margin-top:18px;max-width:56ch;margin-inline:auto">The Pratfall is not a swipe. It is an out, offered honestly. This sentence appears on this page and nowhere else on the site.</p>
-      </div>
-    </section>
-
-    <!-- A6 VOICE RULES -->
-    <section class="section anim" data-stagger>
-      <div class="container narrow">
-        <div class="section-head">
-          <span class="eyebrow" data-reveal>A6 — The six rules</span>
-          <h2 class="display-32" data-reveal>The rules this page passes, on this page.</h2>
-        </div>
-        <div class="glass-card voice-box hud" data-reveal><span class="hud-b"></span>
-          <div class="rule" style="display:grid;grid-template-columns:34px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--glass-border)"><b class="mono" style="color:var(--deep-5)">01</b><p>Calm. No exclamation marks on this page.</p></div>
-          <div class="rule" style="display:grid;grid-template-columns:34px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--glass-border)"><b class="mono" style="color:var(--deep-5)">02</b><p>Precise. Mono numbers. Verb-first sentences.</p></div>
-          <div class="rule" style="display:grid;grid-template-columns:34px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--glass-border)"><b class="mono" style="color:var(--deep-5)">03</b><p>Sovereign. <em>Your</em> machine. <em>Your</em> data. <em>Your</em> permission.</p></div>
-          <div class="rule" style="display:grid;grid-template-columns:34px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--glass-border)"><b class="mono" style="color:var(--deep-5)">04</b><p>Local. The cloud is the exception.</p></div>
-          <div class="rule" style="display:grid;grid-template-columns:34px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--glass-border)"><b class="mono" style="color:var(--deep-5)">05</b><p>Honest. <em>We don't know yet</em> is a complete sentence.</p></div>
-          <div class="rule" style="display:grid;grid-template-columns:34px 1fr;gap:12px;padding:10px 0"><b class="mono" style="color:var(--deep-5)">06</b><p>On-brand name only. Public surfaces say Blue Spark.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- A7 FOUNDER -->
-    <section class="section anim">
-      <div class="container narrow">
-        <div class="glass-card founder-card hud" data-reveal><span class="hud-b"></span>
-          <span class="eyebrow">A7 — The founder signature</span>
-          <h2 class="display-32">By ben.</h2>
-          <p class="lead">The product is built and shipped by one person, working under the partner name <em>ben</em>. The founder-signature placement on the standalone star in the navigation, the favicon, and the top-bar area is reserved as a partner decision before any production nav ships. We are not guessing on this page. The signature is named; the placement is held.</p>
-          <span class="tbd">Placement: decision reserved by the founder</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- A8 PRESS KIT -->
-    <section class="section anim" id="press-kit">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow" data-reveal>A8 — Press kit</span>
-          <h2 class="display-32" data-reveal>What a journalist needs.</h2>
-        </div>
-        <div class="grid-2" style="align-items:start" data-stagger>
-          <div class="glass-card hud" data-reveal><span class="hud-b"></span>
-            <h3>Boilerplate</h3>
-            <p class="muted"><em>Blue Spark is a premium desktop AI built by ben. It runs locally on standard office hardware, remembers the user in five layers of memory, holds a distinct personality, and quietly handles the messy, mundane work of office automation. Sovereignty is the product. The product ships its base experience free; Pro is $120 a month, framed as the cost of keeping your spark bright.</em></p>
-          </div>
-          <div style="display:grid;gap:16px" data-stagger>
-            <div class="glass-card hud" data-reveal><span class="hud-b"></span>
-              <h3>Logo</h3>
-              <p class="muted">The 3D medallion in two treatments (Code Black, Paper), and the standalone star in two sizes. PNG and SVG. No recoloring outside the Deep Blue + Steel + Spark palette.</p>
+        </section>
+        <section class="section">
+          <div class="stack">
+            <h2 class="h2">Founder-led, with a direct responsibility.</h2>
+            <div class="prose">
+              <p>Ben is the founder of Blue Spark. He is building a boutique AI company around practical usefulness, clear communication, and a product people can put to work.</p>
+              <p>Within the Founding 500, Ben will teach automation through partner-coordinated group sessions. The intention is a working relationship with people who want to learn and build—not a faceless software transaction or an unlimited personal hotline.</p>
             </div>
-            <div class="glass-card hud" data-reveal><span class="hud-b"></span>
-              <h3>Press contact</h3>
-              <p class="muted">Contact channels open with the GitHub org publish — see <a href="legal.html#contact">contact</a>. Response commitment: next business day, not 24/7.</p>
-            </div>
-            <div class="glass-card hud" data-reveal><span class="hud-b"></span>
-              <h3>Security disclosure</h3>
-              <p class="muted">How a security researcher reaches us, what we do with a report, and what the bounty program covers when one exists: <a href="legal.html#security">security disclosure</a>.</p>
+            <div class="media-state">
+              <span class="state state-pending">Not yet published</span>
+              <p class="prose">Not yet published. An approved founder portrait publishes here once it is approved.</p>
+              <p class="note">Caption publishes with the portrait.</p>
             </div>
           </div>
-        </div>
+        </section>
+        <section class="section">
+          <h2 class="h2">Our standard is useful work.</h2>
+          <div class="prose">
+            <p>A compelling answer is a beginning. A useful result is what matters. We want the product to connect conversation, context, and action in ways that make a real difference to the owner’s working day.</p>
+          </div>
+        </section>
       </div>
-    </section>
+    </div>
 
-    <!-- A9 QUIET PASSAGE -->
-    <section class="section-tight anim">
-      <div class="container narrow" style="text-align:center">
-        <p class="lead" data-reveal>The brand voice on this page is the brand voice on the rest of the site. The same restraint, the same precision, the same sovereignty — when you draft a binder on Tuesday and when you draft a will on Saturday. The product reads the same; the user reads the same; the line reads the same.</p>
+    <div class="band band-alt">
+      <div class="container">
+        <section class="section">
+          <h2 class="h2">Our direction.</h2>
+          <div class="stack">
+            <div class="prose">
+              <p>A more capable personal AI worker. A community of people applying it to real industries. A future marketplace shaped around useful professional skills. We will distinguish what is available from what we are working toward.</p>
+            </div>
+            <div class="btn-row">
+              <a class="btn btn-secondary" href="/founding-500">Meet the founding programme</a>
+              <a class="btn btn-quiet" href="/contact">Get in touch</a>
+            </div>
+          </div>
+        </section>
+        <section class="section" id="press-kit">
+          <h2 class="h2">Press description</h2>
+          <div class="prose">
+            <p>Blue Spark is a founder-led professional AI automation product for Windows. It brings conversation, persistent working context, and computer tools together, with a local-first approach and a longer-term vision for a community-shaped skills ecosystem.</p>
+          </div>
+          <details class="faq">
+            <summary>Press and partner information</summary>
+            <p class="note">Not yet published. The partner introduction publishes here when it is supplied.</p>
+          </details>
+        </section>
       </div>
-    </section>
+    </div>
   </main>
 
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand">
-          <a class="brand" href="index.html">
-            <img class="brand-star" src="assets/img/star.png" alt="" width="24" height="24">
-            <span class="wordmark">Blue&nbsp;Spar<span class="k-wrap">k<i class="spark-tip" aria-hidden="true"></i></span></span>
-          </a>
-          <p>Clarity, on your machine. A premium desktop AI that runs locally, remembers what matters, speaks when spoken to, and stays out of the way.</p>
-        </div>
         <div class="footer-col">
-          <h4>Product</h4>
-          <ul role="list">
-            <li><a href="product.html">Product</a></li>
-            <li><a href="technology.html">Technology</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="download.html">Download</a></li>
-            <li><a href="roadmap.html">Roadmap</a></li>
+          <h3 class="h3">Product and downloads</h3>
+          <ul>
+            <li><a href="/product">Product</a></li>
+            <li><a href="/technology">How it works</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/download">Download and install</a></li>
+            <li><a href="/roadmap">Roadmap</a></li>
+            <li><a href="/marketplace">Marketplace</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Trust</h4>
-          <ul role="list">
-            <li><a href="dashboard.html">Public dashboard</a></li>
-            <li><a href="community.html">Community</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="legal.html#security">Security</a></li>
-            <li><a href="legal.html#status">Status</a></li>
+          <h3 class="h3">Learning and community</h3>
+          <ul>
+            <li><a href="/learn">Learn</a></li>
+            <li><a href="/work">Work in practice</a></li>
+            <li><a href="/journal">Journal</a></li>
+            <li><a href="/community">Community</a></li>
+            <li><a href="/founding-500">Founding 500</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>More</h4>
-          <ul role="list">
-            <li><a href="learn.html">Learn</a></li>
-            <li><a href="useful.html">Useful</a></li>
-            <li><a href="philosophical.html">Philosophical</a></li>
-            <li><a href="comical.html">Comical</a></li>
-            <li><a href="legal.html#terms">Terms</a> · <a href="legal.html#privacy">Privacy</a> · <a href="legal.html#license">License</a></li>
+          <h3 class="h3">Company and partnerships</h3>
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/enterprise">Enterprise</a></li>
+            <li><a href="/partners">Partnerships</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/transparency">Transparency</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="h3">Trust and legal</h3>
+          <ul>
+            <li><a href="/security">Security</a></li>
+            <li><a href="/status">Status</a></li>
+            <li><a href="/legal#terms">Terms</a></li>
+            <li><a href="/legal#privacy">Privacy</a></li>
+            <li><a href="/legal#license">Licence</a></li>
+            <li><a href="/legal#professional-use">Professional use</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-base">
-        <span>BLUE SPARK — CLARITY, ON YOUR MACHINE.</span>
-        <span class="byben">by ben</span>
+        <p>Blue Spark — professional AI automation for Windows.</p>
+        <p>© 2026 Blue Spark <span class="founder-credit">by ben</span></p>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/vendor/gsap.min.js"></script>
-  <script src="assets/js/vendor/ScrollTrigger.min.js"></script>
-  <script src="assets/js/vendor/SplitText.min.js"></script>
-  <script src="assets/js/cosmos.js"></script>
-  <script src="assets/js/scene-stars.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="/assets/js/vendor/gsap.min.js"></script>
+  <script src="/assets/js/vendor/ScrollTrigger.min.js"></script>
+  <script src="/assets/js/vendor/SplitText.min.js"></script>
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>

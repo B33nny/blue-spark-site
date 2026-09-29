@@ -3,185 +3,222 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Learn — Blue Spark</title>
-  <meta name="description" content="Building Blue Spark in public: the web-development learning log behind the product, the tracks, and a full stack disclosure of this very site.">
-  <meta property="og:title" content="Blue Spark — Learn">
-  <meta property="og:image" content="assets/img/medallion.png">
-  <meta name="theme-color" content="#06080F">
-  <link rel="icon" type="image/png" href="assets/img/star.png">
+  <title>Learn Blue Spark | Start Building Practical Automation</title>
+  <meta name="description" content="A practical starting point for building automation with Blue Spark: describe the job, test on an example, develop a recurring workflow, and build around your expertise.">
+  <link rel="canonical" href="https://bluespark.io/learn">
+  <meta property="og:title" content="Learn Blue Spark | Start Building Practical Automation">
+  <meta property="og:description" content="A practical starting point for building automation with Blue Spark: describe the job, test on an example, develop a recurring workflow, and build around your expertise.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bluespark.io/learn">
+  <meta property="og:image" content="https://bluespark.io/assets/img/og-star-1200x630.png">
+  <meta name="theme-color" content="#FAFAF7">
+  <link rel="icon" type="image/png" href="/assets/img/favicon-32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <style>
-    .log-panel { font-family: var(--font-mono); font-size: 12.5px; line-height: 1.9; }
-    .log-panel .date { color: var(--deep-5); }
-    .log-panel .done { color: var(--success); }
-    .log-panel .wip { color: var(--warn); }
-    .track-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    @media (max-width: 800px) { .track-cards { grid-template-columns: 1fr; } }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-<body data-page="learn">
-  <canvas id="cosmos" aria-hidden="true"></canvas>
-  <div class="grid-veil" aria-hidden="true"></div>
-  <div class="scroll-progress" aria-hidden="true"></div>
-
-  <div class="topbar-status mono" aria-hidden="true">
-    <span class="status-dot ok"></span><span>LOCAL:NOMINAL</span>
-    <span class="sep">·</span><span>V1.0.5</span>
-    <span class="sep">·</span><span class="tnum" data-utc>00:00:00 UTC</span>
-    <span class="right">SOVEREIGN&nbsp;&nbsp;·&nbsp;&nbsp;LOCAL&nbsp;&nbsp;·&nbsp;&nbsp;PRIVATE</span>
-  </div>
+<body class="band" data-page="/learn">
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="nav">
-    <a class="brand" href="index.html" aria-label="Blue Spark home">
-      <img class="brand-star" src="assets/img/star.png" alt="" width="26" height="26">
-      <span class="wordmark">Blue&nbsp;Spar<span class="k-wrap">k<i class="spark-tip" aria-hidden="true"></i></span></span>
-    </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="product.html">Product</a>
-      <a href="technology.html">Technology</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="marketplace.html">Marketplace</a>
-      <a href="roadmap.html">Roadmap</a>
-      <a href="about.html">About</a>
-      <a href="community.html">Community</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="learn.html">Learn</a>
-      <a class="nav-cta" href="download.html">Download</a>
-    </nav>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    <div class="container nav-inner">
+      <a class="brand" href="/" aria-label="Blue Spark home">
+        <img class="brand-mark" src="/assets/img/mark-128.png" alt="" width="22" height="22">
+        <span class="wordmark">Blue Spark</span>
+      </a>
+      <nav class="nav-groups" aria-label="Primary">
+        <details class="menu"><summary>Product</summary>
+          <div class="menu-panel">
+            <a href="/product">Product</a>
+            <a href="/technology">How it works</a>
+            <a href="/marketplace">Marketplace</a>
+            <a href="/roadmap">Roadmap</a>
+            <a href="/enterprise">For your business</a>
+            <a href="/download">Download and install</a>
+          </div></details>
+        <a href="/work">Work in practice</a>
+        <a href="/founding-500">Founding 500</a>
+        <a href="/pricing">Pricing</a>
+        <details class="menu"><summary>Company</summary>
+          <div class="menu-panel">
+            <a href="/about">About</a>
+            <a href="/community">Community</a>
+            <a href="/journal">Journal</a>
+            <a href="/journal/perspectives">Perspectives</a>
+            <a href="/journal/lighter-side">The lighter side</a>
+            <a href="/partners">Partnerships</a>
+            <a href="/transparency">Transparency</a>
+            <a href="/contact">Contact</a>
+            <a href="/legal">Legal</a>
+            <a href="/security">Security</a>
+            <a href="/status">Status</a>
+          </div></details>
+      </nav>
+      <a class="btn btn-primary nav-action" href="/founding-500">Apply for Founding 500</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
   </header>
-  <div class="mobile-menu" role="dialog" aria-label="Menu">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="product.html">Product</a>
-      <a href="technology.html">Technology</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="marketplace.html">Marketplace</a>
-      <a href="roadmap.html">Roadmap</a>
-      <a href="about.html">About</a>
-      <a href="community.html">Community</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="download.html">Download</a>
-      <a href="learn.html">Learn</a>
-    </nav>
+
+  <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="stack">
+      <nav aria-label="Product">
+        <h3 class="h3">Product</h3>
+        <a href="/product">Product</a>
+        <a href="/technology">How it works</a>
+        <a href="/marketplace">Marketplace</a>
+        <a href="/roadmap">Roadmap</a>
+        <a href="/enterprise">For your business</a>
+        <a href="/download">Download and install</a>
+      </nav>
+      <nav aria-label="Company">
+        <h3 class="h3">Company</h3>
+        <a href="/about">About</a>
+        <a href="/community">Community</a>
+        <a href="/journal">Journal</a>
+        <a href="/journal/perspectives">Perspectives</a>
+        <a href="/journal/lighter-side">The lighter side</a>
+        <a href="/partners">Partnerships</a>
+        <a href="/transparency">Transparency</a>
+        <a href="/contact">Contact</a>
+        <a href="/legal">Legal</a>
+        <a href="/security">Security</a>
+        <a href="/status">Status</a>
+      </nav>
+      <nav aria-label="More">
+        <h3 class="h3">More</h3>
+        <a href="/work">Work in practice</a>
+        <a href="/founding-500">Founding 500</a>
+        <a href="/pricing">Pricing</a>
+      </nav>
+      <a class="btn btn-primary" href="/founding-500">Apply for Founding 500</a>
+    </div>
   </div>
 
   <main id="main">
-    <!-- HERO -->
-    <section class="hero" style="min-height:auto">
-      <div class="container" style="display:grid;gap:22px">
-        <span class="pill anim"><span class="dot"></span> /learn · built in public</span>
-        <h1 class="display-64" data-split>Building Blue Spark in public.</h1>
-        <p class="lead" data-reveal>The product was built by someone learning web development in the open. This page is that log: what was learned, what shipped, what's in progress, and exactly what this site is built with. For the engineers who want receipts, and for anyone deciding whether to start their own.</p>
-      </div>
-    </section>
 
-    <!-- LOG -->
-    <section class="section anim">
-      <div class="container narrow">
-        <div class="section-head">
-          <span class="eyebrow" data-reveal>The log</span>
-          <h2 class="display-32" data-reveal>What shipped. What's next.</h2>
-        </div>
-        <div class="glass-card log-panel hud" data-reveal><span class="hud-b"></span>
-          <p><span class="date">2026-08</span> <span class="done">[done]</span> HTML5, CSS3, JavaScript foundations — the site you are reading is the output.</p>
-          <p><span class="date">2026-08</span> <span class="done">[done]</span> Tools: VS Code, browser DevTools, Git/GitHub. Branching model: main + feature branches, squash merges.</p>
-          <p><span class="date">2026-09</span> <span class="done">[done]</span> Hosting: static deploy — GitHub Pages / Vercel / Netlify all valid targets; DNS + SSL at the registrar.</p>
-          <p><span class="date">2026-09</span> <span class="wip">[wip]</span> Frameworks: evaluating when a framework earns its place. This site ships without one.</p>
-          <p><span class="date">2026-10</span> <span class="wip">[wip]</span> The 4-week beginner roadmap and the no-code vs code comparison — publishing as they're finished.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TRACKS -->
-    <section class="section anim" data-stagger>
+    <div class="band">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow" data-reveal>The tracks</span>
-          <h2 class="display-32" data-reveal>Four tracks. Real notes, not tutorials.</h2>
-        </div>
-        <div class="track-cards">
-          <div class="glass-card hud" data-reveal><span class="hud-b"></span><h3>Foundation</h3><p class="muted">HTML5, CSS3, JavaScript. One learning-log essay per topic — what confused me, what clicked, what I'd tell last-month me.</p></div>
-          <div class="glass-card hud" data-reveal><span class="hud-b"></span><h3>Tools</h3><p class="muted">VS Code, browser DevTools, Git/GitHub. The actual extensions in use, the actual .gitignore shipped, the actual branching model.</p></div>
-          <div class="glass-card hud" data-reveal><span class="hud-b"></span><h3>Hosting</h3><p class="muted">GitHub Pages, Vercel, Netlify, DNS, SSL — including the deployment config this site uses, disclosed once it's pinned.</p></div>
-          <div class="glass-card hud" data-reveal><span class="hud-b"></span><h3>Frameworks</h3><p class="muted">Tailwind, React/Vue/Svelte, WordPress/Framer/Webflow — honest notes on which earns a place and why. This site ships with none of them; that's a data point too.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- STACK DISCLOSURE (11.8) -->
-    <section class="section anim">
-      <div class="container narrow">
-        <div class="section-head">
-          <span class="eyebrow" data-reveal>What this site is built with</span>
-          <h2 class="display-32" data-reveal>The stack disclosure.</h2>
-        </div>
-        <div class="glass-card hud" data-reveal><span class="hud-b"></span>
-          <p class="lead">This site is vanilla HTML, CSS, and JavaScript. No framework, no build step, no tracker, no analytics. GSAP 3.13 (ScrollTrigger + SplitText) drives the scroll choreography. The background field is a hand-written WebGL shader. The fonts are Space Grotesk, Inter, and JetBrains Mono. The brand assets are the Compass Star medallion and the ringless 8-point star. See the repo for the source.</p>
-          <div class="btn-row" style="margin-top:16px">
-            <a class="btn btn-ghost" href="https://github.com" rel="noopener">View the repo</a>
-            <a class="link-quiet" href="index.html">Back to start →</a>
+        <section class="section">
+          <h1 class="h1">You know the work. Start with that.</h1>
+          <p class="lead">You do not need to learn everything about AI before you begin. Start with one task, describe the result you need, and build from a useful first outcome.</p>
+        </section>
+        <section class="section" id="guides">
+          <ul class="step-list">
+            <li class="step">
+              <h2 class="h2">Describe the job clearly.</h2>
+              <div class="prose">
+                <p>Explain the starting information, the action you want, and what a good result should contain. “Help with my business” is broad. “Use these notes to prepare a client-meeting brief with open questions” gives the work a shape.</p>
+              </div>
+              <div class="media-state">
+                <span class="state state-pending">Not yet published</span>
+                <p class="prose">Not yet published. This guide publishes when the lesson is complete.</p>
+              </div>
+            </li>
+            <li class="step">
+              <h2 class="h2">Test on an example.</h2>
+              <div class="prose">
+                <p>Use material you can safely work with. Inspect the result, identify what needs correcting, and make your expectations clearer before using the process more widely.</p>
+              </div>
+              <div class="media-state">
+                <span class="state state-pending">Not yet published</span>
+                <p class="prose">Not yet published. This guide publishes when the lesson is complete.</p>
+              </div>
+            </li>
+            <li class="step">
+              <h2 class="h2">Develop a recurring workflow.</h2>
+              <div class="prose">
+                <p>Notice what repeats. Which inputs change? Which rules stay the same? Which decisions should remain yours? Use those answers to make the automation more useful and predictable.</p>
+              </div>
+              <div class="media-state">
+                <span class="state state-pending">Not yet published</span>
+                <p class="prose">Not yet published. This guide publishes when the lesson is complete.</p>
+              </div>
+            </li>
+            <li class="step">
+              <h2 class="h2">Build around your expertise.</h2>
+              <div class="prose">
+                <p>Your industry knowledge is valuable context. Start with what you already do well, then explore how Blue Spark can help carry out the supported parts of that work.</p>
+              </div>
+              <div class="media-state">
+                <span class="state state-pending">Not yet published</span>
+                <p class="prose">Not yet published. This guide publishes when the lesson is complete.</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section class="section">
+          <h2 class="h2">Learn with Ben.</h2>
+          <div class="prose">
+            <p>The Founding 500 includes founder-led automation teaching through partner-coordinated group Zoom sessions.</p>
           </div>
-        </div>
+        </section>
+        <section class="section">
+          <div class="btn-row">
+            <a class="btn btn-secondary" href="/learn#guides">Browse available guides</a>
+            <a class="btn btn-primary" href="/founding-500">Explore Founding 500</a>
+          </div>
+        </section>
       </div>
-    </section>
+    </div>
   </main>
 
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand">
-          <a class="brand" href="index.html">
-            <img class="brand-star" src="assets/img/star.png" alt="" width="24" height="24">
-            <span class="wordmark">Blue&nbsp;Spar<span class="k-wrap">k<i class="spark-tip" aria-hidden="true"></i></span></span>
-          </a>
-          <p>Clarity, on your machine. A premium desktop AI that runs locally, remembers what matters, speaks when spoken to, and stays out of the way.</p>
-        </div>
         <div class="footer-col">
-          <h4>Product</h4>
-          <ul role="list">
-            <li><a href="product.html">Product</a></li>
-            <li><a href="technology.html">Technology</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="download.html">Download</a></li>
-            <li><a href="roadmap.html">Roadmap</a></li>
+          <h3 class="h3">Product and downloads</h3>
+          <ul>
+            <li><a href="/product">Product</a></li>
+            <li><a href="/technology">How it works</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/download">Download and install</a></li>
+            <li><a href="/roadmap">Roadmap</a></li>
+            <li><a href="/marketplace">Marketplace</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Trust</h4>
-          <ul role="list">
-            <li><a href="dashboard.html">Public dashboard</a></li>
-            <li><a href="community.html">Community</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="legal.html#security">Security</a></li>
-            <li><a href="legal.html#status">Status</a></li>
+          <h3 class="h3">Learning and community</h3>
+          <ul>
+            <li><a href="/learn">Learn</a></li>
+            <li><a href="/work">Work in practice</a></li>
+            <li><a href="/journal">Journal</a></li>
+            <li><a href="/community">Community</a></li>
+            <li><a href="/founding-500">Founding 500</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>More</h4>
-          <ul role="list">
-            <li><a href="learn.html">Learn</a></li>
-            <li><a href="useful.html">Useful</a></li>
-            <li><a href="philosophical.html">Philosophical</a></li>
-            <li><a href="comical.html">Comical</a></li>
-            <li><a href="legal.html#terms">Terms</a> · <a href="legal.html#privacy">Privacy</a> · <a href="legal.html#license">License</a></li>
+          <h3 class="h3">Company and partnerships</h3>
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/enterprise">Enterprise</a></li>
+            <li><a href="/partners">Partnerships</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/transparency">Transparency</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="h3">Trust and legal</h3>
+          <ul>
+            <li><a href="/security">Security</a></li>
+            <li><a href="/status">Status</a></li>
+            <li><a href="/legal#terms">Terms</a></li>
+            <li><a href="/legal#privacy">Privacy</a></li>
+            <li><a href="/legal#license">Licence</a></li>
+            <li><a href="/legal#professional-use">Professional use</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-base">
-        <span>BLUE SPARK — CLARITY, ON YOUR MACHINE.</span>
-        <span class="byben">by ben</span>
+        <p>Blue Spark — professional AI automation for Windows.</p>
+        <p>© 2026 Blue Spark <span class="founder-credit">by ben</span></p>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/vendor/gsap.min.js"></script>
-  <script src="assets/js/vendor/ScrollTrigger.min.js"></script>
-  <script src="assets/js/vendor/SplitText.min.js"></script>
-  <script src="assets/js/cosmos.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="/assets/js/vendor/gsap.min.js"></script>
+  <script src="/assets/js/vendor/ScrollTrigger.min.js"></script>
+  <script src="/assets/js/vendor/SplitText.min.js"></script>
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>

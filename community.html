@@ -3,281 +3,210 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Community — Blue Spark</title>
-  <meta name="description" content="Two contracts on one page: the community vote that decides the Marketplace, and the compliance ladder that promises how we will treat your attention.">
-  <meta property="og:title" content="Blue Spark — Community">
-  <meta property="og:image" content="assets/img/medallion.png">
-  <meta name="theme-color" content="#06080F">
-  <link rel="icon" type="image/png" href="assets/img/star.png">
+  <title>Blue Spark Community | Learn, Build and Contribute</title>
+  <meta name="description" content="How the Blue Spark founding community works: what to bring, how teaching sessions run, how members contribute, and the conduct expected of everyone.">
+  <link rel="canonical" href="https://bluespark.io/community">
+  <meta property="og:title" content="Blue Spark Community | Learn, Build and Contribute">
+  <meta property="og:description" content="How the Blue Spark founding community works: what to bring, how teaching sessions run, how members contribute, and the conduct expected of everyone.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bluespark.io/community">
+  <meta property="og:image" content="https://bluespark.io/assets/img/og-star-1200x630.png">
+  <meta name="theme-color" content="#FAFAF7">
+  <link rel="icon" type="image/png" href="/assets/img/favicon-32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <style>
-    .ladder { counter-reset: rung; display: grid; gap: 10px; }
-    .rung { counter-increment: rung; display: grid; grid-template-columns: 52px 1fr 1fr; gap: 18px; border: 1px solid var(--glass-border); border-radius: 8px; background: var(--glass-bg); padding: 16px 20px; align-items: baseline; }
-    .rung::before { content: "R" counter(rung); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; color: var(--deep-5); }
-    .rung .ask { color: var(--spark-warm); font-family: var(--font-display); font-weight: 500; }
-    .rung .offer { color: var(--steel-2); font-size: 0.88rem; }
-    .chan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .chan h3 { display: flex; align-items: center; gap: 10px; }
-    .chan .state { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; padding: 3px 8px; border-radius: 999px; border: 1px solid var(--glass-border-hi); color: var(--steel-3); }
-    .chan .state.open { color: var(--success); border-color: rgba(74,222,128,0.4); }
-    .chan .state.planned { color: var(--spark-cool); border-color: rgba(147,197,253,0.35); }
-    .topics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .topic { border: 1px solid var(--glass-border); border-radius: 6px; padding: 12px 14px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--spark-cool); background: var(--glass-bg); }
-    @media (max-width: 900px) { .ladder { grid-template-columns: 1fr; } .rung { grid-template-columns: 1fr; gap: 6px; } .chan-grid { grid-template-columns: 1fr; } .topics { grid-template-columns: 1fr 1fr; } }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-<body data-page="community">
-  <canvas id="cosmos" aria-hidden="true"></canvas>
-  <div class="grid-veil" aria-hidden="true"></div>
-  <div class="scroll-progress" aria-hidden="true"></div>
-
-  <div class="topbar-status mono" aria-hidden="true">
-    <span class="status-dot ok"></span><span>LOCAL:NOMINAL</span>
-    <span class="sep">·</span><span>V1.0.5</span>
-    <span class="sep">·</span><span class="tnum" data-utc>00:00:00 UTC</span>
-    <span class="right">SOVEREIGN&nbsp;&nbsp;·&nbsp;&nbsp;LOCAL&nbsp;&nbsp;·&nbsp;&nbsp;PRIVATE</span>
-  </div>
+<body class="band" data-page="/community">
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="nav">
-    <a class="brand" href="index.html" aria-label="Blue Spark home">
-      <img class="brand-star" src="assets/img/star.png" alt="" width="26" height="26">
-      <span class="wordmark">Blue&nbsp;Spar<span class="k-wrap">k<i class="spark-tip" aria-hidden="true"></i></span></span>
-    </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="product.html">Product</a>
-      <a href="technology.html">Technology</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="marketplace.html">Marketplace</a>
-      <a href="roadmap.html">Roadmap</a>
-      <a href="about.html">About</a>
-      <a href="community.html">Community</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="learn.html">Learn</a>
-      <a class="nav-cta" href="download.html">Download</a>
-    </nav>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    <div class="container nav-inner">
+      <a class="brand" href="/" aria-label="Blue Spark home">
+        <img class="brand-mark" src="/assets/img/mark-128.png" alt="" width="22" height="22">
+        <span class="wordmark">Blue Spark</span>
+      </a>
+      <nav class="nav-groups" aria-label="Primary">
+        <details class="menu"><summary>Product</summary>
+          <div class="menu-panel">
+            <a href="/product">Product</a>
+            <a href="/technology">How it works</a>
+            <a href="/marketplace">Marketplace</a>
+            <a href="/roadmap">Roadmap</a>
+            <a href="/enterprise">For your business</a>
+            <a href="/download">Download and install</a>
+          </div></details>
+        <a href="/work">Work in practice</a>
+        <a href="/founding-500">Founding 500</a>
+        <a href="/pricing">Pricing</a>
+        <details class="menu"><summary>Company</summary>
+          <div class="menu-panel">
+            <a href="/about">About</a>
+            <a href="/community">Community</a>
+            <a href="/journal">Journal</a>
+            <a href="/journal/perspectives">Perspectives</a>
+            <a href="/journal/lighter-side">The lighter side</a>
+            <a href="/partners">Partnerships</a>
+            <a href="/transparency">Transparency</a>
+            <a href="/contact">Contact</a>
+            <a href="/legal">Legal</a>
+            <a href="/security">Security</a>
+            <a href="/status">Status</a>
+          </div></details>
+      </nav>
+      <a class="btn btn-primary nav-action" href="/founding-500">Apply for Founding 500</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
   </header>
-  <div class="mobile-menu" role="dialog" aria-label="Menu">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="product.html">Product</a>
-      <a href="technology.html">Technology</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="marketplace.html">Marketplace</a>
-      <a href="roadmap.html">Roadmap</a>
-      <a href="about.html">About</a>
-      <a href="community.html">Community</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="download.html">Download</a>
-      <a href="learn.html">Learn</a>
-    </nav>
+
+  <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="stack">
+      <nav aria-label="Product">
+        <h3 class="h3">Product</h3>
+        <a href="/product">Product</a>
+        <a href="/technology">How it works</a>
+        <a href="/marketplace">Marketplace</a>
+        <a href="/roadmap">Roadmap</a>
+        <a href="/enterprise">For your business</a>
+        <a href="/download">Download and install</a>
+      </nav>
+      <nav aria-label="Company">
+        <h3 class="h3">Company</h3>
+        <a href="/about">About</a>
+        <a href="/community">Community</a>
+        <a href="/journal">Journal</a>
+        <a href="/journal/perspectives">Perspectives</a>
+        <a href="/journal/lighter-side">The lighter side</a>
+        <a href="/partners">Partnerships</a>
+        <a href="/transparency">Transparency</a>
+        <a href="/contact">Contact</a>
+        <a href="/legal">Legal</a>
+        <a href="/security">Security</a>
+        <a href="/status">Status</a>
+      </nav>
+      <nav aria-label="More">
+        <h3 class="h3">More</h3>
+        <a href="/work">Work in practice</a>
+        <a href="/founding-500">Founding 500</a>
+        <a href="/pricing">Pricing</a>
+      </nav>
+      <a class="btn btn-primary" href="/founding-500">Apply for Founding 500</a>
+    </div>
   </div>
 
   <main id="main">
-    <!-- HERO -->
-    <section class="hero" style="min-height:auto">
-      <div class="container" style="display:grid;gap:22px">
-        <span class="pill anim"><span class="dot"></span> /community</span>
-        <h1 class="display-64" data-split>Two contracts. One page.</h1>
-        <p class="lead" data-reveal>Read this page if you want to participate in deciding what the Marketplace becomes, and if you want to know exactly what we will and won't do to get you there. Read it once, and the rest of your time here is yours.</p>
-        <div class="btn-row" data-reveal>
-          <a class="btn btn-primary" href="#creator-cohort">Apply to the creator cohort</a>
-          <a class="btn btn-ghost" href="#vote">Read the vote plan</a>
-          <a class="link-quiet" href="#channels">Join a channel →</a>
-        </div>
-      </div>
-    </section>
 
-    <!-- C1 PRINCIPLE -->
-    <section class="section anim">
-      <div class="container narrow">
-        <div class="section-head">
-          <span class="eyebrow" data-reveal>C1 — The community-driven principle</span>
-          <h2 class="display-32" data-reveal>We will not ship a Marketplace we haven't asked you to design.</h2>
-        </div>
-        <p class="lead" data-reveal>There is no forced, top-down Marketplace model at launch. We are not picking the fee structure, the revenue split, the sale-vs-rental default, the quality bar, the payout cadence, or the creator protections and shipping them. The early-adopter community votes on every one of those decisions, and the rules that ship in Q1 2027 are the rules the community approves.</p>
-        <p class="lead" data-reveal style="margin-top:14px;color:var(--spark-warm)">We could ship faster without it. We are not shipping faster.</p>
-      </div>
-    </section>
-
-    <!-- C2 VOTE -->
-    <section class="section anim" id="vote" data-stagger>
-      <div class="container grid-2" style="align-items:start">
-        <div>
-          <div class="section-head">
-            <span class="eyebrow" data-reveal>C2 — The vote</span>
-            <h2 class="display-32" data-reveal>How a Marketplace mechanic becomes a rule.</h2>
+    <div class="band">
+      <div class="container">
+        <section class="section">
+          <h1 class="h1">A community that puts ideas to work.</h1>
+          <p class="lead">Blue Spark’s founding community brings people from different professions together around a shared aim: learning to turn real work into useful automation.</p>
+        </section>
+        <section class="section">
+          <h2 class="h2">Bring something from your working day.</h2>
+          <div class="prose">
+            <p>A repeated task, a stubborn process, or an idea for a better way to serve customers. The most useful starting point is the work you understand.</p>
           </div>
-          <p class="body-text" data-reveal><strong style="color:var(--spark-warm)">Who votes.</strong> Pro subscribers, and creators who have submitted at least one skill. The vote is closed to the public; it is open to the people who have skin in the network.</p>
-          <p class="body-text" data-reveal style="margin-top:12px"><strong style="color:var(--spark-warm)">The mechanism.</strong> Quadratic voting. Each Pro voter gets 100 voice-credits across six topics; each creator with a submitted skill gets an extra 50, because they bear the platform's downside more directly. Spending all your credits on one topic weighs more than spreading them — the most passionate voter has a louder voice, but not total control. The voting mechanism itself is open-source. Anyone can audit the result.</p>
-          <p class="body-text" data-reveal style="margin-top:12px"><strong style="color:var(--spark-warm)">The topics.</strong> Each gets a default in the preliminary plan on November 1. The community discusses, amends, replaces.</p>
-        </div>
-        <div style="display:grid;gap:16px">
-          <div class="topics" data-stagger>
-            <span class="topic" data-reveal>Platform fee</span>
-            <span class="topic" data-reveal>Revenue split</span>
-            <span class="topic" data-reveal>Sale vs rental</span>
-            <span class="topic" data-reveal>Quality bar</span>
-            <span class="topic" data-reveal>Payout cadence</span>
-            <span class="topic" data-reveal>Creator protections</span>
-          </div>
-          <div class="glass-card hud" data-reveal><span class="hud-b"></span>
-            <h3>Schedule</h3>
-            <div class="timeline" style="margin-top:12px">
-              <div class="timeline-item"><span class="when">Nov 1, 2026</span><p class="muted" style="font-size:0.9rem">Preliminary plan publishes. Free to read.</p></div>
-              <div class="timeline-item"><span class="when">Nov 8</span><p class="muted" style="font-size:0.9rem">Community AMA. Live, public, recorded.</p></div>
-              <div class="timeline-item"><span class="when">Nov 15</span><p class="muted" style="font-size:0.9rem">Vote opens.</p></div>
-              <div class="timeline-item"><span class="when">Nov 22</span><p class="muted" style="font-size:0.9rem">Position paper publishes.</p></div>
-              <div class="timeline-item"><span class="when">Nov 30</span><p class="muted" style="font-size:0.9rem">Vote closes. Results publish the same day.</p></div>
-              <div class="timeline-item"><span class="when">Q1 2027</span><p class="muted" style="font-size:0.9rem">Marketplace launches with the community-approved rules.</p></div>
+        </section>
+        <section class="section">
+          <div class="stack">
+            <h2 class="h2">Learn through conversation and practice.</h2>
+            <div class="prose">
+              <p>Founder-led group Zoom sessions provide a place to ask questions, understand the approach, and apply it to your own industry. Our partner coordinates the sessions and the practical arrangements.</p>
+            </div>
+            <div class="media-state">
+              <span class="state state-pending">Not yet published</span>
+              <p class="prose">Not yet published. The partner introduction publishes here when it is supplied.</p>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- C3 COMPLIANCE LADDER -->
-    <section class="section anim" data-stagger>
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow" data-reveal>C3 — The compliance ladder</span>
-          <h2 class="display-32" data-reveal>From Watch to Creator, on rungs you can leave behind.</h2>
-          <p class="muted" data-reveal>Each rung presupposes the last. You can leave at any rung without justification. There is no dark pattern on this site.</p>
-        </div>
-        <div class="ladder">
-          <div class="rung" data-reveal><span class="ask">Watch. No signup.</span><span class="offer">Public video content, free to view.</span></div>
-          <div class="rung" data-reveal><span class="ask">Like, follow, comment.</span><span class="offer">A passive public engagement. You can stop at any time.</span></div>
-          <div class="rung" data-reveal><span class="ask">Substack follow.</span><span class="offer">One-click unsubscribe in every email. We never pre-check the box.</span></div>
-          <div class="rung" data-reveal><span class="ask">Waitlist email.</span><span class="offer">One-click unsubscribe. We don't share the list. We don't sell it.</span></div>
-          <div class="rung" data-reveal><span class="ask">Install the assistant.</span><span class="offer">Your data on your machine. The base never converts away from you.</span></div>
-          <div class="rung" data-reveal><span class="ask">Activate via email.</span><span class="offer">A 14-day offline grace period so a network outage doesn't lock you out.</span></div>
-          <div class="rung" data-reveal><span class="ask">Upgrade to Pro.</span><span class="offer">Cancel anytime. Your memory and files stay accessible.</span></div>
-          <div class="rung" data-reveal><span class="ask">Public testimonial.</span><span class="offer">We ask; you decide. You can take it back at any time.</span></div>
-          <div class="rung" data-reveal><span class="ask">Creator submission.</span><span class="offer">The cap is 50 for the first cohort. We onboard with you. We publish with you.</span></div>
-        </div>
-        <div class="glass-card hud" data-reveal style="margin-top:26px"><span class="hud-b"></span>
-          <h3>What we never do</h3>
-          <div class="grid-4" style="margin-top:12px">
-            <p class="muted">No fake countdown timer</p>
-            <p class="muted">No "X people viewing"</p>
-            <p class="muted">No hidden auto-renew</p>
-            <p class="muted">No pre-checked opt-in boxes</p>
-            <p class="muted">No decoy pricing tier</p>
-            <p class="muted">No trick questions in activation</p>
-            <p class="muted">No re-engagement traps on exit</p>
-            <p class="muted">No fabricated community size</p>
+        </section>
+        <section class="section">
+          <div class="stack">
+            <h2 class="h2">Contribute to what comes next.</h2>
+            <div class="prose">
+              <p>Members will help inform the skills marketplace planned for 2027. We want to hear what makes a skill useful, what creators need, and what buyers need to trust it.</p>
+            </div>
+            <p><span class="state state-planned">Planned for 2027</span></p>
           </div>
-        </div>
+        </section>
       </div>
-    </section>
+    </div>
 
-    <!-- C4 CREATOR -->
-    <section class="section anim" id="creator-cohort">
-      <div class="container narrow">
-        <div class="glass-card hud" data-reveal><span class="hud-b"></span>
-          <span class="eyebrow" style="display:block;margin-bottom:10px">C4 — Becoming a creator, in 50 spots</span>
-          <h2 class="display-32" style="margin-bottom:14px">The first cohort is fifty. We onboard with you.</h2>
-          <p class="lead">The application is short. Three things we ask: what the skill is, who it's for, and what shape you imagine the license to take. We review with you. We onboard with you. We publish with you. The bar is a real skill, from a real domain expert, with a real buyer in mind. Not wrappers. Not prompt collections.</p>
-          <p class="lead" style="margin-top:12px">The cap is deliberate — a design choice, not a scarcity tactic. The skill review, the installation flow, the audit ledger, the payout cadence all need to be proven on a small cohort before they scale.</p>
-          <div class="btn-row" style="margin-top:18px">
-            <a class="btn btn-primary" href="marketplace.html">Apply to the first 50</a>
-            <a class="link-quiet" href="marketplace.html">Read the vision →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- C5 CHANNELS -->
-    <section class="section anim" id="channels" data-stagger>
+    <div class="band band-alt">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow" data-reveal>C5 — Channels and rhythms</span>
-          <h2 class="display-32" data-reveal>Where the conversation happens.</h2>
-        </div>
-        <div class="chan-grid">
-          <div class="glass-card chan hud" data-reveal><span class="hud-b"></span><h3>Discord <span class="state planned">OPENS WITH COHORT 1</span></h3><p class="muted">Live conversation, AMA announcements, workspace channels by topic. Joining is one click; leaving is one click.</p></div>
-          <div class="glass-card chan hud" data-reveal><span class="hud-b"></span><h3>Telegram <span class="state planned">OPENS WITH COHORT 1</span></h3><p class="muted">Lower-traffic mirror for the same conversation. Useful when Discord is unavailable or unfamiliar.</p></div>
-          <div class="glass-card chan hud" data-reveal><span class="hud-b"></span><h3>GitHub Discussions <span class="state open">LIVE</span></h3><p class="muted">Long-form threads where technical topics land. Each thread searchable and permalink-archived. Sovereign builders prefer this.</p></div>
-          <div class="glass-card chan hud" data-reveal><span class="hud-b"></span><h3>Substack <span class="state planned">WITH THE MANIFESTO</span></h3><p class="muted">Long-form essays, two per month. One-click unsubscribe in every email.</p></div>
-          <div class="glass-card chan hud" data-reveal><span class="hud-b"></span><h3>YouTube <span class="state planned">WITH THE LAUNCH SEQUENCE</span></h3><p class="muted">The Useful and Comical tonal tracks. Subscribe is one click; unsubscribe is one click.</p></div>
-          <div class="glass-card chan hud" data-reveal><span class="hud-b"></span><h3>Sovereign Builders <span class="state planned">Q2 2027</span></h3><p class="muted">The first event for the most technical readers. Format shaped by the first cohort. Details land when we have them.</p></div>
-        </div>
+        <section class="section" id="guidelines">
+          <h2 class="h2">Respect the room.</h2>
+          <div class="prose">
+            <p>Be constructive. Protect client and member confidentiality. Share only information you are entitled to share. Give others room to learn. The community is a place to develop capability, not a promise of clients, income, or permanent founder availability.</p>
+          </div>
+        </section>
+        <section class="section">
+          <div class="btn-row">
+            <a class="btn btn-primary" href="/founding-500">Explore Founding 500</a>
+            <a class="btn btn-secondary" href="/community#guidelines">Read participation guidelines</a>
+          </div>
+        </section>
       </div>
-    </section>
-
-    <!-- C8 HONEST SCALE -->
-    <section class="section-tight anim">
-      <div class="container narrow">
-        <div class="glass-card hud" data-reveal style="border-color:rgba(147,197,253,0.3)"><span class="hud-b"></span>
-          <span class="eyebrow" style="display:block;margin-bottom:10px">C8 — Honest about scale</span>
-          <p class="lead">The KPI for community size is one thousand members by end of November 2026. Today, the community is smaller than that. We say so. The <a href="dashboard.html">dashboard</a> is the live source for community numbers; the moment it knows a real number, it will be there.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- C9 QUIET -->
-    <section class="section-tight anim">
-      <div class="container narrow" style="text-align:center">
-        <p class="lead" data-reveal>The community reads across the week. The same votes that shape the Marketplace shape the assistant you bring home. The channels are open across the week. The participation ladder doesn't clock out.</p>
-      </div>
-    </section>
+    </div>
   </main>
 
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand">
-          <a class="brand" href="index.html">
-            <img class="brand-star" src="assets/img/star.png" alt="" width="24" height="24">
-            <span class="wordmark">Blue&nbsp;Spar<span class="k-wrap">k<i class="spark-tip" aria-hidden="true"></i></span></span>
-          </a>
-          <p>Clarity, on your machine. A premium desktop AI that runs locally, remembers what matters, speaks when spoken to, and stays out of the way.</p>
-        </div>
         <div class="footer-col">
-          <h4>Product</h4>
-          <ul role="list">
-            <li><a href="product.html">Product</a></li>
-            <li><a href="technology.html">Technology</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="download.html">Download</a></li>
-            <li><a href="roadmap.html">Roadmap</a></li>
+          <h3 class="h3">Product and downloads</h3>
+          <ul>
+            <li><a href="/product">Product</a></li>
+            <li><a href="/technology">How it works</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/download">Download and install</a></li>
+            <li><a href="/roadmap">Roadmap</a></li>
+            <li><a href="/marketplace">Marketplace</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Trust</h4>
-          <ul role="list">
-            <li><a href="dashboard.html">Public dashboard</a></li>
-            <li><a href="community.html">Community</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="legal.html#security">Security</a></li>
-            <li><a href="legal.html#status">Status</a></li>
+          <h3 class="h3">Learning and community</h3>
+          <ul>
+            <li><a href="/learn">Learn</a></li>
+            <li><a href="/work">Work in practice</a></li>
+            <li><a href="/journal">Journal</a></li>
+            <li><a href="/community">Community</a></li>
+            <li><a href="/founding-500">Founding 500</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>More</h4>
-          <ul role="list">
-            <li><a href="learn.html">Learn</a></li>
-            <li><a href="useful.html">Useful</a></li>
-            <li><a href="philosophical.html">Philosophical</a></li>
-            <li><a href="comical.html">Comical</a></li>
-            <li><a href="legal.html#terms">Terms</a> · <a href="legal.html#privacy">Privacy</a> · <a href="legal.html#license">License</a></li>
+          <h3 class="h3">Company and partnerships</h3>
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/enterprise">Enterprise</a></li>
+            <li><a href="/partners">Partnerships</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/transparency">Transparency</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="h3">Trust and legal</h3>
+          <ul>
+            <li><a href="/security">Security</a></li>
+            <li><a href="/status">Status</a></li>
+            <li><a href="/legal#terms">Terms</a></li>
+            <li><a href="/legal#privacy">Privacy</a></li>
+            <li><a href="/legal#license">Licence</a></li>
+            <li><a href="/legal#professional-use">Professional use</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-base">
-        <span>BLUE SPARK — CLARITY, ON YOUR MACHINE.</span>
-        <span class="byben">by ben</span>
+        <p>Blue Spark — professional AI automation for Windows.</p>
+        <p>© 2026 Blue Spark <span class="founder-credit">by ben</span></p>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/vendor/gsap.min.js"></script>
-  <script src="assets/js/vendor/ScrollTrigger.min.js"></script>
-  <script src="assets/js/vendor/SplitText.min.js"></script>
-  <script src="assets/js/cosmos.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="/assets/js/vendor/gsap.min.js"></script>
+  <script src="/assets/js/vendor/ScrollTrigger.min.js"></script>
+  <script src="/assets/js/vendor/SplitText.min.js"></script>
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>

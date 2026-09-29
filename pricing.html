@@ -3,316 +3,253 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pricing — Blue Spark</title>
-  <meta name="description" content="Free base product, uncrippled and uncapped. Pro is $120/month — the cost of keeping your spark bright. No trial, no nag screens, no dark patterns.">
-  <meta property="og:title" content="Blue Spark — Pricing">
-  <meta property="og:image" content="assets/img/medallion.png">
-  <meta name="theme-color" content="#06080F">
-  <link rel="icon" type="image/png" href="assets/img/star.png">
+  <title>Blue Spark Pricing | Professional and Founding Access</title>
+  <meta name="description" content="Professional access, the Founding 500 programme and scoped enterprise engagements, with the recurring charge, grace period and no-free-trial position stated plainly.">
+  <link rel="canonical" href="https://bluespark.io/pricing">
+  <meta property="og:title" content="Blue Spark Pricing | Professional and Founding Access">
+  <meta property="og:description" content="Professional access, the Founding 500 programme and scoped enterprise engagements, with the recurring charge, grace period and no-free-trial position stated plainly.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bluespark.io/pricing">
+  <meta property="og:image" content="https://bluespark.io/assets/img/og-star-1200x630.png">
+  <meta name="theme-color" content="#FAFAF7">
+  <link rel="icon" type="image/png" href="/assets/img/favicon-32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <style>
-    .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: stretch; }
-    .tier { display: grid; align-content: start; gap: 14px; }
-    .tier .tier-name { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--spark-cool); }
-    .tier .price { font-family: var(--font-display); font-weight: 600; font-size: clamp(2.2rem, 4vw, 3rem); color: var(--spark-warm); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
-    .tier .price small { font-size: 0.42em; font-weight: 500; color: var(--steel-3); letter-spacing: 0; }
-    .tier ul { list-style: none; padding: 0; display: grid; gap: 8px; }
-    .tier li { font-size: 0.9rem; color: var(--steel-2); padding-left: 18px; position: relative; }
-    .tier li::before { content: "·"; position: absolute; left: 4px; color: var(--spark-cool); }
-    .tier.pro { border-color: rgba(147,197,253,0.4); overflow: hidden; }
-    .tier.pro::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--steel-1), var(--deep-4), var(--steel-4)); }
-    .tier.pro:hover { box-shadow: 0 0 40px rgba(64,104,209,0.25); }
-    .framing { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--spark-warm); text-transform: uppercase; }
-    .anchor-list { counter-reset: anchor; display: grid; gap: 18px; }
-    .anchor-item { display: grid; grid-template-columns: 56px 1fr; gap: 18px; border: 1px solid var(--glass-border); border-radius: 8px; padding: 22px; background: var(--glass-bg); }
-    .anchor-item::before { counter-increment: anchor; content: "0" counter(anchor); font-family: var(--font-display); font-weight: 600; font-size: 1.6rem; color: var(--deep-5); }
-    .anchor-item h3 { color: var(--spark-warm); font-family: var(--font-display); font-weight: 500; margin-bottom: 6px; }
-    .anchor-item p { font-size: 0.92rem; color: var(--steel-2); }
-    .never-list { display: grid; gap: 10px; }
-    .never-list li { list-style: none; padding: 10px 0 10px 26px; position: relative; border-bottom: 1px solid var(--glass-border); color: var(--spark-dim); }
-    .never-list li::before { content: "×"; position: absolute; left: 2px; color: var(--error); font-family: var(--font-mono); }
-    .cta-equal { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
-    @media (max-width: 960px) { .tier-grid { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; } }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-<body data-page="pricing">
-  <canvas id="cosmos" aria-hidden="true"></canvas>
-  <div class="grid-veil" aria-hidden="true"></div>
-  <div class="scroll-progress" aria-hidden="true"></div>
-
-  <div class="topbar-status mono" aria-hidden="true">
-    <span class="status-dot ok"></span><span>LOCAL:NOMINAL</span>
-    <span class="sep">·</span><span>V1.0.5</span>
-    <span class="sep">·</span><span class="tnum" data-utc>00:00:00 UTC</span>
-    <span class="right">SOVEREIGN&nbsp;&nbsp;·&nbsp;&nbsp;LOCAL&nbsp;&nbsp;·&nbsp;&nbsp;PRIVATE</span>
-  </div>
+<body class="band" data-page="/pricing">
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="nav">
-    <a class="brand" href="index.html" aria-label="Blue Spark home">
-      <img class="brand-star" src="assets/img/star.png" alt="" width="26" height="26">
-      <span class="wordmark">Blue&nbsp;Spar<span class="k-wrap">k<i class="spark-tip" aria-hidden="true"></i></span></span>
-    </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="product.html">Product</a>
-      <a href="technology.html">Technology</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="marketplace.html">Marketplace</a>
-      <a href="roadmap.html">Roadmap</a>
-      <a href="about.html">About</a>
-      <a href="community.html">Community</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="learn.html">Learn</a>
-      <a class="nav-cta" href="download.html">Download</a>
-    </nav>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    <div class="container nav-inner">
+      <a class="brand" href="/" aria-label="Blue Spark home">
+        <img class="brand-mark" src="/assets/img/mark-128.png" alt="" width="22" height="22">
+        <span class="wordmark">Blue Spark</span>
+      </a>
+      <nav class="nav-groups" aria-label="Primary">
+        <details class="menu"><summary>Product</summary>
+          <div class="menu-panel">
+            <a href="/product">Product</a>
+            <a href="/technology">How it works</a>
+            <a href="/marketplace">Marketplace</a>
+            <a href="/roadmap">Roadmap</a>
+            <a href="/enterprise">For your business</a>
+            <a href="/download">Download and install</a>
+          </div></details>
+        <a href="/work">Work in practice</a>
+        <a href="/founding-500">Founding 500</a>
+        <a href="/pricing">Pricing</a>
+        <details class="menu"><summary>Company</summary>
+          <div class="menu-panel">
+            <a href="/about">About</a>
+            <a href="/community">Community</a>
+            <a href="/journal">Journal</a>
+            <a href="/journal/perspectives">Perspectives</a>
+            <a href="/journal/lighter-side">The lighter side</a>
+            <a href="/partners">Partnerships</a>
+            <a href="/transparency">Transparency</a>
+            <a href="/contact">Contact</a>
+            <a href="/legal">Legal</a>
+            <a href="/security">Security</a>
+            <a href="/status">Status</a>
+          </div></details>
+      </nav>
+      <a class="btn btn-primary nav-action" href="/founding-500">Apply for Founding 500</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
   </header>
-  <div class="mobile-menu" role="dialog" aria-label="Menu">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="product.html">Product</a>
-      <a href="technology.html">Technology</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="marketplace.html">Marketplace</a>
-      <a href="roadmap.html">Roadmap</a>
-      <a href="about.html">About</a>
-      <a href="community.html">Community</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="download.html">Download</a>
-      <a href="learn.html">Learn</a>
-    </nav>
+
+  <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="stack">
+      <nav aria-label="Product">
+        <h3 class="h3">Product</h3>
+        <a href="/product">Product</a>
+        <a href="/technology">How it works</a>
+        <a href="/marketplace">Marketplace</a>
+        <a href="/roadmap">Roadmap</a>
+        <a href="/enterprise">For your business</a>
+        <a href="/download">Download and install</a>
+      </nav>
+      <nav aria-label="Company">
+        <h3 class="h3">Company</h3>
+        <a href="/about">About</a>
+        <a href="/community">Community</a>
+        <a href="/journal">Journal</a>
+        <a href="/journal/perspectives">Perspectives</a>
+        <a href="/journal/lighter-side">The lighter side</a>
+        <a href="/partners">Partnerships</a>
+        <a href="/transparency">Transparency</a>
+        <a href="/contact">Contact</a>
+        <a href="/legal">Legal</a>
+        <a href="/security">Security</a>
+        <a href="/status">Status</a>
+      </nav>
+      <nav aria-label="More">
+        <h3 class="h3">More</h3>
+        <a href="/work">Work in practice</a>
+        <a href="/founding-500">Founding 500</a>
+        <a href="/pricing">Pricing</a>
+      </nav>
+      <a class="btn btn-primary" href="/founding-500">Apply for Founding 500</a>
+    </div>
   </div>
 
   <main id="main">
-    <!-- HERO -->
-    <section class="hero" style="min-height:auto">
-      <div class="container" style="display:grid;gap:22px">
-        <span class="pill anim"><span class="dot"></span> /pricing</span>
-        <h1 class="display-64" data-split>Three tiers. No time bomb.</h1>
-        <p class="lead" data-reveal>The base product is free and uncrippled — there is no trial to time-box and nothing that expires. Pro is $120/month, framed as the cost of keeping your spark bright. That is the whole pricing story.</p>
-      </div>
-    </section>
 
-    <!-- 4.1 TIERS -->
-    <section class="section anim" data-stagger>
+    <div class="band">
       <div class="container">
-        <div class="tier-grid">
-          <div class="glass-card tier hud" data-reveal><span class="hud-b"></span>
-            <span class="tier-name">Free</span>
-            <div class="price">$0</div>
-            <span class="framing">Uncrippled · uncapped · permanent</span>
-            <ul>
-              <li>Every core capability: voice, memory, brain, hands, bridge, controls, skills, status, update</li>
-              <li>No nag screens, no locked features, no countdown</li>
-              <li>Your data on your machine, always</li>
-            </ul>
-            <a class="btn btn-secondary" href="download.html">Download for Windows</a>
+        <section class="section">
+          <h1 class="h1">Professional capacity. Clearly priced.</h1>
+          <p class="lead">Choose Blue Spark for your own work, join the founding community, or discuss a deployment for your business.</p>
+        </section>
+        <section class="section">
+          <div class="offer-grid">
+            <div class="offer">
+              <h2 class="h2">Professional access</h2>
+              <p class="lead">$120 per month</p>
+              <span class="state state-pending">Not yet published</span>
+              <p class="offer-terms">Currency, taxes and the included usage allowance are confirmed at checkout. The published price terms are not finalised yet.</p>
+              <div class="prose">
+                <p>For professionals and business owners putting Blue Spark to work in their day-to-day operations.</p>
+                <p>Access to the capabilities included in the current professional release. A paid monthly licence—not a free trial.</p>
+              </div>
+              <div class="btn-row">
+                <a class="btn btn-primary" href="/founding-500">Apply for Founding 500</a>
+              </div>
+            </div>
+            <div class="offer offer-key">
+              <h2 class="h2">Founding 500</h2>
+              <p class="lead">$120 per month</p>
+              <span class="state state-pending">Not yet published</span>
+              <p class="offer-terms">Currency, taxes and the included usage allowance are confirmed at checkout. The published price terms are not finalised yet.</p>
+              <div class="prose">
+                <p>The professional licence with a place in the founding programme: practical automation teaching with Ben through partner-coordinated group Zoom sessions, an opportunity to contribute to the future marketplace, and two-year protection of the founding monthly licence price under the founding terms.</p>
+              </div>
+              <div class="btn-row">
+                <a class="btn btn-primary" href="/founding-500">Apply for Founding 500</a>
+              </div>
+            </div>
           </div>
-          <div class="glass-card tier pro hud" data-reveal><span class="hud-b"></span>
-            <span class="tier-name">Pro</span>
-            <div class="price">$120<small>/month</small></div>
-            <span class="framing">The cost of keeping your spark bright</span>
-            <ul>
-              <li>Everything in Free, with deeper reasoning architectures</li>
-              <li>Paid monthly, direct to the maker — no ad-funded free tier, no cloud-data subsidization</li>
-              <li>Cancel anytime; your memory and files stay on your machine and stay accessible</li>
-              <li>Early-adopter pricing for the first 500 users</li>
-            </ul>
-            <a class="btn btn-primary" href="download.html">Get Pro — $120/month</a>
+        </section>
+        <section class="section">
+          <h2 class="h2">Enterprise</h2>
+          <div class="stack">
+            <p class="lead">Scoped and priced for your organization.</p>
+            <div class="prose">
+              <p>For customer-specific workflows, integrations, deployment requirements, and implementation support. A paid pilot is available when a smaller starting engagement is useful; it is not a mandatory step for every customer.</p>
+            </div>
+            <div class="btn-row">
+              <a class="btn btn-primary" href="/contact">Discuss an enterprise deployment</a>
+            </div>
           </div>
-          <div class="glass-card tier hud" data-reveal><span class="hud-b"></span>
-            <span class="tier-name">Studio</span>
-            <div class="price">TBD</div>
-            <span class="framing">Ships Q2 2027</span>
-            <ul>
-              <li>For teams and practices with multi-machine workflows</li>
-              <li>Pricing lands with the Studio launch</li>
-              <li>Waitlist opens with the Q2 2027 release</li>
-            </ul>
-            <a class="btn btn-ghost" href="community.html">Follow the roadmap</a>
-          </div>
-        </div>
+        </section>
       </div>
-    </section>
+    </div>
 
-    <!-- 4.2 ANCHORING -->
-    <section class="section anim" data-stagger>
+    <div class="band band-alt">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow" data-reveal>Why $120/month — the anchoring math</span>
-          <h2 class="display-32" data-reveal>Four anchors. Pick the one that matches your day.</h2>
-        </div>
-        <div class="anchor-list">
-          <div class="anchor-item" data-reveal>
-            <div>
-              <h3>Against ChatGPT Plus — $20/month</h3>
-              <p>Six times the price, for a different category of tool. Plus is a chat window in a browser tab. Blue Spark is a persistent colleague that lives on your machine, remembers you in five layers, and works the files on your disk.</p>
+        <section class="section">
+          <details class="faq">
+            <summary>Why is access paid?</summary>
+            <div class="prose">
+              <p>Blue Spark is a professional working product. Paid access supports the software, services, and ongoing development behind it. We would rather make the offer clear than hide the cost of useful automation behind a trial.</p>
             </div>
-          </div>
-          <div class="anchor-item" data-reveal>
-            <div>
-              <h3>Against ChatGPT Team — $25–60/user/month</h3>
-              <p>Comparable price for a tool that owns the whole workflow instead of one window of it. If your firm already pays per-seat for AI, Pro lands inside the range you already accept.</p>
-            </div>
-          </div>
-          <div class="anchor-item" data-reveal>
-            <div>
-              <h3>Against a junior contractor — $2,000–4,000/month</h3>
-              <p>Six percent of the cost, for the document work a junior spends most of their day on: pulling contradictions, reconciling lines, tightening drafts. The judgment stays with you. The grunt work doesn't.</p>
-            </div>
-          </div>
-          <div class="anchor-item" data-reveal>
-            <div>
-              <h3>Against your recovered time</h3>
-              <p>An hour a day returned to real work is the anchor that matters for most people. At any professional billing rate, an hour a day pays for Pro before the first week closes.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4.3 + 4.4 -->
-    <section class="section anim" data-stagger>
-      <div class="container grid-2" style="align-items:start">
-        <div class="glass-card hud" data-reveal><span class="hud-b"></span>
-          <span class="eyebrow" style="display:block;margin-bottom:10px">Why we charge anything</span>
-          <p class="lead">We are not subsidizing ourselves with user data. We are not running ads. We are not training models on conversations. The product has a real cost. The user pays that cost directly.</p>
-        </div>
-        <div class="glass-card hud" data-reveal><span class="hud-b"></span>
-          <span class="eyebrow" style="display:block;margin-bottom:10px">Why the free tier exists</span>
-          <p class="lead">The free tier is uncrippled by design. No nag screens. The upgrade happens because the user wants it, not because we forced it. A tool you can use free forever has to earn its price every month — that pressure makes the product better.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4.5 ADD-ONS -->
-    <section class="section-tight anim" data-stagger>
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow" data-reveal>Premium add-ons</span>
-          <h2 class="display-32" data-reveal>Paid on top of Pro. Never bundled.</h2>
-        </div>
-        <table class="data-table glass-card" style="border-radius:8px" data-reveal>
-          <thead><tr><th scope="col">Add-on</th><th scope="col">Price</th><th scope="col">Why it's priced this way</th></tr></thead>
-          <tbody>
-            <tr><td>Voice cloning</td><td class="num">$25 one-time</td><td>A single act of creation. Once it's yours, it's yours — you paid to shape it, so you value it.</td></tr>
-            <tr><td>Custom persona</td><td class="num">$15/month</td><td>An ongoing craft: the persona you tune keeps adapting to how you work.</td></tr>
-            <tr><td>Marketplace skill packs</td><td class="num">$10–30/month each</td><td>Domain expertise from creators, priced by the people who built it.</td></tr>
-            <tr><td>Practical-office skill bundle</td><td class="num">$40/month</td><td>Compounding value: the more the skills see of your work, the more they do.</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- 4.6 NEVER -->
-    <section class="section anim">
-      <div class="container narrow">
-        <div class="glass-card hud" data-reveal style="border-color:rgba(147,197,253,0.3)"><span class="hud-b"></span>
-          <span class="eyebrow" style="display:block;margin-bottom:10px">4.6 — The constitution</span>
-          <h2 class="display-32" style="margin-bottom:18px">What we will never do.</h2>
-          <ul class="never-list" role="list">
-            <li>No fake countdowns.</li>
-            <li>No "X people viewing" banners.</li>
-            <li>No hidden auto-renew.</li>
-            <li>No pre-checked email boxes.</li>
-            <li>No decoy tier inflated to make another look cheap.</li>
-            <li>No bait-and-switch — the free tier never converts away from you.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4.7 FAQ -->
-    <section class="section anim">
-      <div class="container narrow">
-        <div class="section-head">
-          <span class="eyebrow" data-reveal>FAQ — the three hard questions</span>
-        </div>
-        <div data-stagger>
-          <details class="acc" data-reveal>
-            <summary>Is this a subscription?</summary>
-            <div class="acc-body">It's the cost of keeping your spark bright. Cancel anytime; your data stays on your machine.</div>
           </details>
-          <details class="acc" data-reveal>
-            <summary>What happens if I stop paying?</summary>
-            <div class="acc-body">The app degrades to text. Your memory and files stay accessible. The product never locks you out of your own data.</div>
+          <details class="faq">
+            <summary>Is this a recurring charge?</summary>
+            <div class="prose">
+              <p>Yes. The standard licence price is charged monthly. The checkout and membership agreement explain the currency, taxes, included usage, cancellation, and any separately charged services.</p>
+            </div>
           </details>
-          <details class="acc" data-reveal>
-            <summary>Why no annual discount?</summary>
-            <div class="acc-body">We don't know yet. No annual tier is in the locked plan today. When that changes, this page changes with it.</div>
+          <details class="faq">
+            <summary>Is there a free trial?</summary>
+            <div class="prose">
+              <p>No. You can review demonstrations and ask about suitability before purchasing. Custom discovery or a hands-on pilot is a separately scoped paid engagement.</p>
+            </div>
           </details>
-        </div>
+          <details class="faq">
+            <summary>Can a company purchase licences?</summary>
+            <div class="prose">
+              <p>Yes. Licences can be held by a person or company. Additional licences can be purchased and assigned to other people under the applicable licence terms.</p>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>Do you offer refunds?</summary>
+            <div class="prose">
+              <p>Our standard policy is not to offer discretionary refunds. This does not limit rights that applicable law does not allow us to exclude. Service issues should be reported so we can investigate and address them.</p>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>What happens when paid access ends?</summary>
+            <div class="prose">
+              <p>Access continues to the end of the paid period, followed by an automatic seven-day grace period. The service terms explain the functionality and usage available during that period and afterward.</p>
+            </div>
+          </details>
+        </section>
+        <section class="section">
+          <p class="note">Material billing and refund terms also appear in the legal documents and are shown before checkout.</p>
+        </section>
       </div>
-    </section>
-
-    <!-- 4.8 CTA -->
-    <section class="section-tight anim">
-      <div class="container">
-        <div class="install-band hud" data-reveal><span class="hud-b"></span>
-          <h2 class="display-32">Same weight. Your call.</h2>
-          <div class="cta-equal">
-            <a class="btn btn-primary" href="download.html">Get Pro — $120/month</a>
-            <a class="btn btn-secondary" href="download.html">Stay on Free</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
   </main>
 
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand">
-          <a class="brand" href="index.html">
-            <img class="brand-star" src="assets/img/star.png" alt="" width="24" height="24">
-            <span class="wordmark">Blue&nbsp;Spar<span class="k-wrap">k<i class="spark-tip" aria-hidden="true"></i></span></span>
-          </a>
-          <p>Clarity, on your machine. A premium desktop AI that runs locally, remembers what matters, speaks when spoken to, and stays out of the way.</p>
-        </div>
         <div class="footer-col">
-          <h4>Product</h4>
-          <ul role="list">
-            <li><a href="product.html">Product</a></li>
-            <li><a href="technology.html">Technology</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="download.html">Download</a></li>
-            <li><a href="roadmap.html">Roadmap</a></li>
+          <h3 class="h3">Product and downloads</h3>
+          <ul>
+            <li><a href="/product">Product</a></li>
+            <li><a href="/technology">How it works</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/download">Download and install</a></li>
+            <li><a href="/roadmap">Roadmap</a></li>
+            <li><a href="/marketplace">Marketplace</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Trust</h4>
-          <ul role="list">
-            <li><a href="dashboard.html">Public dashboard</a></li>
-            <li><a href="community.html">Community</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="legal.html#security">Security</a></li>
-            <li><a href="legal.html#status">Status</a></li>
+          <h3 class="h3">Learning and community</h3>
+          <ul>
+            <li><a href="/learn">Learn</a></li>
+            <li><a href="/work">Work in practice</a></li>
+            <li><a href="/journal">Journal</a></li>
+            <li><a href="/community">Community</a></li>
+            <li><a href="/founding-500">Founding 500</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>More</h4>
-          <ul role="list">
-            <li><a href="learn.html">Learn</a></li>
-            <li><a href="useful.html">Useful</a></li>
-            <li><a href="philosophical.html">Philosophical</a></li>
-            <li><a href="comical.html">Comical</a></li>
-            <li><a href="legal.html#terms">Terms</a> · <a href="legal.html#privacy">Privacy</a> · <a href="legal.html#license">License</a></li>
+          <h3 class="h3">Company and partnerships</h3>
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/enterprise">Enterprise</a></li>
+            <li><a href="/partners">Partnerships</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/transparency">Transparency</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="h3">Trust and legal</h3>
+          <ul>
+            <li><a href="/security">Security</a></li>
+            <li><a href="/status">Status</a></li>
+            <li><a href="/legal#terms">Terms</a></li>
+            <li><a href="/legal#privacy">Privacy</a></li>
+            <li><a href="/legal#license">Licence</a></li>
+            <li><a href="/legal#professional-use">Professional use</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-base">
-        <span>BLUE SPARK — CLARITY, ON YOUR MACHINE.</span>
-        <span class="byben">by ben</span>
+        <p>Blue Spark — professional AI automation for Windows.</p>
+        <p>© 2026 Blue Spark <span class="founder-credit">by ben</span></p>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/vendor/gsap.min.js"></script>
-  <script src="assets/js/vendor/ScrollTrigger.min.js"></script>
-  <script src="assets/js/vendor/SplitText.min.js"></script>
-  <script src="assets/js/cosmos.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="/assets/js/vendor/gsap.min.js"></script>
+  <script src="/assets/js/vendor/ScrollTrigger.min.js"></script>
+  <script src="/assets/js/vendor/SplitText.min.js"></script>
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>

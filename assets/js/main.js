@@ -1,185 +1,152 @@
 /* Blue Spark — main.js
-   Shared interaction layer: clock, nav, reveals (GSAP ScrollTrigger w/ IO fallback),
-   SplitText hero headlines, scroll progress, SVG draw-on-scroll, timeline scrub, pin sections.
-   All motion is gated behind prefers-reduced-motion and degrades to fully readable static pages. */
+   The interaction layer for the shipped shell: two disclosure menus, the
+   mobile menu, the current-destination marker, and one page-load moment
+   (the Home H1).
+
+   There is no scroll reveal, no parallax, no marquee and no clock. Motion
+   answers a person's action or happens once on load, and every path is
+   skipped entirely under prefers-reduced-motion, leaving all content in its
+   final state. */
 (function () {
   "use strict";
+
   document.documentElement.classList.add("js");
+
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- UTC status-bar clock ---------- */
-  var utcEl = document.querySelector("[data-utc]");
-  if (utcEl) {
-    var tick = function () {
-      var d = new Date();
-      var p = function (n) { return String(n).padStart(2, "0"); };
-      utcEl.textContent = p(d.getUTCHours()) + ":" + p(d.getUTCMinutes()) + ":" + p(d.getUTCSeconds()) + " UTC";
-    };
-    tick(); setInterval(tick, 1000);
+  /* ---------- Save-Data ---------- */
+  /* `prefers-reduced-data` is a Media Queries Level 5 draft with no shipping
+     implementation, so the canvas needs a signal that exists. The Network
+     Information API's saveData flag (Chrome, Edge and Firefox behind a flag)
+     and a 2g effective type are mirrored onto <html>, where styles.css reads
+     them. main.js is parsed before cosmos.js on every canvas page, so the
+     class is set before the canvas module runs. */
+  var connection = navigator.connection || {};
+  if (connection.saveData || /(^|-)2g$/.test(connection.effectiveType || "")) {
+    document.documentElement.classList.add("save-data");
   }
 
-  /* ---------- Mobile nav ---------- */
-  var toggle = document.querySelector(".nav-toggle");
-  if (toggle) {
-    toggle.addEventListener("click", function () {
-      var open = document.body.classList.toggle("nav-open");
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && document.body.classList.contains("nav-open")) {
-        document.body.classList.remove("nav-open");
-        toggle.setAttribute("aria-expanded", "false");
-      }
-    });
-    document.querySelectorAll(".mobile-menu a").forEach(function (a, i) {
-      a.style.setProperty("--i", i);
-      a.insertAdjacentHTML("beforeend", '<span class="idx">' + String(i + 1).padStart(2, "0") + "</span>");
-    });
-  }
-
-  /* ---------- Active nav link ---------- */
+  /* ---------- Current destination ---------- */
+  /* body[data-page] carries the clean route, e.g. "/product". The matching
+     link, and the menu that contains it, are marked for the reader. */
   var page = document.body.getAttribute("data-page");
   if (page) {
-    document.querySelectorAll(".nav-links a[href]").forEach(function (a) {
-      var href = a.getAttribute("href").split("#")[0];
-      if (href === page + ".html" || (page === "index" && href === "index.html")) a.classList.add("active");
+    var links = document.querySelectorAll(".nav a[href], .mobile-menu a[href]");
+    Array.prototype.forEach.call(links, function (a) {
+      var target = (a.getAttribute("href") || "").split("#")[0];
+      if (target === page) {
+        a.setAttribute("aria-current", "page");
+        var group = a.closest("details.menu");
+        if (group) group.setAttribute("data-current", "true");
+      }
     });
   }
 
-  /* ---------- Scroll progress ---------- */
-  var bar = document.querySelector(".scroll-progress");
-  if (bar) {
-    var setBar = function () {
-      var h = document.documentElement.scrollHeight - innerHeight;
-      bar.style.transform = "scaleX(" + (h > 0 ? (scrollY / h) : 0) + ")";
+  /* ---------- Disclosure menus ---------- */
+  var menus = Array.prototype.slice.call(document.querySelectorAll("details.menu"));
+
+  function closeMenu(menu, returnFocus) {
+    if (!menu.open) return;
+    menu.open = false;
+    if (returnFocus) {
+      var summary = menu.querySelector("summary");
+      if (summary) summary.focus();
+    }
+  }
+
+  menus.forEach(function (menu) {
+    /* Only one menu is open at a time. */
+    menu.addEventListener("toggle", function () {
+      if (!menu.open) return;
+      menus.forEach(function (other) {
+        if (other !== menu) other.open = false;
+      });
+    });
+
+    /* Escape closes and returns focus to the summary that opened it. */
+    menu.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeMenu(menu, true);
+    });
+
+    /* Leaving the group closes it. relatedTarget is null when focus moves
+       to a non-focusable area, which is also a departure. */
+    menu.addEventListener("focusout", function (e) {
+      if (!menu.open) return;
+      if (!e.relatedTarget || !menu.contains(e.relatedTarget)) menu.open = false;
+    });
+  });
+
+  document.addEventListener("click", function (e) {
+    menus.forEach(function (menu) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+  });
+
+  /* ---------- Mobile menu ---------- */
+  var toggle = document.querySelector(".nav-toggle");
+  var mobileMenu = document.querySelector(".mobile-menu");
+
+  if (toggle && mobileMenu) {
+    var setMobileMenu = function (open) {
+      document.body.classList.toggle("nav-open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open) {
+        var first = mobileMenu.querySelector("a[href], button");
+        if (first) first.focus();
+      } else {
+        toggle.focus();
+      }
     };
-    addEventListener("scroll", setBar, { passive: true });
-    addEventListener("resize", setBar);
-    setBar();
+
+    toggle.addEventListener("click", function () {
+      setMobileMenu(!document.body.classList.contains("nav-open"));
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && document.body.classList.contains("nav-open")) {
+        setMobileMenu(false);
+      }
+    });
   }
 
-  /* ---------- Motion: GSAP if present, else IntersectionObserver ---------- */
-  var hasGsap = typeof window.gsap !== "undefined";
-  if (hasGsap && typeof window.ScrollTrigger !== "undefined") {
-    gsap.registerPlugin(ScrollTrigger);
-    if (typeof window.SplitText !== "undefined") gsap.registerPlugin(SplitText);
+  /* ---------- The one page-load moment: the Home H1 ---------- */
+  /* A single headline, once, on load. No other element on the site animates
+     without a person acting on it first. */
+  if (reduced) return;
+
+  if (typeof window.gsap !== "undefined") {
+    var plugins = [];
+    if (typeof window.ScrollTrigger !== "undefined") plugins.push(window.ScrollTrigger);
+    if (typeof window.SplitText !== "undefined") plugins.push(window.SplitText);
+    if (plugins.length) gsap.registerPlugin.apply(gsap, plugins);
   }
 
-  if (reduced) {
-    /* Static page: everything visible, nothing moves. */
-    document.querySelectorAll("[data-reveal]").forEach(function (el) { el.classList.add("is-in"); });
-    return;
-  }
+  var headlineDone = false;
 
-  /* SplitText headlines — chars rise in. Runs only when fonts are ready to avoid bad metrics. */
-  function splitHeadlines() {
-    if (!hasGsap || typeof window.SplitText === "undefined") return;
-    document.querySelectorAll("[data-split]").forEach(function (el) {
+  function revealHeadline() {
+    if (headlineDone) return;
+    headlineDone = true;
+    if (typeof window.gsap === "undefined" || typeof window.SplitText === "undefined") return;
+    Array.prototype.forEach.call(document.querySelectorAll("[data-split]"), function (el) {
       try {
         var split = new SplitText(el, { type: "words,chars", wordsClass: "split-word", charsClass: "split-char" });
-        gsap.set(split.chars, { yPercent: 110, opacity: 0 });
-        gsap.to(split.chars, {
-          yPercent: 0, opacity: 1, duration: 0.9, ease: "expo.out",
-          stagger: 0.02, delay: parseFloat(el.getAttribute("data-split-delay") || 0.1)
-        });
-      } catch (e) { /* leave headline visible */ }
+        gsap.fromTo(split.chars,
+          { yPercent: 100, opacity: 0 },
+          {
+            yPercent: 0, opacity: 1, duration: 0.8, ease: "power3.out", stagger: 0.015,
+            delay: parseFloat(el.getAttribute("data-split-delay") || 0.08),
+            onComplete: function () { split.revert(); }
+          });
+      } catch (e) {
+        /* Leave the headline exactly as authored. */
+      }
     });
   }
 
-  if (document.readyState === "complete" || document.fonts === undefined) {
-    splitHeadlines();
+  if (document.readyState === "complete" || !document.fonts) {
+    revealHeadline();
   } else {
-    document.fonts.ready.then(splitHeadlines);
-    setTimeout(splitHeadlines, 1500); /* safety net */
-  }
-
-  if (hasGsap && typeof window.ScrollTrigger !== "undefined") {
-    /* Standard reveals */
-    document.querySelectorAll("[data-reveal]").forEach(function (el) {
-      gsap.fromTo(el,
-        { opacity: 0, y: 24 },
-        {
-          opacity: 1, y: 0, duration: 0.9, ease: "expo.out",
-          delay: parseFloat(el.getAttribute("data-delay") || 0),
-          scrollTrigger: { trigger: el, start: "top 85%", once: true },
-          onStart: function () { el.classList.add("is-in"); }
-        });
-    });
-
-    /* Stagger groups: children with [data-reveal] inside [data-stagger] cascade */
-    document.querySelectorAll("[data-stagger]").forEach(function (group) {
-      var kids = group.querySelectorAll("[data-reveal]");
-      if (!kids.length) return;
-      gsap.fromTo(kids,
-        { opacity: 0, y: 26 },
-        {
-          opacity: 1, y: 0, duration: 0.85, ease: "expo.out", stagger: 0.09,
-          scrollTrigger: { trigger: group, start: "top 82%", once: true },
-          onStart: function () { kids.forEach(function (k) { k.classList.add("is-in"); }); }
-        });
-    });
-
-    /* SVG line drawing on scroll */
-    document.querySelectorAll("[data-draw] path, [data-draw] line, [data-draw] circle").forEach(function (p) {
-      var len;
-      try { len = p.getTotalLength(); } catch (e) { return; }
-      if (!len) return;
-      gsap.set(p, { strokeDasharray: len, strokeDashoffset: len });
-      gsap.to(p, {
-        strokeDashoffset: 0, duration: 1.6, ease: "power2.out",
-        scrollTrigger: { trigger: p.closest("svg"), start: "top 78%", once: true }
-      });
-    });
-
-    /* Timeline scrub marker: element travels down the spine as you scroll */
-    document.querySelectorAll("[data-scrub-y]").forEach(function (el) {
-      var wrap = el.closest("[data-scrub-wrap]") || el.parentElement;
-      gsap.fromTo(el, { yPercent: 0 }, {
-        yPercent: 100, ease: "none",
-        scrollTrigger: { trigger: wrap, start: "top 70%", end: "bottom 60%", scrub: 0.6 }
-      });
-    });
-
-    /* Pinned capability board: section pins while tiles cascade (opt-in) */
-    document.querySelectorAll("[data-pin-board]").forEach(function (board) {
-      var tiles = board.querySelectorAll("[data-tile]");
-      if (!tiles.length) return;
-      var tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: board, start: "top 18%", end: "+=" + (tiles.length * 38) + "%",
-          pin: true, scrub: 0.5, anticipatePin: 1
-        }
-      });
-      tl.from(tiles, { opacity: 0, y: 44, scale: 0.97, stagger: 0.14, ease: "expo.out" });
-      tl.to({}, { duration: 0.4 }); /* rest beat */
-    });
-
-    /* Layer arcs scrub (technology — five-layer memory) */
-    document.querySelectorAll("[data-arc-scrub]").forEach(function (svg) {
-      var arcs = svg.querySelectorAll("[data-arc]");
-      if (!arcs.length) return;
-      gsap.fromTo(arcs, { drawSVG: false, opacity: 0.15, strokeDashoffset: function (i, el) { try { return el.getTotalLength(); } catch (e) { return 600; } } }, {
-        opacity: 1, strokeDashoffset: 0, ease: "none", stagger: 0.1,
-        scrollTrigger: { trigger: svg, start: "top 75%", end: "bottom 45%", scrub: 0.5 }
-      });
-    });
-  } else {
-    /* IntersectionObserver fallback */
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); }
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll("[data-reveal]").forEach(function (el) { io.observe(el); });
-  }
-
-  /* Hero medallion parallax drift (subtle, transform-only) */
-  if (hasGsap && !reduced) {
-    document.querySelectorAll("[data-medallion-parallax]").forEach(function (el) {
-      gsap.to(el, {
-        yPercent: -7, ease: "none",
-        scrollTrigger: { trigger: el, start: "top top", end: "bottom top", scrub: 0.6 }
-      });
-    });
+    document.fonts.ready.then(revealHeadline);
+    setTimeout(revealHeadline, 1500); /* safety net if the font never settles */
   }
 })();

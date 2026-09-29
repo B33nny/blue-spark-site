@@ -1,0 +1,36 @@
+# Blue Spark — routing for the static host (Cloudflare Pages reads this file
+# from the output directory; the repo root is the output directory).
+
+# --- legacy route renames (301): only the four paths that exist in the repo ---
+/useful /work 301
+/useful.html /work 301
+/philosophical /journal/perspectives 301
+/philosophical.html /journal/perspectives 301
+/comical /journal/lighter-side 301
+/comical.html /journal/lighter-side 301
+/dashboard /transparency 301
+/dashboard.html /transparency 301
+
+# --- clean-URL rewrites (200) so every canonical path resolves deterministically ---
+/ /index.html 200
+/product /product.html 200
+/technology /technology.html 200
+/pricing /pricing.html 200
+/founding-500 /founding-500.html 200
+/marketplace /marketplace.html 200
+/roadmap /roadmap.html 200
+/about /about.html 200
+/community /community.html 200
+/transparency /transparency.html 200
+/download /download.html 200
+/learn /learn.html 200
+/work /work.html 200
+/legal /legal.html 200
+/enterprise /enterprise.html 200
+/partners /partners.html 200
+/contact /contact.html 200
+/security /security.html 200
+/status /status.html 200
+/journal /journal/index.html 200
+/journal/perspectives /journal/perspectives.html 200
+/journal/lighter-side /journal/lighter-side.html 200
