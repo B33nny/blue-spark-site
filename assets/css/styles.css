@@ -1,6 +1,6 @@
 /* ============================================================
    BLUE SPARK — design system
-   Source of truth: blueprint 3.1 (bluespark.io rewrite).
+   Source of truth: blueprint 3.1 (blue-spark.io rewrite).
    Direction: a professional instrument for people whose work is
    documents, decisions and deadlines. Paper first, one blue
    signal, states stated plainly.
@@ -777,7 +777,7 @@ html.save-data #cosmos2d { display: none; }
 
   /* Internal links are root-absolute by design (blueprint 3.3); on paper the
      target has to be written out or the link is unreferenced. */
-  a[href^="/"]::after { content: " (bluespark.io" attr(href) ")"; font-size: 0.85em; }
+  a[href^="/"]::after { content: " (blue-spark.io" attr(href) ")"; font-size: 0.85em; }
 }
 
 /* ---------- 14. Breakpoints ---------- */

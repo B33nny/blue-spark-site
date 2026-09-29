@@ -1,6 +1,6 @@
 # Blue Spark — public site
 
-The bluespark.io marketing site. **Static HTML, one stylesheet, vanilla plus
+The blue-spark.io marketing site. **Static HTML, one stylesheet, vanilla plus
 vendored GSAP. No framework, no bundler, no build step, no npm dependency.**
 
 Deploy via **Cloudflare Pages** with these settings:
