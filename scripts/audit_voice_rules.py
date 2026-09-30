@@ -24,7 +24,9 @@ Two scan views are used:
 Known limits, stated so the gate is not read as broader than it is: this
 script reads text and markup only. It cannot confirm that a destination
 exists, that a form works, or that a figure is true. Those are the Inspector's
-checks (blueprint Section 8, AC 6-9).
+checks (blueprint Section 8, AC 6-9). A13 catches the cp1252/UTF-8 mojibake
+pair shape only; other encoding damage and anything visible only in rendering
+remain outside this gate.
 """
 import re
 import sys
@@ -145,6 +147,19 @@ A6_EXEMPT = (
 # A7 — no subscription noun, on any page, with no allowance.
 A7 = [r"\bsubscription\b"]
 
+
+# A13 — no character-encoding damage (mojibake).
+# A UTF-8 byte sequence that was decoded as cp1252 and re-encoded as UTF-8
+# leaves a lead glyph (Â Ã â Å) followed by a continuation glyph: one real
+# character became two mojibake characters. The rule is the pair shape, not
+# a fixed string, so it catches the whole class and not just one instance.
+A13 = re.compile(
+    "[\u00c2\u00c3\u00e2\u00c5]"
+    "[\u0080-\u00bf\u20ac\u201a\u0192\u201e\u2026\u2020\u2021\u02c6"
+    "\u2030\u0160\u2039\u0152\u017d\u2018\u2019\u201c\u201d\u2022"
+    "\u2013\u2014\u02dc\u2122\u0161\u203a\u0153\u017e\u0178]"
+)
+
 # A11 — retired CTA labels.
 A11 = [
     r"request\s+a\s+private\s+demonstration",
@@ -212,6 +227,7 @@ RULE_LABELS = {
     "A10": "Required head and structure",
     "A11": "Retired CTA label",
     "A12": "Price needs its qualifier",
+    "A13": "No character-encoding damage (mojibake)",
 }
 
 STATIC_ASSET = re.compile(r"\.(?:png|jpg|jpeg|webp|avif|svg|ico|mp4|webm|woff2?|css|js)$", re.I)
@@ -310,6 +326,10 @@ def audit_page(path):
     for pat in A8:
         for m in re.finditer(pat, raw, flags=re.I):
             problems.append((rel, "A8", RULE_LABELS["A8"], snippet(raw, m.start(), m.end())))
+
+    # A13 — encoding damage in the file as read (the pair shape, RAW view).
+    for m in A13.finditer(raw):
+        problems.append((rel, "A13", RULE_LABELS["A13"], snippet(raw, m.start(), m.end())))
 
     # A9 — every referenced local asset exists on disk.
     for m in re.finditer(r'(?:src|href)\s*=\s*"([^"]+)"', raw, flags=re.I):

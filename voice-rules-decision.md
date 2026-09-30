@@ -32,13 +32,26 @@ did not exist; the correction is recorded below rather than inherited.
 A10 page-count value. At the v3 baseline (`4f96aba` carried the v1 value of 23), the page-count value rises to `EXPECTED_PAGES = 27` to account for the four new `/legal/<x>` sub-routes. The `collect_pages()` glob is widened to also include `legal/*.html` so the audit scans the new files. Both edits are additive; the check is otherwise unchanged.
 | A11 | Retired CTA labels must not appear (`Request a private demonstration`, `Apply for a guided pilot`, `Request access for your team`, `Book a workflow clinic`, `Submit a workflow`, `Speak with the founder`, `Join the professional waitlist`, `Install free`, `Start for free`, `Upgrade from free`, `Unlimited free`) | Founder decision 1 replaces the old CTA whitelist with the blueprint's action-label set. The negative list is the part that can be machine-enforced honestly. |
 | A12 | Every `$` figure must have `currency`, `taxes`, `usage allowance` or `checkout` within 200 characters after it | Founder decision 4 and blueprint §Pricing editor notes: the currency/tax/allowance gap stays explicit, and a bare `$120` cannot ship. |
+| A13 | No character-encoding damage (mojibake): a cp1252 lead glyph followed by a cp1252 continuation glyph (the shape a UTF-8 byte pair takes when it is decoded as cp1252 and re-encoded as UTF-8) | Added 2026-09-30 after the v3 rewrite shipped 14 double-encoded em dashes across 11 pages, including the home and pricing surfaces. The gate had passed zero violations because it read text only and the damage was invisible to every other rule. The pair shape is a class rule, not a fixed string, and it runs against RAW. |
 
 Two scan views make this possible. `RAW` is the file as read and carries the
-markup rules (A8, A9, A10). `TEXT` is `RAW` with `<script>`, `<style>` and HTML
+markup rules (A8, A9, A10, A13). `TEXT` is `RAW` with `<script>`, `<style>` and HTML
 comments removed and all tags stripped, plus the concatenated values of
 `<title>`, every `meta[name=description]` and `meta[property^=og:]` content,
 every `alt` attribute and every `aria-label`; the prose rules (A1-A7, A11, A12)
 run against `TEXT`.
+
+### Rule added — A13, character-encoding damage
+
+On 2026-09-30 the live site was found to contain 14 double-encoded em dashes
+(`â€"` where `—` belonged) across 11 of 27 pages — home, product, pricing,
+about, work, enterprise, contact, founding-500, roadmap and two journal
+pages. The defect entered with the v3 content rewrite (commit `243c282`)
+and survived every gate run, because the gate reads text with
+`errors="replace"` and had no rule that looked at the character shape
+itself. A13 closes that class: it flags any cp1252 lead glyph followed by a
+cp1252 continuation glyph in the file as read. The 14 occurrences were
+repaired to `—` in the same change.
 
 ### Rule amendment — A6 and the programme's own cap
 

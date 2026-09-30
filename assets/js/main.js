@@ -1,7 +1,7 @@
 /* Blue Spark — main.js
    The interaction layer for the shipped shell: two disclosure menus, the
    mobile menu, the current-destination marker, and one page-load moment
-   (the Home H1).
+   (the page headline).
 
    There is no scroll reveal, no parallax, no marquee and no clock. Motion
    answers a person's action or happens once on load, and every path is
@@ -109,16 +109,13 @@
     });
   }
 
-  /* ---------- The one page-load moment: the Home H1 ---------- */
+  /* ---------- The one page-load moment: the page headline ---------- */
   /* A single headline, once, on load. No other element on the site animates
      without a person acting on it first. */
   if (reduced) return;
 
-  if (typeof window.gsap !== "undefined") {
-    var plugins = [];
-    if (typeof window.ScrollTrigger !== "undefined") plugins.push(window.ScrollTrigger);
-    if (typeof window.SplitText !== "undefined") plugins.push(window.SplitText);
-    if (plugins.length) gsap.registerPlugin.apply(gsap, plugins);
+  if (typeof window.gsap !== "undefined" && typeof window.SplitText !== "undefined") {
+    gsap.registerPlugin(window.SplitText);
   }
 
   var headlineDone = false;

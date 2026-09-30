@@ -38,8 +38,8 @@ browser and the site renders.
 Type: Space Grotesk for headings, Inter for body, JetBrains Mono for genuine
 identifiers only (version strings, hashes, timestamps). Sentence case
 throughout; there is no uppercase styling anywhere in the stylesheet. Motion is
-one page-load moment on the Home headline and nothing else that a person did
-not ask for.
+one page-load moment per page — the opening headline — and nothing else that a
+person did not ask for.
 
 ## The gate
 
@@ -54,7 +54,7 @@ PASS — 27 pages audited, 0 voice-rule violations.
 ```
 
 Exit `0` when clean, `1` with a numbered `VIOLATIONS (n):` list otherwise. The
-rules it enforces (A1-A12), the rules retired from the previous regime and the
+rules it enforces (A1-A13), the rules retired from the previous regime and the
 gate's known limits are documented in `voice-rules-decision.md`.
 
 ## Routes
@@ -87,10 +87,11 @@ the sitemap.
 - `assets/js/main.js` — the disclosure menus, the mobile menu, the current-page
   marker and the single headline moment.
 - `assets/js/cosmos.js` — WebGL nebula and starfield with a 2D fallback, used
-  only on `index.html`, `enterprise.html` and `404.html`.
+  only on `index.html` and `404.html`.
 - `assets/js/scene-stars.js` — retained on disk; no page references it.
-- `assets/js/vendor/` — GSAP 3.13 (ScrollTrigger, SplitText), vendored so the
-  site needs no network for its own scripts.
+- `assets/js/vendor/` — GSAP 3.13 (SplitText is loaded; ScrollTrigger is
+  retained on disk and referenced by no page), vendored so the site needs no
+  network for its own scripts.
 - `scripts/audit_voice_rules.py` — the gate.
 - `voice-rules-decision.md` — what the gate enforces and what it cannot.
 - `stubs.md` — what is genuinely outstanding, and what triggers it.
