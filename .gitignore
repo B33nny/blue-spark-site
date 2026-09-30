@@ -8,3 +8,7 @@ Thumbs.db
 # DAG harness session store — kept in its own private repo, never deployed.
 # Pages serves the repo root, so committing this would publish the audit trail.
 .qoder/
+
+# Superdesign design-context artifacts — local tooling, never deployed.
+# (Same reason as .qoder/: Pages serves the repo root.)
+.superdesign/
