@@ -17,9 +17,9 @@ simply absent until the real thing exists.
 
 | Stub | Where the state sits | What triggers it |
 |------|----------------------|------------------|
-| Interface capture (one reserved panel) | Home opening — `Not yet published` panel with its caption field reserved | A real capture from the current UI, with its release caption |
-| Readable example outputs | No reserved panel is rendered in v3 | A real output that can be shown at normal size |
-| The workflow film and its written transcript | Home opening — `In production` panel | A recorded demonstration, with a transcript, published with the customer release |
+| Interface capture | No reserved panel is rendered; the home opening carries the Blue Spark star mark instead | A real capture from the current UI, with its release caption |
+| Readable example outputs | No reserved panel is rendered | A real output that can be shown at normal size |
+| The workflow film and its written transcript | No reserved panel is rendered | A recorded demonstration, with a transcript, published with the customer release |
 
 ## People and identity
 
@@ -28,7 +28,7 @@ simply absent until the real thing exists.
 | Founder portrait | No portrait is published and no reserved field renders yet | An approved portrait |
 | Founder biography (background, credentials) beyond the note on `/about` | Not written anywhere | Details supplied and approved by the founder |
 | Partner introduction (name, role, credentials) | Mentioned as "our partner" on `/about`, `/community`, `/founding-500`; no introduction is published | The partner introduction being supplied |
-| Approved logo master | The nav uses the existing `assets/img/mark-128.png`; `assets/img/star.png` and `assets/img/medallion.png` are referenced by no page | Founder-approved artwork |
+| Approved logo master | The nav uses `assets/img/mark-128.png` and the home opening uses `assets/img/star-704.webp` (the star master downscaled to its display size); the full-size `assets/img/star.png` and `assets/img/medallion.png` are referenced by no page | Founder-approved artwork |
 
 ## Intake and contact routes
 

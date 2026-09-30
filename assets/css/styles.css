@@ -353,6 +353,19 @@ blockquote {
 .band-ink .quiet-link { color: var(--warm); }
 .quiet-link:hover { text-decoration: underline; text-underline-offset: 3px; }
 
+/* ---------- 6b. The home opening: kicker stanza and brand mark ----------
+   The three kicker lines are one statement in three beats, so they sit as
+   a single tight stanza rather than three widely-spaced fragments. The
+   right rail carries the star mark itself: no frame, no glow, no motion —
+   the one decorative image in the system, and the page's only picture. */
+.kicker-stanza { display: grid; gap: 0; }
+.kicker-stanza .kicker { line-height: 1.5; }
+
+.hero-mark { width: clamp(180px, 26vw, 320px); max-width: 100%; }
+.hero-mark img { width: 100%; height: auto; }
+@media (min-width: 1080px) {
+  .hero-mark { align-self: center; }
+}
 /* ---------- 7. Panels and offers ---------- */
 .panel {
   background: var(--paper);

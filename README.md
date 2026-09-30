@@ -30,10 +30,10 @@ browser and the site renders.
 2. **One signal colour.** Deep Blue `#1E3A8A` is a link, a section rule or an
    active marker — never a glow, gradient or beam. Steel `#C5CCD8` is the only
    hairline on ink; Warm White `#FFF8E7` is the text on ink.
-3. **States are a designed component.** `In production`, `Planned for 2027`,
-   `Not yet published`, `Status unavailable` and the incident words render as
-   text-bearing chips wherever evidence is missing. Nothing is faked to fill a
-   gap.
+3. **States are a designed component.** `Not yet published`, `Planned for 2027`
+   and `Status unavailable` render as text-bearing chips wherever evidence is
+   missing; `In production` and the incident words are part of the chip
+   vocabulary the stylesheet defines. Nothing is faked to fill a gap.
 
 Type: Space Grotesk for headings, Inter for body, JetBrains Mono for genuine
 identifiers only (version strings, hashes, timestamps). Sentence case
