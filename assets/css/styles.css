@@ -867,6 +867,12 @@ html.save-data #cosmos2d { display: none; }
 /* Line icons: one geometric vocabulary, 1.5px stroke, colored by context. */
 .icon { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 
+/* The owner-supplied schema graphic: framed like an artifact, wide enough to
+   keep its labels legible, and horizontally scrollable on narrow screens the
+   way the schema has always been. */
+.schema-figure { margin: 0; }
+.schema-figure img { display: block; min-width: 640px; max-width: 100%; height: auto; border: 1px solid var(--rule); border-radius: var(--r-2); }
+
 /* Capability card header: icon left, index right. */
 .capability-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; color: var(--deep); }
 .capability-head .icon { flex: none; }

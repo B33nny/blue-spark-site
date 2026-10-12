@@ -153,6 +153,9 @@ A same-day visual pass adds inline line art inside the design system: a
 brain-loop diagram in the product hero (perceive, reason, act, verify,
 remember), thin-line icons on the eleven capability cards and the
 metacognition list, and the page's single Code Black band behind the
-metacognition section. All graphics are inline SVG styled through
-`styles.css`; no image assets, scripts or page-local styles were added. The
-stylesheet version is now `v=20261012-icons`.
+metacognition section. The graphics are inline SVG styled through
+`styles.css`. The owner then supplied a designed graphic of the five-layer
+schema (`assets/img/neuromorphic-schema.webp`, lossless, pixels preserved),
+which replaces the earlier ASCII rendering of the same schema; it keeps its
+labels legible with a minimum display width and horizontal scroll on narrow
+screens. The stylesheet version is now `v=20261012-schema`.
