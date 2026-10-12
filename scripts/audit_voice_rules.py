@@ -348,9 +348,10 @@ def audit_page(path):
         value = m.group(1).strip()
         if value.startswith(("http", "//", "#")) or value.startswith(VENDOR_PREFIX):
             continue
-        if not STATIC_ASSET.search(value):
+        asset_path = value.split("?", 1)[0].split("#", 1)[0]
+        if not STATIC_ASSET.search(asset_path):
             continue
-        target = SITE / value.lstrip("/")
+        target = SITE / asset_path.lstrip("/")
         if not target.exists():
             problems.append((rel, "A9", RULE_LABELS["A9"],
                              "...missing asset %s..." % value))
@@ -372,7 +373,7 @@ def audit_page(path):
          'missing name="viewport"'),
         (re.search(r'\bid\s*=\s*["\']main["\']', raw, re.I) is not None,
          'missing id="main"'),
-        (re.search(r'href\s*=\s*"/assets/css/styles\.css"', raw, re.I) is not None,
+        (re.search(r'href\s*=\s*"/assets/css/styles\.css(?:\?v=[a-z0-9-]+)?"', raw, re.I) is not None,
          'missing href="/assets/css/styles.css"'),
     ]
     for ok, message in required:
