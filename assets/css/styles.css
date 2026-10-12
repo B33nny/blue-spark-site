@@ -853,3 +853,28 @@ html.save-data #cosmos2d { display: none; }
   .capability-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .pricing-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 }
+
+/* ---------- Supplied content: the brain-loop diagram and line icons ---------- */
+/* The loop figure is line art: Deep Blue strokes on Paper, mono labels, and
+   nothing that moves. Color comes from currentColor so an ink field would
+   only need the one token swap, none is used there today. */
+.loop { color: var(--deep); max-width: 400px; margin-inline: auto; }
+.loop svg { width: 100%; height: auto; display: block; }
+.loop-line { fill: none; stroke: currentColor; stroke-width: 1.5; }
+.loop-tip { fill: currentColor; }
+.loop-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.01em; fill: currentColor; }
+
+/* Line icons: one geometric vocabulary, 1.5px stroke, colored by context. */
+.icon { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Capability card header: icon left, index right. */
+.capability-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; color: var(--deep); }
+.capability-head .icon { flex: none; }
+
+/* The metacognition list on the ink band: icon column + text, warm icons. */
+.meta-list { list-style: none; padding: 0; display: grid; gap: clamp(20px, 2.6vw, 32px); max-width: var(--measure); }
+.meta-list li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 16px; align-items: start; }
+.meta-list li + li { border-top: 1px solid var(--rule-ink); padding-top: clamp(20px, 2.6vw, 32px); }
+.meta-list .icon { color: var(--warm); margin-top: 5px; }
+.meta-list p { font-size: 1rem; line-height: 1.6; color: var(--text-on-ink); }
+.meta-list strong { font-weight: 600; }

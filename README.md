@@ -148,3 +148,11 @@ stylesheet change or cache-version bump was needed. The one owner-supplied
 percentage ("reduces token consumption by up to 90%") is a narrow A6 exception
 recorded in `voice-rules-decision.md`; the audit still does not qualify the
 product's described capabilities.
+
+A same-day visual pass adds inline line art inside the design system: a
+brain-loop diagram in the product hero (perceive, reason, act, verify,
+remember), thin-line icons on the eleven capability cards and the
+metacognition list, and the page's single Code Black band behind the
+metacognition section. All graphics are inline SVG styled through
+`styles.css`; no image assets, scripts or page-local styles were added. The
+stylesheet version is now `v=20261012-icons`.
