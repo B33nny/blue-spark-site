@@ -34,7 +34,7 @@ from pathlib import Path
 
 SITE = Path(__file__).resolve().parent.parent
 
-EXPECTED_PAGES = 28  # supplied-copy update: /news added to the v3 surfaces
+EXPECTED_PAGES = 24  # 4 pages removed per owner request: technology, marketplace, roadmap, enterprise
 
 # Exact wording supplied by the owner on 2026-10-12 supersedes the previous
 # editorial restrictions. Exceptions are page- and phrase-specific. This is

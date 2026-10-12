@@ -14,6 +14,16 @@
 /dashboard /transparency 301
 /dashboard.html /transparency 301
 
+# --- Retired routes (301) -----------------------------------------------------
+/technology /product 301
+/technology.html /product 301
+/marketplace /product 301
+/marketplace.html /product 301
+/roadmap /product 301
+/roadmap.html /product 301
+/enterprise /product 301
+/enterprise.html /product 301
+
 # --- Do NOT add 200 rewrites for the clean URLs ---------------------------------
 # An earlier revision of this file rewrote every canonical path to its .html file
 # (/product -> /product.html 200, and 21 more). That broke every page on the site.

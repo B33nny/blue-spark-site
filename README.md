@@ -59,25 +59,24 @@ gate's known limits are documented in `voice-rules-decision.md`.
 
 ## Routes
 
-Twenty-seven canonical surfaces, served extensionless, plus one error surface. The
+Twenty-three canonical surfaces, served extensionless, plus one error surface. The
 `/legal/<x>` sub-routes are full pages, not in-page anchors:
 
-`/` · `/product` · `/technology` · `/pricing` · `/founding-500` · `/marketplace`
-· `/roadmap` · `/about` · `/community` · `/news` · `/transparency` · `/download` ·
-`/learn` · `/work` · `/legal` · `/legal/terms` · `/legal/privacy` ·
-`/legal/licence` · `/legal/professional-use` · `/enterprise` · `/partners` ·
-`/contact` · `/security` · `/status` · `/journal` · `/journal/perspectives` ·
-`/journal/lighter-side`, and `404.html` for an unmatched address.
+`/` · `/product` · `/pricing` · `/founding-500` · `/about` · `/community` ·
+`/news` · `/transparency` · `/download` · `/learn` · `/work` · `/legal` ·
+`/legal/terms` · `/legal/privacy` · `/legal/licence` · `/legal/professional-use` ·
+`/partners` · `/contact` · `/security` · `/status` · `/journal` ·
+`/journal/perspectives` · `/journal/lighter-side`, and `404.html` for an unmatched
+address. (Four pages were removed on 2026-10-12 per owner request: `/technology`,
+`/marketplace`, `/roadmap`, `/enterprise`, with 301 redirects to `/product`.)
 
-`_redirects` carries only the eight 301s for the four renamed legacy paths
-(`/useful` → `/work`, `/philosophical` → `/journal/perspectives`, `/comical` →
-`/journal/lighter-side`, `/dashboard` → `/transparency`, each with and without
-`/.html`). The file deliberately does NOT contain any 200 rewrite for the
-clean URLs; an earlier 200-rewrite revision produced an infinite redirect
-loop on Cloudflare Pages (verified against the live deployment on
-2026-09-29). `sitemap.xml` lists 27 canonical URLs (23 existing + the four
-new `/legal/<x>` sub-routes). `robots.txt` allows everything and points at
-the sitemap.
+`_redirects` carries the 301s for renamed legacy paths and the four retired
+routes (`/technology`, `/marketplace`, `/roadmap`, `/enterprise`, each with and
+without `.html` redirecting to `/product`). The file deliberately does NOT
+contain any 200 rewrite for the clean URLs; an earlier 200-rewrite revision
+produced an infinite redirect loop on Cloudflare Pages (verified against the live
+deployment on 2026-09-29). `sitemap.xml` lists 23 canonical URLs. `robots.txt`
+allows everything and points at the sitemap.
 
 ## Repo contents
 
