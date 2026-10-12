@@ -25,9 +25,9 @@ simply absent until the real thing exists.
 
 | Stub | Where the state sits | What triggers it |
 |------|----------------------|------------------|
-| Founder portrait | No portrait is published and no reserved field renders yet | An approved portrait |
-| Founder biography (background, credentials) beyond the note on `/about` | Not written anywhere | Details supplied and approved by the founder |
-| Partner introduction (name, role, credentials) | Mentioned as "our partner" on `/about`, `/community`, `/founding-500`; no introduction is published | The partner introduction being supplied |
+| Founder portraits | Published on `/about#team`: Benjamin Yeo and Dr. Mogana, using the supplied portraits in lossless WebP format | Complete |
+| Founder biography | Benjamin Yeo’s full supplied profile is published on `/about#benjamin-yeo` | Complete |
+| Co-founder introduction | Dr. Mogana Sundaram N. Narayanam’s full supplied profile and career highlights are published on `/about#mogana-sundaram` | Complete |
 | Approved logo master | The nav displays `assets/img/mark-128.png` at 52px and the home opening uses `assets/img/star-704.webp` (the star master downscaled to its display size); the full-size `assets/img/star.png` and `assets/img/medallion.png` are referenced by no page | Founder-approved artwork |
 
 ## Intake and contact routes

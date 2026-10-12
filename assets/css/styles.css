@@ -822,6 +822,29 @@ html.save-data #cosmos2d { display: none; }
 .pro-features .step { padding-block: 12px; }
 .marketplace-rights { display: grid; gap: var(--rhythm-tight); }
 .offer, .step, .panel { overflow-wrap: break-word; }
+.founder-profile {
+  display: grid;
+  gap: clamp(28px, 4vw, 56px);
+  padding-block: var(--rhythm-tight);
+  border-top: 1px solid var(--rule);
+  align-items: start;
+}
+.founder-portrait { margin: 0; width: min(100%, 340px); }
+.founder-portrait img { width: 100%; height: auto; border-radius: var(--r-2); }
+.founder-copy { display: grid; gap: 20px; max-width: var(--measure); min-width: 0; }
+.founder-copy p, .founder-copy li { font-size: 1rem; line-height: 1.65; }
+.founder-copy .h3 { font-size: clamp(1.5rem, 2.8vw, 2.25rem); line-height: 1.2; }
+.founder-copy h4.h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 500; line-height: 1.4; }
+.founder-role { color: var(--deep-ink); }
+.founder-copy ul { padding-left: 1.15em; display: grid; gap: 16px; }
+.founder-philosophy { border-left: 2px solid var(--deep); padding-left: 20px; }
+.founder-copy strong { font-weight: 600; }
+@media (max-width: 899px) {
+  .founder-portrait { width: min(100%, 240px); margin-inline: auto; }
+}
+@media (min-width: 900px) {
+  .founder-profile { grid-template-columns: minmax(0, 320px) minmax(0, 1fr); }
+}
 @media (min-width: 720px) {
   .content-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .memory-row { grid-template-columns: minmax(140px, 1fr) minmax(0, 3fr); gap: 40px; }

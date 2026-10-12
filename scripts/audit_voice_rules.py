@@ -44,6 +44,7 @@ OWNER_COPY_EXCEPTIONS = {
     ("product.html", "A2"): [r"low\s+latency,\s+scaled\s+to\s+your\s+hardware"],
     ("index.html", "A4"): [r"no\s+cloud\s+round-trip\s+voice,\s+conversations,\s+and\s+memory\s+never\s+leave\s+the\s+local\s+disk\."],
     ("index.html", "A7"): [r"users\s+who\s+reflexively\s+desire\s+a\s+monthly\s+consumer\s+subscription\."],
+    ("about.html", "A3"): [r"AI-powered\s+systems", r"next\s+generation\s+of\s+artificial\s+intelligence"],  # supplied biographies
 }
 
 # --------------------------------------------------------------------------

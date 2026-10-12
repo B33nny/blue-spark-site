@@ -121,3 +121,16 @@ URLs have not been supplied. Their CTAs reach explicit availability sections.
 counts. The marketplace describes the supplied creator proposition and remains
 labelled in development. Exact owner-copy audit exceptions are documented in
 `voice-rules-decision.md`; this audit does not qualify product capabilities.
+
+
+## Founder profiles and document completeness
+
+The 12 October profile update publishes Benjamin Yeo and Dr. Mogana Sundaram
+N. Narayanam at `/about#team`, including their full supplied biographies,
+career highlights and philosophies. Portraits are lossless WebP conversions
+with the original pixels and dimensions preserved. They have descriptive alt
+text, explicit dimensions and lazy loading. The About introduction links to
+Meet the founders. The supplied document's public section titles and rung
+labels are restored; all 93 substantive copy requirements are present. The
+stylesheet URL uses `v=20261012-founders` so returning visitors receive the
+profile layout.

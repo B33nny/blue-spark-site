@@ -18,6 +18,14 @@ The owner explicitly reconfirmed keeping the supplied local-processing and
 cloud-reasoning wording exactly on 12 October 2026. Those editorial statements
 are retained without presenting this audit as evidence for their capabilities.
 
+The founder-profile follow-up adds both complete, owner-supplied biographies
+and portraits, with the clarified short name Dr. Mogana. The phrase
+"AI-powered systems" and "next generation of artificial intelligence" are
+allowed only on About as part of the supplied profiles;
+all other hype checks remain. The document's public section headings have been
+restored. Biography claims are attributed to the supplied profiles and are not
+independently verified by this text/markup gate.
+
 The repo's gate is `scripts/audit_voice_rules.py`. It is CI-ready and is the
 command the project's test runner executes:
 
