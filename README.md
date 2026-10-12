@@ -3,10 +3,10 @@
 The blue-spark.io marketing site. **Static HTML, one stylesheet, vanilla plus
 vendored GSAP. No framework, no bundler, no build step, no npm dependency.**
 
-A personal and professional AI assistant, honest by design. v3 of the public
-content (Pages 01–22 modified; four new `/legal/<x>` sub-routes as honest-state
-pages; `_redirects`, the design system, and the audit gate carry forward
-unchanged).
+A private desktop AI for professionals. The supplied-copy update of 12 October
+2026 replaces Home, Product, Pricing, Marketplace, Community, Roadmap and About,
+and adds Community News at `/news`. It retains the static stack, Paper/Deep Blue
+typography system, keyboard menus and reduced-motion behavior.
 
 Deploy via **Cloudflare Pages** with these settings:
 
@@ -17,7 +17,7 @@ Deploy via **Cloudflare Pages** with these settings:
 | Build output directory | `.` (repo root) |
 | Production branch | `main` |
 
-The deployed output is 27 HTML files (22 existing surfaces + `404.html` + 4 new
+The deployed output is 28 HTML files (22 existing surfaces + `404.html` + `/news` + 4
 `/legal/<x>` sub-routes served extensionless), `assets/` (CSS, JS, images),
 `_redirects`, `sitemap.xml`, `robots.txt` and this README. Open `index.html` in any modern
 browser and the site renders.
@@ -50,7 +50,7 @@ python scripts/audit_voice_rules.py
 Expected on a clean tree:
 
 ```
-PASS — 27 pages audited, 0 voice-rule violations.
+PASS — 28 pages audited, 0 voice-rule violations.
 ```
 
 Exit `0` when clean, `1` with a numbered `VIOLATIONS (n):` list otherwise. The
@@ -59,11 +59,11 @@ gate's known limits are documented in `voice-rules-decision.md`.
 
 ## Routes
 
-Twenty-six canonical surfaces, served extensionless, plus one error surface. The
+Twenty-seven canonical surfaces, served extensionless, plus one error surface. The
 `/legal/<x>` sub-routes are full pages, not in-page anchors:
 
 `/` · `/product` · `/technology` · `/pricing` · `/founding-500` · `/marketplace`
-· `/roadmap` · `/about` · `/community` · `/transparency` · `/download` ·
+· `/roadmap` · `/about` · `/community` · `/news` · `/transparency` · `/download` ·
 `/learn` · `/work` · `/legal` · `/legal/terms` · `/legal/privacy` ·
 `/legal/licence` · `/legal/professional-use` · `/enterprise` · `/partners` ·
 `/contact` · `/security` · `/status` · `/journal` · `/journal/perspectives` ·
@@ -75,13 +75,13 @@ Twenty-six canonical surfaces, served extensionless, plus one error surface. The
 `/.html`). The file deliberately does NOT contain any 200 rewrite for the
 clean URLs; an earlier 200-rewrite revision produced an infinite redirect
 loop on Cloudflare Pages (verified against the live deployment on
-2026-09-29). `sitemap.xml` lists 26 canonical URLs (22 existing + the four
+2026-09-29). `sitemap.xml` lists 27 canonical URLs (23 existing + the four
 new `/legal/<x>` sub-routes). `robots.txt` allows everything and points at
 the sitemap.
 
 ## Repo contents
 
-- 27 HTML files — 26 canonical surfaces plus `404.html`.
+- 28 HTML files — 27 canonical surfaces plus `404.html`.
 - `assets/css/styles.css` — the design system: tokens, type roles, layout,
   components, states and the accessibility floor.
 - `assets/js/main.js` — the disclosure menus, the mobile menu, the current-page
@@ -112,3 +112,12 @@ true is listed in `stubs.md` and rendered on the page as an honest state.
 ## License
 
 Internal. Pushed only to the verified Cloudflare Pages project.
+
+## Supplied-copy update
+
+Pro is $120/month or $1,200/year. Installer, launch manifesto video and checkout
+URLs have not been supplied. Their CTAs reach explicit availability sections.
+`/news` reserves four editorial categories without inventing posts or member
+counts. The marketplace describes the supplied creator proposition and remains
+labelled in development. Exact owner-copy audit exceptions are documented in
+`voice-rules-decision.md`; this audit does not qualify product capabilities.

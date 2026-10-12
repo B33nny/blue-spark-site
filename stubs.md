@@ -10,7 +10,7 @@ simply absent until the real thing exists.
 | Stub | Where the state sits | What triggers it |
 |------|----------------------|------------------|
 | The released installer and its published fields (version, date, file size, publisher, SHA-256) | `/download` — no release table is rendered yet; the page describes the access routes | Publication of the actual distributed artifact |
-| A public installation route once an artifact exists | `/download` | Same artifact, plus a decision to serve it publicly |
+| A public installation route once an artifact exists | `/download` (Home’s Download for Windows CTA leads here) | Same artifact, plus a decision to serve it publicly |
 | Supported Windows versions and requirements for the current release | Not published anywhere | Verification against the release that is actually distributed |
 
 ## Product evidence
@@ -19,7 +19,7 @@ simply absent until the real thing exists.
 |------|----------------------|------------------|
 | Interface capture | No reserved panel is rendered; the home opening carries the Blue Spark star mark instead | A real capture from the current UI, with its release caption |
 | Readable example outputs | No reserved panel is rendered | A real output that can be shown at normal size |
-| The workflow film and its written transcript | No reserved panel is rendered | A recorded demonstration, with a transcript, published with the customer release |
+| The launch manifesto film and its written transcript | `/#launch-manifesto` — video not yet published | A recorded demonstration, with a transcript, published with the customer release |
 
 ## People and identity
 
@@ -28,7 +28,7 @@ simply absent until the real thing exists.
 | Founder portrait | No portrait is published and no reserved field renders yet | An approved portrait |
 | Founder biography (background, credentials) beyond the note on `/about` | Not written anywhere | Details supplied and approved by the founder |
 | Partner introduction (name, role, credentials) | Mentioned as "our partner" on `/about`, `/community`, `/founding-500`; no introduction is published | The partner introduction being supplied |
-| Approved logo master | The nav uses `assets/img/mark-128.png` and the home opening uses `assets/img/star-704.webp` (the star master downscaled to its display size); the full-size `assets/img/star.png` and `assets/img/medallion.png` are referenced by no page | Founder-approved artwork |
+| Approved logo master | The nav displays `assets/img/mark-128.png` at 52px and the home opening uses `assets/img/star-704.webp` (the star master downscaled to its display size); the full-size `assets/img/star.png` and `assets/img/medallion.png` are referenced by no page | Founder-approved artwork |
 
 ## Intake and contact routes
 
@@ -52,9 +52,9 @@ simply absent until the real thing exists.
 | Stub | Where the state sits | What triggers it |
 |------|----------------------|------------------|
 | The four legal documents (terms, privacy notice, licence, professional-use notice) — now honest-state pages at `/legal/terms`, `/legal/privacy`, `/legal/licence`, `/legal/professional-use` | Each sub-route — `Not yet published` with the supplier identity / jurisdiction sentence | Supplier identity and jurisdiction, then the final document text |
-| Currency, tax treatment and the included usage allowance for the monthly licence | `/pricing` and `/founding-500` — the amount is published with its qualifier clause: "Currency, taxes and included usage are confirmed at the offer before payment." | The published price terms |
-| Checkout and purchase controls | Not rendered anywhere | A complete offer, with currency, taxes and allowance stated before checkout |
-| Creator marketplace | `/marketplace` — the whole surface is `Planned for 2027` | The planned 2027 marketplace and its published terms |
+| Currency, tax treatment and any connected-service usage terms for Pro | `/pricing`, `/community` and `/founding-500` — Pro is $120/month or $1,200/year, with currency/tax context | The published price terms |
+| Checkout and purchase controls | Get Pro leads to `/pricing#access`, marked Checkout not open yet | A complete offer, with currency, taxes and allowance stated before checkout |
+| Creator marketplace | `/marketplace` — the creator proposition is labelled in development | Marketplace release and its published terms |
 
 ## Editorial
 
@@ -63,7 +63,7 @@ simply absent until the real thing exists.
 | Further Learn lessons beyond the published guide | `/learn` — carries one complete guide; no reserved states render for further lessons | Each further lesson being complete |
 | Further Perspectives articles | `/journal/perspectives` — carries the published piece "Ambition needs room."; no reserved states render | Further articles being written and approved |
 | Further pieces on The lighter side | `/journal/lighter-side` — carries a published piece; no reserved states render | Further pieces being produced |
-| Journal category "From the team" | Not present on `/journal` yet | Approved product news |
+| Community news | `/news` — four categories reserved, Not yet published | Approved product updates, creator spotlights, Founding 500 milestones and community developments |
 | A newsletter | Not present anywhere | Explicit opt-in plus a real delivery and unsubscribe path |
 
 ## Deliberately not built

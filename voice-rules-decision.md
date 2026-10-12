@@ -1,5 +1,23 @@
 # Voice-rules decisions — what the audit actually enforces
 
+## Supplied-copy amendment — 12 October 2026
+
+The owner's replacement copy governs the current Home, Product, Pricing,
+Marketplace, Community, Roadmap and About surfaces, and adds `/news`. The
+inventory is now 28 HTML pages. The original editorial bans remain, with exact
+page-specific exceptions for the supplied hardware-qualified latency phrases,
+the Home local-processing sentence and the negative consumer-subscription
+sentence. `OWNER_COPY_EXCEPTIONS` records the literal patterns; it does not
+exempt other claims or other pages. Price currency and tax context remains
+visible, and media, checkout and intake destinations retain honest unavailable
+states until the real links are supplied.
+
+This gate verifies copy and markup compliance. The owner's submitted language
+does not constitute performance, release, privacy or licensing qualification.
+The owner explicitly reconfirmed keeping the supplied local-processing and
+cloud-reasoning wording exactly on 12 October 2026. Those editorial statements
+are retained without presenting this audit as evidence for their capabilities.
+
 The repo's gate is `scripts/audit_voice_rules.py`. It is CI-ready and is the
 command the project's test runner executes:
 

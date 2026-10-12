@@ -34,7 +34,17 @@ from pathlib import Path
 
 SITE = Path(__file__).resolve().parent.parent
 
-EXPECTED_PAGES = 27  # v3: 4 new legal sub-routes
+EXPECTED_PAGES = 28  # supplied-copy update: /news added to the v3 surfaces
+
+# Exact wording supplied by the owner on 2026-10-12 supersedes the previous
+# editorial restrictions. Exceptions are page- and phrase-specific. This is
+# copy compliance, not evidence that the described product is qualified.
+OWNER_COPY_EXCEPTIONS = {
+    ("index.html", "A2"): [r"low\s+latency,\s+scaled\s+to\s+your\s+local\s+hardware"],
+    ("product.html", "A2"): [r"low\s+latency,\s+scaled\s+to\s+your\s+hardware"],
+    ("index.html", "A4"): [r"no\s+cloud\s+round-trip\s+voice,\s+conversations,\s+and\s+memory\s+never\s+leave\s+the\s+local\s+disk\."],
+    ("index.html", "A7"): [r"users\s+who\s+reflexively\s+desire\s+a\s+monthly\s+consumer\s+subscription\."],
+}
 
 # --------------------------------------------------------------------------
 # Rule definitions
@@ -308,6 +318,8 @@ def audit_page(path):
             # Blank the exempt phrases without changing any offsets, so the
             # reported context stays aligned with the sentence a reader sees.
             subject = re.sub(A6_EXEMPT, lambda m: " " * len(m.group(0)), text, flags=re.I)
+        for approved in OWNER_COPY_EXCEPTIONS.get((rel, rule_id), ()):
+            subject = re.sub(approved, lambda m: " " * len(m.group(0)), subject, flags=re.I)
         for pat in patterns:
             for m in re.finditer(pat, subject, flags=re.I):
                 problems.append((rel, rule_id, label, snippet(text, m.start(), m.end())))
