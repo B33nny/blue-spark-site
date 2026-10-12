@@ -26,6 +26,19 @@ all other hype checks remain. The document's public section headings have been
 restored. Biography claims are attributed to the supplied profiles and are not
 independently verified by this text/markup gate.
 
+The product-page replacement later on 12 October 2026 supersedes the earlier
+Product copy. The new owner-supplied document — the vision ("Beyond the
+Chatbot"), the Neuromorphic Memory substrate with its supplied five-layer
+schema, the Metacognition section, the eleven capabilities powered by the
+loop, and the closing result section — replaces the previous capability
+matrix and memory descriptions. The `#memory` anchor is preserved because
+Home links to it. The document's single percentage claim, "reduces token
+consumption by up to 90%", is recorded as a product-page A6 exception; no
+other metric, hype or absolute claim on that page is exempt. The earlier
+`product.html` A2 exception is removed together with the copy it exempted.
+Publishing the supplied wording is not evidence that the described cognition
+or efficiency is qualified.
+
 The repo's gate is `scripts/audit_voice_rules.py`. It is CI-ready and is the
 command the project's test runner executes:
 

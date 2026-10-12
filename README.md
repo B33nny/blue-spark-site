@@ -134,3 +134,17 @@ Meet the founders. The supplied document's public section titles and rung
 labels are restored; all 93 substantive copy requirements are present. The
 stylesheet URL uses `v=20261012-founders` so returning visitors receive the
 profile layout.
+
+## Product page content replacement
+
+Later on 12 October 2026 the owner supplied a new Product narrative. `/product`
+now carries the vision ("Beyond the Chatbot"), the Neuromorphic Memory
+substrate with the supplied five-layer schema diagram, the Metacognition
+section, the eleven capabilities powered by the loop, and the closing result
+section with the Blue Spark tagline. The earlier capability matrix and memory
+descriptions are superseded and removed. The `#memory` anchor is preserved for
+Home's incoming links, and the page reuses existing components, so no
+stylesheet change or cache-version bump was needed. The one owner-supplied
+percentage ("reduces token consumption by up to 90%") is a narrow A6 exception
+recorded in `voice-rules-decision.md`; the audit still does not qualify the
+product's described capabilities.
