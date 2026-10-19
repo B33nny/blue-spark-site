@@ -26,6 +26,8 @@
 .nw a{color:var(--nw-sky)}
 .nw-wrap{max-width:1040px;margin:0 auto;padding:0 30px}
 .nw :focus-visible{outline:3px solid var(--nw-sky-bright);outline-offset:3px}
+.nw-skip{position:absolute;left:-9999px;top:8px;z-index:60;background:var(--nw-sky-bright);color:#06080F;padding:12px 16px;border-radius:8px;font:600 15px/1 var(--nw-body);text-decoration:none}
+.nw-skip:focus{left:8px}
 
 /* ---------- top bar ---------- */
 .nw-topbar{background:var(--nw-navy);color:#FFF8E7}
