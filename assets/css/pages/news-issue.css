@@ -108,7 +108,7 @@
 .nw-lead p{font:400 16px/1.6 var(--nw-body);color:var(--nw-ink);margin:0 0 11px;text-align:justify;hyphens:auto}
 .nw-lead p.dropcap::first-letter{font-family:var(--nw-display);font-weight:900;float:left;font-size:52px;line-height:.76;padding:6px 8px 0 0;color:var(--nw-ink)}
 .nw-field b{color:var(--nw-ink);font-weight:700}
-@media (max-width:720px){.nw-lead{columns:1}}
+@media (max-width:720px){.nw-lead{columns:1}.nw-story.splash .nw-lead{columns:1}}
 
 /* "Five Things" — classic column list */
 .nw-five{list-style:none;margin:0;padding:0;columns:2;column-gap:40px;column-rule:1px solid var(--nw-rule)}
