@@ -89,11 +89,15 @@
 .nw-signals b{font-weight:700;color:var(--nw-ink)}
 @media (max-width:720px){.nw-signals{columns:1}.nw-signals li:nth-child(3){border-top:1px solid var(--nw-rule)}}
 
-/* numbered lead stories */
+/* lead stories */
 .nw-story{padding:6px 0 10px;border-bottom:1px solid var(--nw-rule);margin-bottom:16px;position:relative}
 .nw-story:last-child{border-bottom:0}
 .nw-story-top{display:flex;gap:16px;align-items:baseline}
-.nw-storynum{font-family:var(--nw-display);font-weight:900;font-size:clamp(34px,5vw,52px);line-height:.85;color:var(--nw-sky);flex:0 0 auto}
+/* splash / lead story — the day's most important story */
+.nw-story.splash{border-bottom:3px double var(--nw-ink);padding-bottom:22px;margin-bottom:28px}
+.nw-story.splash::before{content:"LEAD STORY";display:block;font:700 10px/1 var(--nw-mono);letter-spacing:.12em;color:var(--nw-cream);background:var(--nw-ink);padding:4px 10px;margin-bottom:14px;width:-moz-fit-content;width:fit-content}
+.nw-story.splash .nw-headline{font-size:clamp(36px,5.5vw,60px);line-height:1.0;letter-spacing:-.018em}
+.nw-story.splash .nw-lead{columns:2;column-gap:38px}
 .nw-eyebrow{font:600 12px/1.3 var(--nw-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--nw-muted);margin:0 0 4px}
 .nw-headline{font-family:var(--nw-display);font-weight:800;font-size:clamp(23px,3.1vw,34px);line-height:1.06;letter-spacing:-.012em;margin:0;color:var(--nw-ink)}
 .nw-byline{font:italic 500 13.5px/1.5 var(--nw-display);color:var(--nw-muted);margin:10px 0 0}
@@ -106,12 +110,11 @@
 .nw-field b{color:var(--nw-ink);font-weight:700}
 @media (max-width:720px){.nw-lead{columns:1}}
 
-/* numbered "Five Things" — classic numbered column list */
+/* "Five Things" — classic column list */
 .nw-five{list-style:none;margin:0;padding:0;columns:2;column-gap:40px;column-rule:1px solid var(--nw-rule)}
 .nw-five .it{break-inside:avoid;padding:16px 0;border-top:1px solid var(--nw-rule)}
 .nw-five .it:first-child,.nw-five .it:nth-child(3){border-top:0}
 .nw-five .it .top{display:flex;gap:13px;align-items:baseline}
-.nw-five .it .num{font-family:var(--nw-display);font-weight:900;font-size:40px;line-height:.8;color:var(--nw-sky);flex:0 0 auto}
 .nw-five .it .cat{font:600 10.5px/1.4 var(--nw-mono);letter-spacing:.05em;color:var(--nw-muted);text-transform:uppercase}
 .nw-five .it h3{font-family:var(--nw-display);font-weight:700;font-size:19px;line-height:1.16;margin:3px 0 0;color:var(--nw-ink)}
 .nw-five .it p{font:400 15px/1.55 var(--nw-body);color:var(--nw-ink);margin:9px 0 0;text-align:justify;hyphens:auto}
