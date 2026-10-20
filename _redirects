@@ -24,6 +24,12 @@
 /enterprise /product 301
 /enterprise.html /product 301
 
+# --- Community nav → latest issue (302 temporary, update with each new issue) ---
+# The nav bar links to /community; this sends visitors straight to the broadsheet.
+# Update the destination date when a new issue is published.
+
+/community /community/2026-10-20 302
+
 # --- Do NOT add 200 rewrites for the clean URLs ---------------------------------
 # An earlier revision of this file rewrote every canonical path to its .html file
 # (/product -> /product.html 200, and 21 more). That broke every page on the site.
