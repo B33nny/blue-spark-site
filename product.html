@@ -3,421 +3,1396 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#06080F">
-  <title>Blue Spark | Eleven capabilities. One persistent brain loop.</title>
-  <meta name="description" content="Blue Spark unites neuromorphic memory with metacognition in one persistent brain loop: perceive, reason, act, verify, remember.">
+  <title>Blue Spark | Eleven Capabilities Driven by Curiosity · Mahanta OS</title>
+  <meta name="description" content="Blue Spark unites neuromorphic memory with metacognition, powered by active curiosity. Explore the 11 capabilities, Mahanta OS, and why Blue Spark is fundamentally different from so-called autonomous AI.">
   <link rel="canonical" href="https://blue-spark.io/product">
-  <meta property="og:title" content="Blue Spark | Eleven capabilities. One persistent brain loop.">
-  <meta property="og:description" content="Blue Spark unites neuromorphic memory with metacognition in one persistent brain loop: perceive, reason, act, verify, remember.">
+  <meta property="og:title" content="Blue Spark | Eleven Capabilities Driven by Curiosity">
+  <meta property="og:description" content="Why Blue Spark is fundamentally different from all so-called autonomous AI: active curiosity, 5-tier neuromorphic memory, and the Libet Conscious Veto.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://blue-spark.io/product">
-  <meta property="og:image" content="https://blue-spark.io/assets/img/og-star-1200x630.png">
+  <meta property="og:image" content="https://blue-spark.io/assets/curiosity-engine-hero.jpg">
+  <meta name="theme-color" content="#06080F">
   <link rel="icon" type="image/png" href="/assets/img/favicon-32.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/styles.css?v=20261019-redesign">
-  <link rel="stylesheet" href="/assets/css/pages/product.css?v=20261019">
-</head>
-<body>
-<a href="#main" class="bs-skip">Skip to content</a>
-<main id="main">
-<div class="bs s-893e081">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=20261027-curiosity-visual-glance">
 
-<!-- ============ HERO ============ -->
-<section class="s-a91cbc6" aria-labelledby="p-hero">
-  <div class="bs-stars" aria-hidden="true"></div>
-  <header class="bs-wrap s-fc464c9">
-    <a class="s-6c31fcc" href="/">
-      <img class="s-ce1ceb7" src="/assets/img/mark-128.png" alt="">
-      <span class="s-7702ad4">Blue Spark</span>
-    </a>
-    <nav aria-label="Main" class="bs-nav">
-      <a href="/product" aria-current="page">Product</a>
-      <a href="/founding-500">Founding 500</a>
-      <a href="/pricing">Pricing</a>
-      <a href="/community">Community</a>
-      <a href="/about">About us</a>
-    </nav>
-    <a href="/download" class="bs-ghost">Get Blue Spark</a>
+  <style>
+    /* ============================================================
+       VISUAL-FIRST DESIGN FOR PRODUCT PAGE (UNDERSTOOD IN A GLANCE)
+       Tokens: --deep: #1E3A8A, --warm: #FFF8E7, --steel: #C5CCD8, --ink: #06080F
+       ============================================================ */
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    section[id] {
+      scroll-margin-top: calc(var(--nav-h) + 24px);
+    }
+
+    /* Blue Hero Band matching first page branding */
+    .hero-curiosity-band {
+      background: radial-gradient(850px 480px at 78% 22%, rgba(30, 58, 138, 0.48), transparent 70%),
+                  radial-gradient(600px 360px at 15% 85%, rgba(56, 189, 248, 0.12), transparent 65%),
+                  #06080F;
+      color: #EDEFF4;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid #1E2738;
+      padding-block: clamp(48px, 6vw, 84px);
+    }
+    .hero-curiosity-band .kicker {
+      color: #7FB3FF;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .hero-curiosity-band .h1 {
+      color: var(--warm);
+      font-size: clamp(2.35rem, 5vw, 3.8rem);
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      margin: 12px 0 20px;
+    }
+    .hero-curiosity-band .lead {
+      color: #C5CCD8;
+      font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+      line-height: 1.65;
+      max-width: 58ch;
+      margin-bottom: 28px;
+    }
+    .hero-curiosity-band .lead strong {
+      color: #FFF8E7;
+      font-weight: 600;
+    }
+
+    /* Hero layout */
+    .hero-curiosity-grid {
+      display: grid;
+      gap: clamp(32px, 4vw, 56px);
+      align-items: center;
+    }
+    @media (min-width: 960px) {
+      .hero-curiosity-grid {
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      }
+    }
+
+    /* Hero buttons on ink */
+    .hero-curiosity-band .btn-secondary {
+      background: transparent;
+      border-color: #3A4A6E;
+      color: #EDEFF4;
+    }
+    .hero-curiosity-band .btn-secondary:hover {
+      background: rgba(255, 248, 231, 0.08);
+      border-color: #FFF8E7;
+      color: #FFF8E7;
+    }
+    .hero-curiosity-band .btn-quiet {
+      color: #7FB3FF;
+    }
+    .hero-curiosity-band .btn-quiet:hover {
+      color: #FFF8E7;
+      text-decoration: underline;
+    }
+
+    /* Hero trust badges on ink */
+    .hero-badges-ink {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .hero-badge-ink {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #A9B1C0;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-badge-ink .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #38BDF8;
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.8);
+    }
+
+    /* Hero Graphic Card (Cool, Awesome, Nice) */
+    .hero-graphic-card {
+      background: #0B1020;
+      border: 1px solid #242A38;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65), 0 0 30px rgba(30, 58, 138, 0.25);
+      position: relative;
+    }
+    .hero-graphic-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+    .hero-graphic-card figcaption {
+      padding: 16px 20px;
+      background: #080C18;
+      border-top: 1px solid #1E2738;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .hero-card-status-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .hero-card-status {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #7FB3FF;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #38BDF8;
+      box-shadow: 0 0 10px #38BDF8;
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.85); }
+    }
+    .hero-card-sub {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: #8C96A8;
+      letter-spacing: 0.05em;
+    }
+
+    /* 11 Capabilities quick pills under hero image */
+    .hero-cap-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+    .hero-cap-pill {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: #C5CCD8;
+      background: #10182C;
+      border: 1px solid #202D45;
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .hero-cap-pill:hover {
+      background: #1E3A8A;
+      color: #FFF8E7;
+      border-color: #38BDF8;
+    }
+
+    /* Artwork showcase throughout the page */
+    .art-showcase {
+      margin: calc(var(--rhythm-tight) * 0.9) 0;
+      border: 1px solid var(--rule);
+      border-radius: var(--r-2);
+      overflow: hidden;
+      background: var(--paper);
+      box-shadow: 0 14px 42px rgba(6, 8, 15, 0.08);
+    }
+    .band-ink .art-showcase {
+      border-color: var(--rule-ink);
+      background: #0B1020;
+      box-shadow: 0 20px 54px rgba(0, 0, 0, 0.65);
+    }
+    .art-showcase img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+    .art-showcase figcaption {
+      padding: 16px 24px;
+      background: var(--paper);
+      border-top: 1px solid var(--rule);
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--text-dim);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .band-ink .art-showcase figcaption {
+      background: #06080F;
+      border-top-color: var(--rule-ink);
+      color: var(--text-on-ink-dim);
+    }
+    .art-showcase figcaption strong {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: -0.01em;
+      color: var(--deep);
+    }
+    .band-ink .art-showcase figcaption strong {
+      color: var(--warm);
+    }
+
+    /* "Why It's Different" Cards with Visual Glanceable Diagrams */
+    .diff-grid {
+      display: grid;
+      gap: 24px;
+      margin-top: var(--rhythm-tight);
+    }
+    @media (min-width: 840px) {
+      .diff-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .diff-card-visual {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: var(--r-2);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 6px 20px rgba(6, 8, 15, 0.04);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .diff-card-visual:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(30, 58, 138, 0.1);
+      border-color: rgba(30, 58, 138, 0.4);
+    }
+    .diff-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .diff-card-head h3 {
+      font-family: var(--font-display);
+      font-size: 1.1875rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--deep);
+      margin: 0;
+    }
+    .diff-badge-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--deep);
+      background: var(--deep-soft);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    /* Glanceable Visual Diagram inside Diff Cards */
+    .diff-visual-box {
+      background: #0B1020;
+      border: 1px solid #242A38;
+      border-radius: 8px;
+      padding: 12px 14px;
+      display: grid;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      margin-top: 4px;
+    }
+    .diff-track-bad {
+      padding: 6px 10px;
+      background: rgba(220, 38, 38, 0.16);
+      border-left: 3px solid #EF4444;
+      border-radius: 4px;
+      color: #FCA5A5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.6875rem;
+    }
+    .diff-track-good {
+      padding: 6px 10px;
+      background: rgba(30, 58, 138, 0.28);
+      border-left: 3px solid #38BDF8;
+      border-radius: 4px;
+      color: #93C5FD;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.6875rem;
+    }
+    .diff-track-lbl {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.625rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* Visual 5-Tier Memory Stack Blueprint */
+    .memory-stack-visual {
+      display: grid;
+      gap: 10px;
+      margin: 24px 0;
+    }
+    .memory-tier-card {
+      background: #FFFFFF;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 180px) minmax(0, 1fr);
+      gap: 16px;
+      align-items: center;
+      box-shadow: 0 4px 14px rgba(6, 8, 15, 0.03);
+      border-left: 5px solid #1E3A8A;
+    }
+    .tier-badge-box {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--deep);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .tier-meta {
+      font-size: 0.625rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .tier-info h4 {
+      margin: 0 0 4px;
+      font-family: var(--font-display);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .tier-info p {
+      margin: 0;
+      font-size: 0.84375rem;
+      line-height: 1.5;
+      color: var(--text-dim);
+    }
+
+    /* Visual 50-Year Lineage Timeline Infographic */
+    .lineage-roadmap-visual {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin: 24px 0;
+    }
+    .roadmap-step-card {
+      background: #0B1020;
+      border: 1px solid #242A38;
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+    }
+    .roadmap-step-card.active-now {
+      border-color: #38BDF8;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+    }
+    .roadmap-year {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #7FB3FF;
+    }
+    .roadmap-step-card.active-now .roadmap-year {
+      color: #38BDF8;
+    }
+    .roadmap-title {
+      font-family: var(--font-display);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: #EDEFF4;
+    }
+    .roadmap-desc {
+      font-size: 0.75rem;
+      line-height: 1.5;
+      color: #8C96A8;
+    }
+
+    /* Visual Libet Conscious Veto Valve Infographic */
+    .veto-valve-visual {
+      background: #0B1020;
+      border: 1px solid #242A38;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 24px 0;
+      display: grid;
+      gap: 12px;
+      font-family: var(--font-mono);
+    }
+    .valve-track-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 12px;
+    }
+    @media (max-width: 720px) {
+      .valve-track-row {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+    .valve-box {
+      background: #121A2C;
+      border: 1px solid #1E2B42;
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+    .valve-gate-center {
+      background: rgba(30, 58, 138, 0.4);
+      border: 1.5px solid #38BDF8;
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+      color: #FFF8E7;
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.25);
+    }
+
+    /* Reality verification table */
+    .table-reality {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: var(--rhythm-tight);
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: var(--r-2);
+      overflow: hidden;
+      font-size: 0.9375rem;
+    }
+    .band-ink .table-reality {
+      background: #0B1020;
+      border-color: var(--rule-ink);
+    }
+    .table-reality th {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: left;
+      padding: 16px 24px;
+      background: var(--paper-alt);
+      border-bottom: 1px solid var(--rule);
+      color: var(--text-dim);
+    }
+    .band-ink .table-reality th {
+      background: #06080F;
+      border-bottom-color: var(--rule-ink);
+      color: var(--text-on-ink-dim);
+    }
+    .table-reality td {
+      padding: 18px 24px;
+      vertical-align: top;
+      border-bottom: 1px solid var(--rule);
+      line-height: 1.55;
+    }
+    .band-ink .table-reality td {
+      border-bottom-color: var(--rule-ink);
+      color: var(--text-on-ink);
+    }
+    .table-reality tr:last-child td {
+      border-bottom: none;
+    }
+    .table-reality td.check-col {
+      color: var(--text);
+      font-weight: 500;
+    }
+    .band-ink .table-reality td.check-col {
+      color: var(--warm);
+    }
+    .table-reality td.check-col::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--st-ok);
+      border-radius: 50%;
+      margin-right: 12px;
+      vertical-align: 1px;
+    }
+
+    /* Enhanced 11 Capabilities Grid with Visual Status Badges */
+    .capability-card-visual {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: var(--r-2);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      position: relative;
+    }
+    .capability-card-visual:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(6, 8, 15, 0.08);
+      border-color: rgba(30,58,138,0.4);
+    }
+    .cap-visual-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--deep);
+    }
+    .cap-visual-head .icon {
+      width: 32px;
+      height: 32px;
+    }
+    .cap-visual-num {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--deep);
+      background: var(--deep-soft);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+    .capability-card-visual h3 {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 0;
+      color: var(--text);
+    }
+    .capability-card-visual p {
+      font-size: 0.90625rem;
+      line-height: 1.6;
+      color: var(--text-dim);
+      margin: 0;
+    }
+    
+    /* Visual glance badge for each capability */
+    .cap-glance-badge {
+      margin-top: auto;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .badge-pass { background: #ECFDF5; border-left: 3px solid #10B981; color: #047857; }
+    .badge-blue { background: #EFF6FF; border-left: 3px solid #3B82F6; color: #1D4ED8; }
+    .badge-gold { background: #FFFBEB; border-left: 3px solid #F59E0B; color: #B45309; }
+
+    /* Swappable model strip */
+    .swapstrip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .swapchip {
+      background: var(--paper-alt);
+      border: 1px dashed var(--rule);
+      border-radius: 10px;
+      padding: 18px 16px;
+      text-align: center;
+    }
+    .swapchip.yours {
+      background: var(--paper);
+      border: 2px solid var(--deep);
+      box-shadow: 0 8px 24px rgba(30,58,138,0.08);
+    }
+    .swapchip h4 {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin: 0 0 4px;
+    }
+    .swapchip.yours h4 {
+      color: var(--deep);
+      font-weight: 600;
+    }
+    .swapchip p {
+      margin: 0;
+      font-size: 0.875rem;
+      color: var(--text);
+    }
+    .swapchip.yours p {
+      font-weight: 500;
+      color: var(--deep);
+    }
+
+    /* Image Compartments replacing black & blue text boxes */
+    .diff-img-compartment {
+      margin-top: auto;
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #0B1020;
+      box-shadow: 0 4px 16px rgba(6, 8, 15, 0.08);
+      display: flex;
+      flex-direction: column;
+    }
+    .diff-img-compartment img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+    .diff-img-compartment figcaption {
+      padding: 10px 14px;
+      background: #080C18;
+      border-top: 1px solid #1E2738;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+    }
+    .diff-img-tag {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+    }
+    .diff-img-tag.bad { color: #FCA5A5; }
+    .diff-img-tag.good { color: #86EFAC; }
+
+  </style>
+</head>
+<body class="band" data-page="/product">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============================================================ LIVE HEADER -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="/" aria-label="Blue Spark home">
+        <img class="brand-mark" src="/assets/img/mark-128.png" alt="" width="52" height="52">
+        <span class="wordmark">Blue Spark</span>
+      </a>
+      <nav class="nav-groups" aria-label="Primary">
+        <a href="/" style="font-weight: 500">&larr; Home</a>
+        <details class="menu" data-current="true">
+          <summary>Product</summary>
+          <div class="menu-panel">
+            <a href="#top" style="font-weight: 600; color: var(--deep)">Product Overview &uarr;</a>
+            <a href="#why-different">Why It's Different</a>
+            <a href="#memory">5-Tier Memory &amp; Sleep</a>
+            <a href="#mahanta">Mahanta OS Lineage</a>
+            <a href="#metacognition">Metacognition &amp; Conscious Veto</a>
+            <a href="#capabilities">Eleven Capabilities</a>
+            <div style="border-top: 1px solid var(--rule); margin: 4px 0;"></div>
+            <a href="/download" style="color: var(--deep); font-weight: 500">Download for Windows</a>
+          </div>
+        </details>
+        <a href="/founding-500">Founding 500</a>
+        <a href="/pricing">Pricing</a>
+        <details class="menu">
+          <summary>Company</summary>
+          <div class="menu-panel">
+            <a href="/about">About us</a>
+            <a href="/community">Community</a>
+            <a href="/news">Community news</a>
+            <a href="/journal">Journal</a>
+            <a href="/contact">Contact us</a>
+          </div>
+        </details>
+      </nav>
+      <a class="btn btn-primary nav-action" href="/pricing">Get Blue Spark</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
   </header>
 
-  <div class="bs-wrap bs-grid-2 s-2ac5a75">
-    <div>
-      <p class="bs-mono bs-fade s-90a2f42">Product</p>
-      <h1 id="p-hero" class="bs-h1 s-4f7f1ad">
-        <span class="bs-word s-11e4b6c">Other AIs are a model with features.</span>
-        <span class="bs-word s-3d681dc">Blue Spark is a system with a model inside.</span>
-      </h1>
-      <p class="bs-fade s-e6b09f4">Most AI is a frozen brain in a box: one model, a memory that wipes when the chat ends, and upgrades only when someone retrains it. Blue Spark is built differently. Its memory lives on your own computer and grows with use. Its skills are earned. And the AI model at the centre is the one part designed to be replaceable.</p>
-      <div class="bs-fade s-1b41376">
-        <a href="/download" class="bs-primary">
-          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>
-          Download for Windows</a>
-      </div>
-    </div>
-
-    <figure class="s-2a0ca83" aria-label="Diagram: the Blue Spark star in the middle, joined to five parts: memory, recall, skills, routing and the brain. The AI model plugs in underneath as a replaceable part.">
-      <div class="bs-sys">
-        <svg class="s-7001da1" aria-hidden="true" viewBox="0 0 560 480" fill="none">
-          <circle cx="280" cy="230" r="200" stroke="rgba(56,189,248,.18)" stroke-width="1" stroke-dasharray="2 6"></circle>
-          <line class="bs-pulse" x1="280" y1="230" x2="280" y2="30" stroke="#38BDF8" stroke-width="1.5"></line>
-          <line class="bs-pulse" x1="280" y1="230" x2="470" y2="168" stroke="#38BDF8" stroke-width="1.5"></line>
-          <line class="bs-pulse" x1="280" y1="230" x2="398" y2="392" stroke="#38BDF8" stroke-width="1.5"></line>
-          <line class="bs-pulse" x1="280" y1="230" x2="162" y2="392" stroke="#38BDF8" stroke-width="1.5"></line>
-          <line class="bs-pulse" x1="280" y1="230" x2="90" y2="168" stroke="#38BDF8" stroke-width="1.5"></line>
-          <line x1="280" y1="290" x2="280" y2="322" stroke="rgba(255,248,231,.5)" stroke-width="1.5" stroke-dasharray="3 4"></line>
-        </svg>
-        <img class="bs-core s-82006a6" src="/assets/img/star-704.webp" alt="">
-        <div class="bs-node s-cf7181c"><div class="orb"><svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"></circle><circle cx="18" cy="7" r="2.5"></circle><circle cx="12" cy="17" r="2.5"></circle><path d="M8 7l7.5 0.5M7.5 8l3.5 7M16.5 9l-3.5 6"></path></svg></div><span class="lbl">Memory</span></div>
-        <div class="bs-node s-4857825"><div class="orb"><svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M20 20l-4.8-4.8"></path></svg></div><span class="lbl">Recall</span></div>
-        <div class="bs-node s-0cbb836"><div class="orb"><svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14L7 22l5-3 5 3-1.5-8"></path></svg></div><span class="lbl">Skills</span></div>
-        <div class="bs-node s-5f373df"><div class="orb"><svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h6l4-6h8"></path><path d="M13 18h8"></path><path d="M9 12l4 6"></path><path d="M18 3l3 3-3 3"></path><path d="M18 15l3 3-3 3"></path></svg></div><span class="lbl">Routing</span></div>
-        <div class="bs-node s-70b39d1"><div class="orb"><svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"></path><path d="M21 4v5h-5"></path><path d="M12 8v4l3 2"></path></svg></div><span class="lbl">The Brain</span></div>
-        <div class="bs-fade s-3992a4f">
-          <span class="s-ae0a3fe">AI model</span>
-          <span class="bs-mono s-6aeb633">replaceable</span>
-        </div>
-      </div>
-    </figure>
-  </div>
-</section>
-
-<!-- ============ FROZEN BRAIN VS SYSTEM ============ -->
-<section class="s-fcea72d" aria-labelledby="p-vs">
-  <div class="bs-wrap">
-    <div class="bs-rv s-fabe3a8">
-      <p class="bs-mono s-cc7bd80">The big difference</p>
-      <div class="bs-line-draw s-dc6d9ea"></div>
-      <h2 id="p-vs" class="bs-h2 s-91ab642">A frozen brain in a box, or a system that grows with you.</h2>
-    </div>
-    <div class="bs-vs s-7fe2de2">
-      <article class="bs-rv s-9acf84d">
-        <div class="s-bd842e1" aria-hidden="true">
-          <svg width="180" height="140" viewBox="0 0 180 140" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M30 40 L90 14 L150 40 L150 110 L90 134 L30 110 Z" stroke="#8A93A3" stroke-width="2"></path>
-            <path d="M30 40 L90 66 L150 40 M90 66 L90 134" stroke="#8A93A3" stroke-width="2"></path>
-            <g stroke="#6B7280" stroke-width="2"><path d="M90 78 v40"></path><path d="M72 88 l36 20"></path><path d="M108 88 l-36 20"></path><path d="M84 80 l6 6 6-6"></path><path d="M84 116 l6-6 6 6"></path></g>
-          </svg>
-        </div>
-        <h3 class="s-896fc2b">Every other AI</h3>
-        <ul class="s-323e94a">
-          <li class="s-d1956dd"><svg class="s-81ffde9" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>Forgets when the chat ends</li>
-          <li class="s-d1956dd"><svg class="s-81ffde9" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>Only learns when someone retrains it</li>
-          <li class="s-d1956dd"><svg class="s-81ffde9" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>The model is the whole product</li>
-        </ul>
-      </article>
-      <article class="bs-rv s-5550d9b">
-        <div class="s-931da7e" aria-hidden="true">
-          <svg width="220" height="150" viewBox="0 0 220 150" fill="none">
-            <g stroke="#38BDF8" stroke-width="1.5" class="bs-pulse"><line x1="110" y1="75" x2="110" y2="18"></line><line x1="110" y1="75" x2="175" y2="52"></line><line x1="110" y1="75" x2="150" y2="128"></line><line x1="110" y1="75" x2="70" y2="128"></line><line x1="110" y1="75" x2="45" y2="52"></line></g>
-            <g fill="#0B1630" stroke="#38BDF8" stroke-width="1.5"><circle cx="110" cy="18" r="10"></circle><circle cx="175" cy="52" r="10"></circle><circle cx="150" cy="128" r="10"></circle><circle cx="70" cy="128" r="10"></circle><circle cx="45" cy="52" r="10"></circle></g>
-          </svg>
-          <img class="s-3d9a0dc" src="/assets/img/mark-128.png" alt="">
-        </div>
-        <h3 class="s-896fc2b">Blue Spark</h3>
-        <ul class="s-45b09d6">
-          <li class="s-d1956dd"><svg class="s-81ffde9" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0369A1" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Remembers, on your own computer</li>
-          <li class="s-d1956dd"><svg class="s-81ffde9" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0369A1" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Gets better between conversations</li>
-          <li class="s-d1956dd"><svg class="s-81ffde9" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0369A1" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>The model is one part you can swap</li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PART 1: MEMORY ============ -->
-<section class="s-d49f33d" id="memory" aria-labelledby="p-mem">
-  <div class="bs-wrap bs-grid-2">
-    <div class="bs-rv">
-      <p class="bs-mono s-cc7bd80">Part 1 of 5 · Memory</p>
-      <h2 id="p-mem" class="bs-h2 s-ee46561">A memory that works like a nervous system, not a notebook.</h2>
-      <p class="bs-body s-784e591">Other AI either forgets everything when the chat ends, or pastes old chat back in. Blue Spark keeps five layers of memory. Memories get stronger when you use them and fade when you don't. Overnight, the important moments settle into lasting knowledge, a bit like sleep does for people.</p>
-      <p class="bs-body s-4c0544d">Everything lives in one place on your own computer, so there is one version of the truth.</p>
-    </div>
-    <figure aria-label="Illustration: a network of memories. Bright dots are memories used often. Faded dots are memories that are fading. A moon shows memories settling overnight." class="bs-art bs-rv s-104d186">
-      <svg class="s-7d1a7d9" aria-hidden="true" viewBox="0 0 480 300" fill="none">
-        <g stroke="rgba(56,189,248,.35)" stroke-width="1.2">
-          <line x1="80" y1="90" x2="180" y2="60"></line><line x1="180" y1="60" x2="260" y2="130"></line><line x1="80" y1="90" x2="140" y2="190"></line><line x1="140" y1="190" x2="260" y2="130"></line><line x1="260" y1="130" x2="360" y2="80"></line><line x1="260" y1="130" x2="330" y2="220"></line><line x1="140" y1="190" x2="220" y2="250"></line><line x1="220" y1="250" x2="330" y2="220"></line><line x1="360" y1="80" x2="420" y2="170"></line><line x1="330" y1="220" x2="420" y2="170"></line>
-        </g>
-        <g stroke="rgba(197,204,216,.15)" stroke-width="1" stroke-dasharray="3 4"><line x1="40" y1="230" x2="140" y2="190"></line><line x1="420" y1="170" x2="460" y2="250"></line><line x1="180" y1="60" x2="230" y2="20"></line></g>
-        <circle class="bs-n1" cx="260" cy="130" r="16" fill="#38BDF8"></circle>
-        <circle cx="260" cy="130" r="28" stroke="rgba(56,189,248,.35)" stroke-width="1.5"></circle>
-        <circle class="bs-n2" cx="180" cy="60" r="11" fill="#38BDF8"></circle>
-        <circle class="bs-n1" cx="140" cy="190" r="12" fill="#7DD3FC"></circle>
-        <circle class="bs-n3" cx="360" cy="80" r="10" fill="#38BDF8"></circle>
-        <circle class="bs-n2" cx="330" cy="220" r="11" fill="#7DD3FC"></circle>
-        <circle class="bs-n3" cx="80" cy="90" r="9" fill="#FFF8E7"></circle>
-        <circle cx="220" cy="250" r="8" fill="#FFF8E7" opacity=".7"></circle>
-        <circle cx="420" cy="170" r="8" fill="#FFF8E7" opacity=".7"></circle>
-        <circle cx="40" cy="230" r="6" fill="#C5CCD8" opacity=".25"></circle>
-        <circle cx="460" cy="250" r="5" fill="#C5CCD8" opacity=".2"></circle>
-        <circle cx="230" cy="20" r="5" fill="#C5CCD8" opacity=".2"></circle>
-        <path d="M436 34 a16 16 0 1 0 14 24 a13 13 0 1 1 -14 -24 z" fill="#FFF8E7"></path>
-      </svg>
-      <div class="s-f52187b">
-        <span class="bs-chip s-39d640f"><span class="s-824c6e2"></span>Used often: stronger</span>
-        <span class="bs-chip s-9ce2caf"><span class="s-c4e1a4d"></span>Not used: fades</span>
-        <span class="bs-chip s-9ce2caf"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M14 2a10 10 0 1 0 8 15A8 8 0 1 1 14 2z" fill="#FFF8E7"></path></svg>Settles overnight</span>
-      </div>
-    </figure>
-  </div>
-</section>
-
-<!-- ============ PART 2: RECALL ============ -->
-<section class="s-b9bd818" aria-labelledby="p-recall">
-  <div class="bs-wrap bs-grid-2 bs-flip">
-    <div class="bs-rv">
-      <p class="bs-mono s-cc7bd80">Part 2 of 5 · Recall</p>
-      <h2 id="p-recall" class="bs-h2 s-ee46561">Three ways of remembering, combined.</h2>
-      <p class="bs-body s-784e591">When you ask something, Blue Spark searches by meaning, by keyword and by exact match, then blends the results. Meaning finds the idea. Keywords and exact match catch the names, numbers and codes that a meaning search alone can miss.</p>
-      <p class="bs-body s-4c0544d">If one of the three searches can't run, it tells you, instead of pretending it looked everywhere.</p>
-    </div>
-    <figure aria-label="Example: three searches, by meaning, by keyword and by exact match, flow together into one blended answer." class="bs-art bs-rv s-2a0ca83">
-      <p class="bs-mono s-71689df">Example</p>
-      <div class="bs-recall">
-        <div class="s-ef57bf5">
-          <div class="bs-s1 s-433954e"><p class="bs-mono s-8371328">By meaning</p><p class="s-a1ebb0f">"supplier delivery terms"</p></div>
-          <div class="bs-s2 s-433954e"><p class="bs-mono s-8371328">By keyword</p><p class="s-a1ebb0f">"delivery"</p></div>
-          <div class="bs-s3 s-433954e"><p class="bs-mono s-8371328">By exact match</p><p class="s-a1ebb0f">"PO-2291"</p></div>
-        </div>
-        <div aria-hidden="true" class="bs-recall-join s-dbd13c2">
-          <div class="bs-flow s-803e455"></div>
-        </div>
-        <div class="bs-s4 s-25baaac">
-          <p class="bs-mono s-2dfb62d">Blended answer</p>
-          <p class="s-1b2fda7">Order PO-2291 is due on the supplier's usual delivery day.</p>
-          <p class="s-52669ea"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>All three searches ran</p>
-        </div>
-      </div>
-    </figure>
-  </div>
-</section>
-
-<!-- ============ PART 3: SKILLS ============ -->
-<section class="s-d49f33d" aria-labelledby="p-skills">
-  <div class="bs-wrap bs-grid-2">
-    <div class="bs-rv">
-      <p class="bs-mono s-cc7bd80">Part 3 of 5 · Skills</p>
-      <h2 id="p-skills" class="bs-h2 s-ee46561">Skills are earned, not assumed.</h2>
-      <p class="bs-body s-784e591">Blue Spark notices patterns in how you work and suggests new routines. A suggestion only becomes a skill after it passes checks. If a skill starts failing, it loses the right to run on its own.</p>
-      <p class="bs-body s-4c0544d">You can also hand-craft skills for your own customers. They go through the same checks.</p>
-    </div>
-    <figure aria-label="Illustration: a routine moves from suggested, to checked, to skill. If it fails a check it goes back to being a suggestion." class="bs-art bs-rv s-2a0ca83">
-      <div class="s-340a3fb">
-        <div class="bs-s1 s-65f9d5a">
-          <div class="s-089abba" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#4A5263" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"></path><path d="M10 22h4"></path><path d="M12 2a7 7 0 0 0-4 12.7V16h8v-1.3A7 7 0 0 0 12 2z"></path></svg></div>
-          <p class="s-ec6e2a1">Suggested</p>
-          <p class="s-a05f5b9">Spotted a pattern</p>
-        </div>
-        <div class="bs-s2 s-65f9d5a">
-          <div class="s-a774a09" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"></rect><path d="M9 3v2h6V3"></path><path d="M8.5 12.5l2.5 2.5 4.5-4.5"></path></svg></div>
-          <p class="s-ec6e2a1">Checked</p>
-          <p class="s-a05f5b9">Passed real tests</p>
-        </div>
-        <div class="bs-s3 s-65f9d5a">
-          <div class="s-08c9447" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14L7 22l5-3 5 3-1.5-8"></path><path d="M9.5 9l1.8 1.8L14.5 7.5"></path></svg></div>
-          <p class="s-ec6e2a1">Skill</p>
-          <p class="s-a05f5b9">Runs on its own</p>
-        </div>
-      </div>
-      <div class="bs-s4 s-b0e547b">
-        <svg class="s-a556f87" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0369A1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"></path><path d="M4 9h11a5 5 0 0 1 0 10h-3"></path></svg>
-        Fails a check? It goes back to being a suggestion.</div>
-    </figure>
-  </div>
-</section>
-
-<!-- ============ PART 4: ROUTING ============ -->
-<section class="s-b9bd818" aria-labelledby="p-route">
-  <div class="bs-wrap bs-grid-2 bs-flip">
-    <div class="bs-rv">
-      <p class="bs-mono s-cc7bd80">Part 4 of 5 · Routing</p>
-      <h2 id="p-route" class="bs-h2 s-ee46561">The right amount of brainpower for each job.</h2>
-      <p class="bs-body s-784e591">Quick questions go to a fast, low-cost model. Hard problems go to a stronger one. Blue Spark decides based on its own record of what worked before, so you never have to pick a model.</p>
-      <p class="bs-body s-4c0544d">If one AI provider has a bad day, the work moves to another and carries on.</p>
-    </div>
-    <figure aria-label="Illustration: a quick question goes to a fast model, a hard problem goes to a strong model, and when one provider is down the job switches to a backup." class="bs-art bs-rv s-2a0ca83">
-      <div class="s-bf6ad35">
-        <div class="bs-s1 s-da92ffc">
-          <div class="s-07fbbc7">Quick question</div>
-          <div aria-hidden="true" class="bs-flow s-49c5d13"></div>
-          <div class="s-a4baba4">Fast model</div>
-        </div>
-        <div class="bs-s2 s-da92ffc">
-          <div class="s-07fbbc7">Hard problem</div>
-          <div aria-hidden="true" class="bs-flow s-49c5d13"></div>
-          <div class="s-ffb3a71">Strong model</div>
-        </div>
-        <div class="bs-s3 s-da92ffc">
-          <div class="s-c2c06c3"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A5263" stroke-width="2.2" stroke-linecap="round"><path d="M9 15l-2 2a3 3 0 0 1-4-4l2-2"></path><path d="M15 9l2-2a3 3 0 0 1 4 4l-2 2"></path><path d="M4 4l16 16"></path></svg>Provider down</div>
-          <div aria-hidden="true" class="bs-flow s-49c5d13"></div>
-          <div class="s-a4baba4">Switched to backup</div>
-        </div>
-      </div>
-    </figure>
-  </div>
-</section>
-
-<!-- ============ PART 5: THE BRAIN ============ -->
-<section class="s-d49f33d" aria-labelledby="p-brain">
-  <div class="bs-wrap bs-grid-2">
-    <div class="bs-rv">
-      <p class="bs-mono s-cc7bd80">Part 5 of 5 · The Brain</p>
-      <h2 id="p-brain" class="bs-h2 s-ee46561">It steps back and thinks things over.</h2>
-      <p class="bs-body s-784e591">Throughout the day, Blue Spark reviews what happened. It writes down what it learned and where it got stuck, so the next attempt starts smarter.</p>
-      <p class="bs-body s-4c0544d">Before the main model answers you, a team of specialist advisers looks at the question first, each from its own angle.</p>
-    </div>
-    <figure aria-label="Illustration: a loop of review the day, note what worked, note where it got stuck, and ask the advisers, around a notebook." class="bs-art bs-rv s-aa0e581">
-      <div class="s-f443468">
-        <svg class="s-7001da1" aria-hidden="true" viewBox="0 0 380 380" fill="none">
-          <circle class="bs-pulse" cx="190" cy="190" r="130" stroke="#38BDF8" stroke-width="2"></circle>
-          <path d="M318 168 l2 22 l-20 -8" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-          <rect x="150" y="150" width="80" height="84" rx="8" fill="#06080F"></rect>
-          <line x1="164" y1="172" x2="216" y2="172" stroke="#38BDF8" stroke-width="2"></line>
-          <line x1="164" y1="188" x2="210" y2="188" stroke="rgba(255,248,231,.6)" stroke-width="2"></line>
-          <line x1="164" y1="204" x2="200" y2="204" stroke="rgba(255,248,231,.6)" stroke-width="2"></line>
-        </svg>
-        <div class="bs-s1 s-5baca2e">Review the day</div>
-        <div class="bs-s2 s-4c3b65d">Note what worked</div>
-        <div class="bs-s3 s-d779d02">Note where it got stuck</div>
-        <div class="bs-s4 s-1c5d193">Ask the advisers</div>
-      </div>
-    </figure>
-  </div>
-</section>
-
-<!-- ============ THE RULE ============ -->
-<section class="s-3210598" aria-labelledby="p-rule">
-  <div class="bs-stars s-8f59c42" aria-hidden="true"></div>
-  <div class="bs-wrap bs-grid-2 s-a8a9035">
-    <div class="bs-rv">
-      <p class="bs-mono s-90a2f42">The rule that holds it together</p>
-      <div class="bs-line-draw s-dc6d9ea"></div>
-      <h2 id="p-rule" class="bs-h2 s-97311d2">Nothing is true until it's checked.</h2>
-      <p class="bs-body s-ebc8c61">An AI saying it finished a job doesn't count. Blue Spark only treats work as done once it has been checked against the real result. When it isn't sure, it says so and stops, instead of faking a confident answer.</p>
-      <p class="bs-body s-84c5bed">You are the last resort, not the first. It comes to you when your decision is really needed. We call the whole system around the model Mahanta OS.</p>
-    </div>
-    <figure aria-label="Illustration: AI models are swappable cards that plug into Blue Spark. The memory, skills and records underneath stay the same." class="bs-art dark bs-rv s-2a0ca83">
-      <div class="s-2e5539b">
-        <div class="s-3233406">Last year's AI</div>
-        <div class="bs-ss bs-plug s-c2a12bd">Today's AI<div class="bs-ss-band bs-plug-band"></div></div>
-        <div class="s-3233406">Next year's AI</div>
-      </div>
-      <div class="s-7aafe22" aria-hidden="true"></div>
-      <div class="s-e582602">
-        <img class="s-b297a3c" src="/assets/img/mark-128.png" alt="">
-        <div>
-          <p class="s-96ac3c9">Your Blue Spark</p>
-          <p class="s-b5d1ab3">Memory, skills and records stay put</p>
-        </div>
-      </div>
-      <p class="s-58669f1">Swap the AI. Keep everything it learned about you.</p>
-    </figure>
-  </div>
-</section>
-
-<!-- ============ COMPARISON ============ -->
-<section class="s-fcea72d" aria-labelledby="p-table">
-  <div class="bs-wrap">
-    <div class="bs-rv s-c06a247">
-      <p class="bs-mono s-cc7bd80">Side by side</p>
-      <div class="bs-line-draw s-dc6d9ea"></div>
-      <h2 id="p-table" class="bs-h2 s-91ab642">How Blue Spark compares.</h2>
-    </div>
-    <div class="bs-rv s-44acb1e" role="region" aria-labelledby="p-table" tabindex="0">
-      <table class="bs-table">
-        <thead>
-          <tr><th scope="col"><span class="bs-mono s-4b8b42a">Topic</span></th><th scope="col">Every other AI</th><th class="s-91eadf8" scope="col">Blue Spark</th></tr>
-        </thead>
-        <tbody>
-          <tr><th scope="row">Memory</th><td>Forgets when the chat ends, or pastes old chat back in</td><td class="us">Five layers, on your computer, growing with use</td></tr>
-          <tr><th scope="row">Remembering</th><td>One kind of search</td><td class="us">Meaning, keyword and exact match, blended</td></tr>
-          <tr><th scope="row">Getting better</th><td>Waits for the next retrain</td><td class="us">Improves between conversations</td></tr>
-          <tr><th scope="row">Skills</th><td>Fixed at launch</td><td class="us">Earned under checks, removed if they fail</td></tr>
-          <tr><th scope="row">The AI model</th><td>Is the whole product</td><td class="us">One replaceable part</td></tr>
-          <tr><th scope="row">When unsure</th><td>Gives a confident answer anyway</td><td class="us">Says it isn't sure, and stops</td></tr>
-          <tr><th scope="row">Where it lives</th><td>Someone else's cloud</td><td class="us">Your own computer. In private mode it would rather refuse than send anything to the cloud.</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- ============ TEN WAYS AI GOES WRONG ============ -->
-<section class="s-e69a751" aria-labelledby="p-ten">
-  <div class="bs-wrap">
-    <div class="bs-rv s-5225a27">
-      <p class="bs-mono s-cc7bd80">Fewer accidents</p>
-      <div class="bs-line-draw s-dc6d9ea"></div>
-      <h2 id="p-ten" class="bs-h2 s-91ab642">Ten ways AI goes wrong, and what stops each one.</h2>
-      <p class="bs-body s-4f7f1ad">In most AI, one model does the work, judges the work and remembers the work. Blue Spark splits those jobs up, so a mistake has to get past several separate parts before it reaches you.</p>
-    </div>
-    <ol class="bs-ten s-049c57b">
-      <li class="bs-rv s-f371353"><span class="bs-mono s-f66d457">01</span><div><h3 class="s-7ae165f">Makes the same mistake next week</h3><p class="s-0b80b45">It remembers what went wrong, and only keeps lessons that were checked.</p><span class="bs-chip s-22344b6">Stopped by memory</span></div></li>
-      <li class="bs-rv s-f371353"><span class="bs-mono s-f66d457">02</span><div><h3 class="s-7ae165f">Says "done" when it isn't</h3><p class="s-0b80b45">A claim of success doesn't count until the result is checked.</p><span class="bs-chip s-22344b6">Stopped by the check rule</span></div></li>
-      <li class="bs-rv s-f371353"><span class="bs-mono s-f66d457">03</span><div><h3 class="s-7ae165f">Retries the same failing step</h3><p class="s-0b80b45">It remembers what failed, so the next try has to be different.</p><span class="bs-chip s-22344b6">Stopped by memory</span></div></li>
-      <li class="bs-rv s-f371353"><span class="bs-mono s-f66d457">04</span><div><h3 class="s-7ae165f">Gets blocked and hands back half a job</h3><p class="s-0b80b45">It works out why it was blocked and changes approach, or tells you plainly.</p><span class="bs-chip s-22344b6">Stopped by the check rule</span></div></li>
-      <li class="bs-rv s-f371353"><span class="bs-mono s-f66d457">05</span><div><h3 class="s-7ae165f">The AI provider goes down mid-job</h3><p class="s-0b80b45">The work moves to another provider and carries on.</p><span class="bs-chip s-22344b6">Stopped by routing</span></div></li>
-      <li class="bs-rv s-f371353"><span class="bs-mono s-f66d457">06</span><div><h3 class="s-7ae165f">Data goes where it shouldn't</h3><p class="s-0b80b45">Search and memory stay on your computer. If privacy is unclear, it refuses and says why.</p><span class="bs-chip s-22344b6">Stopped by staying local</span></div></li>
-      <li class="bs-rv s-f371353"><span class="bs-mono s-f66d457">07</span><div><h3 class="s-7ae165f">Misses the right memory</h3><p class="s-0b80b45">Three ways of searching, and a warning if one of them couldn't run.</p><span class="bs-chip s-22344b6">Stopped by recall</span></div></li>
-      <li class="bs-rv s-f371353"><span class="bs-mono s-f66d457">08</span><div><h3 class="s-7ae165f">Learns the wrong lesson</h3><p class="s-0b80b45">No check, no skill. A routine that fails is taken off duty.</p><span class="bs-chip s-22344b6">Stopped by skills</span></div></li>
-      <li class="bs-rv s-f371353"><span class="bs-mono s-f66d457">09</span><div><h3 class="s-7ae165f">Shows all green while something's broken</h3><p class="s-0b80b45">It would rather show an old status than a false all-clear.</p><span class="bs-chip s-22344b6">Stopped by honest status</span></div></li>
-      <li class="bs-rv s-f371353"><span class="bs-mono s-f66d457">10</span><div><h3 class="s-7ae165f">One model has a bad day</h3><p class="s-0b80b45">Your memory and skills don't depend on any one model.</p><span class="bs-chip s-22344b6">Stopped by the design</span></div></li>
-    </ol>
-    <p class="s-135eb40">
-      <svg class="s-81ffde9" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0369A1" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5"></path><path d="M12 8h.01"></path></svg>
-      Blue Spark is in pre-launch. This page describes how it is designed, and some parts are still being tested.</p>
-  </div>
-</section>
-
-<!-- ============ CTA ============ -->
-<section class="s-495da06" aria-labelledby="p-cta">
-  <div class="bs-stars s-44dd4b4" aria-hidden="true"></div>
-  <div class="bs-wrap bs-rv s-83a3247">
-    <img class="s-144ad1f" src="/assets/img/star-704.webp" alt="">
-    <h2 id="p-cta" class="bs-h2 s-97311d2">Try it on your own paperwork.</h2>
-    <p class="bs-body s-c776adc">Install it on your Windows laptop. Your documents stay with you.</p>
-    <div class="s-1b84246">
-      <a href="/download" class="bs-primary">
-        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>
-        Download for Windows</a>
-      <a class="s-e51c86c" href="/founding-500">Or join the Founding 500</a>
-    </div>
-  </div>
-</section>
-
-<footer class="s-3bdaefc">
-  <div class="bs-wrap">
-    <div class="bs-foot">
-      <div>
-        <div class="s-f265ed3">
-          <img class="s-12033ab" src="/assets/img/mark-128.png" alt="">
-          <span class="s-d3b405b">Blue Spark</span>
-        </div>
-        <p class="s-0b6e676">Blue Spark. Clarity, on your machine.</p>
-      </div>
-      <nav aria-label="Product">
-        <p class="bs-mono s-4220f91">Product</p>
-        <div class="s-e2cc18d"><a href="/product">How it works</a><a href="/pricing">Pricing</a><a href="/download">Download</a></div>
+  <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="stack">
+      <nav aria-label="Navigation">
+        <h3 class="h3">Navigation</h3>
+        <a href="/">&larr; Return to Home</a>
+        <a href="#top" style="font-weight: 600; color: var(--deep)">Product Overview &uarr;</a>
+        <a href="#why-different">Why It's Different</a>
+        <a href="#memory">5-Tier Memory &amp; Sleep</a>
+        <a href="#mahanta">Mahanta OS Lineage</a>
+        <a href="#metacognition">Metacognition &amp; Conscious Veto</a>
+        <a href="#capabilities">Eleven Capabilities</a>
+        <a href="/founding-500">Founding 500</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/download">Download for Windows</a>
       </nav>
-      <nav aria-label="Learning and community">
-        <p class="bs-mono s-4220f91">Learning and community</p>
-        <div class="s-e2cc18d"><a href="/community">Community news</a><a href="/learn">Learn</a><a href="/founding-500">Founding 500</a></div>
-      </nav>
-      <nav aria-label="About us">
-        <p class="bs-mono s-4220f91">About us</p>
-        <div class="s-e2cc18d"><a href="/about">Our story</a><a href="/about">The founders</a></div>
-      </nav>
-      <nav aria-label="Trust and legal">
-        <p class="bs-mono s-4220f91">Trust and legal</p>
-        <div class="s-e2cc18d"><a href="/legal/privacy">Privacy</a><a href="/legal/terms">Terms</a></div>
-      </nav>
+      <a class="btn btn-primary" href="/pricing">Get Blue Spark</a>
     </div>
   </div>
-</footer>
 
-</div>
-</main>
+  <main id="main">
 
+    <!-- ============================================================ HERO: BLUE HERO WITH CINEMATIC GRAPHIC -->
+    <div id="top" class="band band-ink hero-curiosity-band">
+      <div class="container">
+        <section class="section hero-curiosity-grid">
+          
+          <!-- Left Column: The Narrative -->
+          <div class="stack">
+            <p class="kicker">Built for cautious teams &middot; Mahanta OS</p>
+            <h1 class="h1" data-split>Eleven capabilities. Driven by curiosity.</h1>
+            <p class="lead">Other AI runs on blind autopilot until it gets stuck or invents fake answers. Blue Spark is built differently: it's driven by <strong>genuine curiosity</strong>. It lives on your Windows laptop, actively inspects your paperwork, pauses to ask <em>&ldquo;are you sure?&rdquo;</em>, and checks its own work on your hard drive before ever saying &ldquo;done&rdquo;.</p>
+            
+            <div class="btn-row">
+              <a class="btn btn-primary" href="/download">Download for Windows</a>
+              <a class="btn btn-secondary" href="#why-different">See Why It's Different &darr;</a>
+              <a class="btn btn-quiet" href="#capabilities">Explore the 11 Capabilities &darr;</a>
+            </div>
+            
+            <div class="hero-badges-ink">
+              <span class="hero-badge-ink"><span class="dot"></span> Stays 100% on Your Laptop</span>
+              <span class="hero-badge-ink"><span class="dot"></span> Checks Real Files First</span>
+              <span class="hero-badge-ink"><span class="dot"></span> Never Forgets You</span>
+            </div>
+          </div>
+
+          <!-- Right Column: The Cinematic Curiosity Engine Graphic -->
+          <figure class="hero-graphic-card" role="region" aria-label="The Curiosity Engine and Eleven Capabilities">
+            <img src="/assets/curiosity-engine-hero.jpg" alt="The Curiosity Engine: glowing cognitive instrument beside a laptop in a twilight office, illuminating paperwork with verified checkmarks" width="1280" height="720" fetchpriority="high">
+            <figcaption>
+              <div class="hero-card-status-row">
+                <span class="hero-card-status"><span class="pulse-dot"></span> The Curiosity Engine</span>
+                <span class="hero-card-sub">Autonomous &bull; Verified on Disk</span>
+              </div>
+              <div class="hero-cap-pills">
+                <a class="hero-cap-pill" href="#cap-01">01 Checks Real Files</a>
+                <a class="hero-cap-pill" href="#cap-02">02 Thinks When It Counts</a>
+                <a class="hero-cap-pill" href="#cap-03">03 Admits When Unsure</a>
+                <a class="hero-cap-pill" href="#cap-04">04 Fast Daily Habits</a>
+                <a class="hero-cap-pill" href="#cap-05">05 Drops Old Routines</a>
+                <a class="hero-cap-pill" href="#cap-06">06 Protects Private Notes</a>
+                <a class="hero-cap-pill" href="#cap-07">07 Clear Paper Trail</a>
+                <a class="hero-cap-pill" href="#cap-08">08 Works in Word &amp; Excel</a>
+                <a class="hero-cap-pill" href="#cap-09">09 Never Crashes Mid-Task</a>
+                <a class="hero-cap-pill" href="#cap-10">10 Organized Like Your Desk</a>
+                <a class="hero-cap-pill" href="#cap-11">11 You Own Everything</a>
+              </div>
+            </figcaption>
+          </figure>
+
+        </section>
+      </div>
+    </div>
+
+    <!-- ============================================================ SECTION 1: WHY BLUE SPARK IS DIFFERENT (VISUAL INFOGRAPHICS) -->
+    <div class="band">
+      <div class="container">
+        <section class="section stack" id="why-different" aria-labelledby="why-different-title">
+          <div class="section-intro">
+            <p class="kicker">Side-by-side comparison</p>
+            <h2 class="h2" id="why-different-title">Why Regular AI Frustrates People (And How Blue Spark Fixes It)</h2>
+            <p class="note">The tech industry promised autonomous AI, but gave you blind chat windows that crash. Blue Spark gives you a careful, curious coworker.</p>
+          </div>
+
+          <div class="prose">
+            <p>Almost every AI tool sold today is just a chatbot in a web browser. When a real file is missing or a computer folder changes, it has no idea what went wrong. It repeats the exact same mistake twenty times in a row, burns through your credit card, and crashes. Blue Spark is built like a human coworker: it investigates before touching anything.</p>
+            <p><strong>Here are four clear differences you can see on your screen:</strong></p>
+          </div>
+
+          <!-- 4 Pillars with Glanceable Visual Diagrams -->
+          <div class="diff-grid">
+            
+            <!-- Pillar 1: Blind Robot vs Active Curiosity -->
+            <article class="diff-card-visual">
+              <div class="diff-card-head">
+                <h3>01. The Broken Robot vs. The Curious Colleague</h3>
+                <span class="diff-badge-num">Pillar 1</span>
+              </div>
+              <p style="margin: 0; font-size: 0.90625rem; color: var(--text-dim); line-height: 1.55">
+                Standard AI runs in blind computer loops. When an error occurs, it stubbornly repeats the exact same broken action 20 times. Blue Spark investigates why the file was missing and fixes the path before acting.
+              </p>
+              
+              <!-- Visual Image Compartment 1 -->
+              <figure class="diff-img-compartment">
+                <img src="/assets/diff-1-blind-vs-curious.jpg" alt="Chaotic Failure of blind loop robot vs Serene Success of Blue Spark checking folder" loading="lazy">
+                <figcaption>
+                  <span class="diff-img-tag bad">❌ Blind Loop: Repeats 20x &amp; crashes</span>
+                  <span class="diff-img-tag good">✔ Curiosity: Investigates &amp; solves</span>
+                </figcaption>
+              </figure>
+            </article>
+
+            <!-- Pillar 2: Monday Morning Amnesia vs Memory & Sleep -->
+            <article class="diff-card-visual">
+              <div class="diff-card-head">
+                <h3>02. Monday Amnesia vs. A Good Night's Sleep</h3>
+                <span class="diff-badge-num">Pillar 2</span>
+              </div>
+              <p style="margin: 0; font-size: 0.90625rem; color: var(--text-dim); line-height: 1.55">
+                Standard chatbots wipe their memory the second you close the tab. Blue Spark maintains continuous memory on your PC, using a quiet nightly cleanup to organize daytime notes into permanent intuition.
+              </p>
+              
+              <!-- Visual Image Compartment 2 -->
+              <figure class="diff-img-compartment">
+                <img src="/assets/diff-2-amnesia-vs-sleep.jpg" alt="Amnesia AI monitor asking who are you vs consolidated memory drawers in evening office" loading="lazy">
+                <figcaption>
+                  <span class="diff-img-tag bad">❌ Chatbot: 100% amnesia every morning</span>
+                  <span class="diff-img-tag good">✔ Sleep: Notes filed into neat drawers</span>
+                </figcaption>
+              </figure>
+            </article>
+
+            <!-- Pillar 3: Faking "Done" vs The Gut Check Veto -->
+            <article class="diff-card-visual">
+              <div class="diff-card-head">
+                <h3>03. Faking &ldquo;Done&rdquo; vs. The Split-Second Double Check</h3>
+                <span class="diff-badge-num">Pillar 3</span>
+              </div>
+              <p style="margin: 0; font-size: 0.90625rem; color: var(--text-dim); line-height: 1.55">
+                Standard AI outputs &ldquo;I saved your report&rdquo; because it predicted polite words. Blue Spark has a strict double-check habit that physically verifies the real file on your hard drive first.
+              </p>
+              
+              <!-- Visual Image Compartment 3 -->
+              <figure class="diff-img-compartment">
+                <img src="/assets/diff-3-faking-vs-checked.jpg" alt="Hallucinated Done with file missing error vs physical verification laser on SSD" loading="lazy">
+                <figcaption>
+                  <span class="diff-img-tag bad">❌ Faking: Claims saved but file missing</span>
+                  <span class="diff-img-tag good">✔ Checked: Verified on hard drive</span>
+                </figcaption>
+              </figure>
+            </article>
+
+            <!-- Pillar 4: Cloud Surveillance vs Local Citadel -->
+            <article class="diff-card-visual">
+              <div class="diff-card-head">
+                <h3>04. Sending Files to Cloud vs. Staying on Your Desk</h3>
+                <span class="diff-badge-num">Pillar 4</span>
+              </div>
+              <p style="margin: 0; font-size: 0.90625rem; color: var(--text-dim); line-height: 1.55">
+                Standard AI uploads your contracts and financials to public cloud servers where they can be logged or leaked. Blue Spark lives 100% on your laptop's hard drive.
+              </p>
+              
+              <!-- Visual Image Compartment 4 -->
+              <figure class="diff-img-compartment">
+                <img src="/assets/diff-4-cloud-vs-citadel.jpg" alt="Cloud surveillance pulling documents vs laptop protected inside local privacy shield dome" loading="lazy">
+                <figcaption>
+                  <span class="diff-img-tag bad">❌ Public Cloud: Files exposed to web</span>
+                  <span class="diff-img-tag good">✔ Private Laptop: 100% on your desk</span>
+                </figcaption>
+              </figure>
+            </article>
+
+          </div>
+
+          <!-- Conceptual Artwork 1: Amnesia vs Colleague -->
+          <figure class="art-showcase">
+            <img src="/assets/story-amnesia-vs-colleague.jpg" alt="Monday Morning Amnesia vs The Knowing Colleague" loading="lazy">
+            <figcaption>
+              <strong>FIGURE 1.0 &middot; MONDAY MORNING AMNESIA VS. THE COLLEAGUE WHO REMEMBERS</strong>
+              <span>Left: Frantically pasting yellow sticky notes every morning because standard AI forgets everything. Right: Blue Spark picking up at 8:00 AM exactly where you left off yesterday with full context.</span>
+            </figcaption>
+          </figure>
+        </section>
+
+        <!-- ============================================================ SECTION 2: NEUROMORPHIC MEMORY & SLEEP (VISUAL STACK BLUEPRINT) -->
+        <section class="section stack" id="memory" aria-labelledby="memory-title">
+          <div class="section-intro">
+            <p class="kicker">How it remembers</p>
+            <h2 class="h2" id="memory-title">How Blue Spark Remembers: Sticky Notes, a Filing Cabinet, and a Good Night's Sleep</h2>
+            <p class="note">Your brain doesn't keep every random email. At night, it files away what matters. Blue Spark does the exact same thing on your laptop.</p>
+          </div>
+          
+          <div class="prose">
+            <p>Why does your head hurt after eight hours of chaotic paperwork? Because your brain is holding too much temporary noise. While you sleep, your brain quietly sweeps away 90% of the day's trivial chatter and files the important lessons into permanent memory.</p>
+            <p>Instead of dumping thousands of messy chat lines into one long prompt until the AI gets confused, <strong>Blue Spark organizes memory into five simple drawers:</strong></p>
+          </div>
+
+          <!-- Visual 5-Tier Memory Stack Blueprint (Glanceable) -->
+          <div class="memory-stack-visual" role="region" aria-label="5-Layer Neuromorphic Memory Stack">
+            <div class="memory-tier-card" style="border-left-color: #6366F1">
+              <div class="tier-badge-box">
+                <span>Tier 5 &bull; Persona</span>
+                <span class="tier-meta">Constitutional Safety</span>
+              </div>
+              <div class="tier-info">
+                <h4>The House Rules &bull; Never Violated</h4>
+                <p>Strict rules that protect your client confidentiality, prevent guessing, and forbid taking unverified actions.</p>
+              </div>
+            </div>
+
+            <div class="memory-tier-card" style="border-left-color: #38BDF8">
+              <div class="tier-badge-box">
+                <span>Tier 4 &bull; Procedural</span>
+                <span class="tier-meta">Learned Habits</span>
+              </div>
+              <div class="tier-info">
+                <h4>Muscle Memory &bull; Fast Habits</h4>
+                <p>Repetitive weekly tasks it learns to execute automatically in seconds, without extra compute costs.</p>
+              </div>
+            </div>
+
+            <div class="memory-tier-card" style="border-left-color: #10B981">
+              <div class="tier-badge-box">
+                <span>Tier 3 &bull; Semantic</span>
+                <span class="tier-meta">Verified Knowledge</span>
+              </div>
+              <div class="tier-info">
+                <h4>The Filing Cabinet &bull; Company Facts</h4>
+                <p>Your contracts, spreadsheets, price lists, and client records organized neatly in local database storage.</p>
+              </div>
+            </div>
+
+            <div class="memory-tier-card" style="border-left-color: #F59E0B">
+              <div class="tier-badge-box">
+                <span>Tier 2 &bull; Episodic</span>
+                <span class="tier-meta">Chronological Diary</span>
+              </div>
+              <div class="tier-info">
+                <h4>The Daily Log &bull; What Happened Today</h4>
+                <p>A clear, timestamped record of every document opened, user decision made, and verification check completed.</p>
+              </div>
+            </div>
+
+            <div class="memory-tier-card" style="border-left-color: #3B82F6">
+              <div class="tier-badge-box">
+                <span>Tier 1 &bull; Working</span>
+                <span class="tier-meta">Immediate Focus</span>
+              </div>
+              <div class="tier-info">
+                <h4>Your Desk &bull; What's In Front of You</h4>
+                <p>Immediate active focus on what you are reading, editing, or typing on your screen right now.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Conceptual Artwork 2: Sleep Metabolism -->
+          <figure class="art-showcase">
+            <img src="/assets/story-midnight-sleep-distillation.jpg" alt="Cognitive Sleep Metabolism: Distilling Chaos into Intuition" loading="lazy">
+            <figcaption>
+              <strong>FIGURE 2.0 &middot; THE SLEEP CYCLE AT WORK</strong>
+              <span>While the office sleeps, daytime paperwork noise dissolves through a twilight prism into three permanent drawers: daily events, company patterns, and core intuition.</span>
+            </figcaption>
+          </figure>
+
+          <p class="lead">By cleaning up its own memory while you rest, Blue Spark cuts expensive compute costs by up to <strong>90%</strong> and never suffers from context confusion. Monday morning feels like coming back to a trusted colleague who was there on Friday.</p>
+        </section>
+      </div>
+    </div>
+
+    <!-- ============================================================ SECTION 3: MAHANTA OS (VISUAL 50-YEAR ROADMAP) -->
+    <div class="band band-ink" id="mahanta">
+      <div class="container">
+        <section class="section stack">
+          <div class="section-intro">
+            <p class="kicker">Why chatbots forget</p>
+            <h2 class="h2">Built Like a Human Mind, Not a Temporary Chat Window</h2>
+            <p class="note">A real cognitive system running on your laptop, not a fragile website wrapper.</p>
+          </div>
+          <div class="prose">
+            <p>When you chat with AI in a web browser, it forgets everything the second you close the tab. That is because standard chatbots don't have a real memory system.</p>
+            <p>Blue Spark is powered by <strong>Mahanta OS</strong>. Instead of pretending to be smart with clever words, it has separate compartments for memory, habits, and caution, built upon half a century of research into how the human brain actually works:</p>
+          </div>
+
+          <!-- Visual 50-Year Lineage Timeline Infographic (Glanceable) -->
+          <div class="lineage-roadmap-visual" role="region" aria-label="50-Year Cognitive Science Lineage">
+            <div class="roadmap-step-card">
+              <span class="roadmap-year">1970s &bull; CMU</span>
+              <span class="roadmap-title">ACT-R Architecture</span>
+              <span class="roadmap-desc">John R. Anderson establishes the fundamental split between declarative facts and procedural skills.</span>
+            </div>
+
+            <div class="roadmap-step-card">
+              <span class="roadmap-year">1980s &bull; Stanford</span>
+              <span class="roadmap-title">SOAR Unified Theory</span>
+              <span class="roadmap-desc">Allen Newell &amp; Herbert Simon create unified cognitive models for human problem-solving and rule compilation.</span>
+            </div>
+
+            <div class="roadmap-step-card">
+              <span class="roadmap-year">2000s &bull; Memphis</span>
+              <span class="roadmap-title">LIDA Cybernetics</span>
+              <span class="roadmap-desc">Stan Franklin models Global Workspace Theory: conscious attention cycles and action selection loops.</span>
+            </div>
+
+            <div class="roadmap-step-card active-now">
+              <span class="roadmap-year">2026 &bull; Sovereign</span>
+              <span class="roadmap-title">Mahanta OS</span>
+              <span class="roadmap-desc">The world's first cognitive operating system uniting 5-tier memory, curiosity, and the Libet Veto on Windows NVMe.</span>
+            </div>
+          </div>
+
+          <!-- Conceptual Artwork 3: Lineage Master Instrument -->
+          <figure class="art-showcase">
+            <img src="/assets/story-lineage-master-instrument.jpg" alt="50 Years of Cognitive Architecture · The Master Instrument" loading="lazy">
+            <figcaption>
+              <strong>FIGURE 3.0 &middot; 50 YEARS OF COGNITIVE SCIENCE</strong>
+              <span>From 1970s laboratory research on human thought to Mahanta OS: a precision instrument built for sovereign human intellect.</span>
+            </figcaption>
+          </figure>
+        </section>
+      </div>
+    </div>
+
+    <!-- ============================================================ SECTION 4: METACOGNITION & CONSCIOUS VETO (VISUAL VALVE DIAGRAM) -->
+    <div class="band" id="metacognition">
+      <div class="container">
+        <section class="section stack">
+          <div class="section-intro">
+            <p class="kicker">The built-in conscience</p>
+            <h2 class="h2">The Habit of Double-Checking Before Hitting &ldquo;Send&rdquo;</h2>
+            <p class="note">Standard AI has zero hesitation: it makes mistakes with 100% false confidence. Blue Spark has a conscience.</p>
+          </div>
+          <div class="prose">
+            <p>Every professional knows that split-second feeling right before clicking &ldquo;Send&rdquo; on an important contract: that quiet pause when an inner voice says, <em>&ldquo;Wait. Did you check that 2024 tax schedule in paragraph 4?&rdquo;</em></p>
+            <p>Blue Spark has that exact same hesitation built into its code. Before it saves a file, sends an update, or confirms a number, it pauses for a fraction of a second and checks the physical file on your hard drive.</p>
+          </div>
+
+
+
+          <!-- Pictorial Artwork 4: Double Check Inspect Image -->
+          <figure class="art-showcase">
+            <img src="/assets/pictorial-double-check-inspect.jpg" alt="Double-Checking Paragraph 4 against Real Hard Drive Files · Zero Fake Numbers" loading="lazy">
+            <figcaption>
+              <strong>FIGURE 4.0 &middot; THE DOUBLE-CHECK IN ACTION</strong>
+              <span>Blue Spark's digital inspection loupe verifying paragraph 4 against real files on your hard drive. If a number does not match, it stops cold. It never guesses or fakes success.</span>
+            </figcaption>
+          </figure>
+
+          <!-- Reality Verification Table (Plain English) -->
+          <div class="table-scroll">
+            <table class="table-reality">
+              <thead>
+                <tr>
+                  <th style="width: 44%">What Other AI Gets Wrong</th>
+                  <th>How Blue Spark Stops It Cold</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Says &ldquo;file saved successfully&rdquo; when the hard drive write failed</td>
+                  <td class="check-col">Checks the physical file hash on your hard drive before reporting success.</td>
+                </tr>
+                <tr>
+                  <td>Loops 20 times repeating the exact same broken command</td>
+                  <td class="check-col">Remembers previous attempts; stops identical repeats and tries a new way.</td>
+                </tr>
+                <tr>
+                  <td>Makes up fake tax clauses or nonexistent legal citations</td>
+                  <td class="check-col">Fails closed: if it's not in your actual document, it refuses to guess.</td>
+                </tr>
+                <tr>
+                  <td>Cloud provider raises prices, censors answers, or goes down</td>
+                  <td class="check-col">Swap the AI model in 5 seconds; your memory, files, and habits stay put.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- ============================================================ SECTION 5: ELEVEN CAPABILITIES (WITH VISUAL STATUS BADGES) -->
+    <div class="band band-alt" id="capabilities">
+      <div class="container">
+        <section class="section stack">
+          <div class="section-intro">
+            <p class="kicker">The Execution</p>
+            <h2 class="h2">The Eleven Capabilities Powered by Curiosity</h2>
+            <p class="note">Together, Curiosity, Memory, and Metacognition give you eleven real capabilities on your Windows desktop:</p>
+          </div>
+
+          <div class="content-grid capability-grid">
+            
+            <!-- 01 -->
+            <article class="capability-card-visual" id="cap-01">
+              <div class="cap-visual-head">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <span class="cap-visual-num">01</span>
+              </div>
+              <h3>Checks Real Files</h3>
+              <p>Never takes an AI's word for it. It opens the real file on your hard drive, checks the numbers, and verifies the file exists before saying &ldquo;done&rdquo;.</p>
+              <div class="cap-glance-badge badge-pass">
+                <span>✔ REAL HARD DRIVE</span>
+                <span>PHYSICAL PROOF</span>
+              </div>
+            </article>
+
+            <!-- 02 -->
+            <article class="capability-card-visual" id="cap-02">
+              <div class="cap-visual-head">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 17a8.5 8.5 0 1 1 17 0"></path><path d="M12.75 12.5 16 8"></path><circle cx="12.75" cy="12.5" r="1.5"></circle></svg>
+                <span class="cap-visual-num">02</span>
+              </div>
+              <h3>Thinks When It Counts</h3>
+              <p>Gives instant answers for quick questions, but takes its time and deliberates carefully when auditing an 80-page business contract.</p>
+              <div class="cap-glance-badge badge-blue">
+                <span>⚡ FAST REFLEX</span>
+                <span>🧠 CAREFUL AUDIT</span>
+              </div>
+            </article>
+
+            <!-- 03 -->
+            <article class="capability-card-visual" id="cap-03">
+              <div class="cap-visual-head">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 20v-6"></path><path d="M12 20V9"></path><path d="M19 20V5"></path></svg>
+                <span class="cap-visual-num">03</span>
+              </div>
+              <h3>Admits When Unsure</h3>
+              <p>Knows what it knows and what it doesn't. When it is not 100% sure, it stops and asks you directly instead of making up a fake answer.</p>
+              <div class="cap-glance-badge badge-gold">
+                <span>📊 HONEST CONFIDENCE</span>
+                <span>PAUSES WHEN UNSURE</span>
+              </div>
+            </article>
+
+            <!-- 04 -->
+            <article class="capability-card-visual" id="cap-04">
+              <div class="cap-visual-head">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 12a8 8 0 1 1-2.4-5.7"></path><path d="M20 3v4h-4"></path></svg>
+                <span class="cap-visual-num">04</span>
+              </div>
+              <h3>Fast Daily Habits</h3>
+              <p>When you show it how you like a monthly report formatted, it remembers the habit and does it automatically next time with zero extra cost.</p>
+              <div class="cap-glance-badge badge-pass">
+                <span>🔄 AUTOMATIC HABIT</span>
+                <span>0 EXTRA COST</span>
+              </div>
+            </article>
+
+            <!-- 05 -->
+            <article class="capability-card-visual" id="cap-05">
+              <div class="cap-visual-head">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 7h2a5 5 0 0 1 0 10h-2"></path><path d="M9 17H7A5 5 0 0 1 7 7h2"></path><path d="M4 4l16 16"></path></svg>
+                <span class="cap-visual-num">05</span>
+              </div>
+              <h3>Drops Old Routines</h3>
+              <p>If your folder names change or your company updates software, Blue Spark notices immediately and learns the new way without crashing.</p>
+              <div class="cap-glance-badge badge-gold">
+                <span>⚠️ NOTICES CHANGES</span>
+                <span>DROPS OLD HABITS</span>
+              </div>
+            </article>
+
+            <!-- 06 -->
+            <article class="capability-card-visual" id="cap-06">
+              <div class="cap-visual-head">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3 5 5.8v5.4c0 4.6 3 7.6 7 9.8 4-2.2 7-5.2 7-9.8V5.8Z"></path><path d="m9 11.5 2 2 4-4"></path></svg>
+                <span class="cap-visual-num">06</span>
+              </div>
+              <h3>Protects Private Notes</h3>
+              <p>Casual watercooler chat, jokes, and unverified rumors are locked in a quarantine drawer and never overwrite your permanent company rules.</p>
+              <div class="cap-glance-badge badge-pass">
+                <span>🛡️ QUARANTINE GATE</span>
+                <span>0 RULE DRIFT</span>
+              </div>
+            </article>
+
+            <!-- 07 -->
+            <article class="capability-card-visual" id="cap-07">
+              <div class="cap-visual-head">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 2.5H6.5A1.5 1.5 0 0 0 5 4v16a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 20V7.5z"></path><path d="M14 2.5v5h5"></path><path d="M9 12h6"></path><path d="M9 16h6"></path></svg>
+                <span class="cap-visual-num">07</span>
+              </div>
+              <h3>Clear Paper Trail</h3>
+              <p>Keeps a crystal-clear, tamper-proof record of every document opened, every calculation made, and every decision logged for complete peace of mind.</p>
+              <div class="cap-glance-badge badge-blue">
+                <span>🔒 AUDIT LOG</span>
+                <span>TAMPER-PROOF</span>
+              </div>
+            </article>
+
+            <!-- 08 -->
+            <article class="capability-card-visual" id="cap-08">
+              <div class="cap-visual-head">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 3.5 18.5 11l-6 1.8L10 18.5Z"></path></svg>
+                <span class="cap-visual-num">08</span>
+              </div>
+              <h3>Works in Word &amp; Excel</h3>
+              <p>Doesn't just give text advice in a browser. Actually opens spreadsheets, reads PDFs, organizes folders, and writes drafts right on your PC.</p>
+              <div class="cap-glance-badge badge-pass">
+                <span>🖥️ DIRECT ON PC</span>
+                <span>EXCEL &bull; WORD &bull; PDF</span>
+              </div>
+            </article>
+
+            <!-- 09 -->
+            <article class="capability-card-visual" id="cap-09">
+              <div class="cap-visual-head">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3.5c-2.2 0-3 1.3-3 3.2v2c0 1.6-.9 2.5-2.5 3.3 1.6.8 2.5 1.7 2.5 3.3v2c0 1.9.8 3.2 3 3.2"></path><path d="M15.5 3.5c2.2 0 3 1.3 3 3.2v2c0 1.6.9 2.5 2.5 3.3-1.6.8-2.5 1.7-2.5 3.3v2c0 1.9-.8 3.2-3 3.2"></path></svg>
+                <span class="cap-visual-num">09</span>
+              </div>
+              <h3>Never Crashes Mid-Task</h3>
+              <p>Every single command is checked for errors before running. Broken punctuation, malformed code, and syntax crashes are mathematically blocked.</p>
+              <div class="cap-glance-badge badge-gold">
+                <span>📐 PRE-CHECKED</span>
+                <span>ZERO CRASHES</span>
+              </div>
+            </article>
+
+            <!-- 10 -->
+            <article class="capability-card-visual" id="cap-10">
+              <div class="cap-visual-head">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 9 5-9 5-9-5Z"></path><path d="m3 13.5 9 5 9-5"></path><path d="m3 17.5 9 5 9-5"></path></svg>
+                <span class="cap-visual-num">10</span>
+              </div>
+              <h3>Organized Like Your Desk</h3>
+              <p>Finds the exact note or contract you need across all memory drawers, without confusing last year's client with today's client.</p>
+              <div class="cap-glance-badge badge-blue">
+                <span>🧠 5-DRAWER SEARCH</span>
+                <span>FINDS EXACT FACTS</span>
+              </div>
+            </article>
+
+            <!-- 11 -->
+            <article class="capability-card-visual" id="cap-11">
+              <div class="cap-visual-head">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8h13"></path><path d="m14 5 3 3-3 3"></path><path d="M20 16H7"></path><path d="m10 13-3 3 3 3"></path></svg>
+                <span class="cap-visual-num">11</span>
+              </div>
+              <h3>You Own Everything</h3>
+              <p>The AI engine is just a swappable motor. You can switch between Claude, ChatGPT, or offline models in five seconds. Your memory and habits stay yours.</p>
+              <div class="cap-glance-badge badge-pass">
+                <span>🔄 SWAPPABLE MOTOR</span>
+                <span>100% YOUR PROPERTY</span>
+              </div>
+            </article>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- ============================================================ SECTION 6: THE SOVEREIGN CITADEL (SWAP AI CHIPS) -->
+    <div class="band">
+      <div class="container">
+        <section class="section stack">
+          <div class="section-intro">
+            <p class="kicker">The Sovereign Advantage</p>
+            <h2 class="h2">Swap the AI. Keep Everything It Learned About You.</h2>
+            <p class="note">AI models get cheaper and faster every few months. Your memories and learned workflows should never be held hostage.</p>
+          </div>
+          
+          <div class="prose">
+            <p>Every commercial AI product ties your company data directly to their proprietary cloud servers. If they double their prices, censor outputs, or experience an outage, your entire business workflow is stuck.</p>
+            <p>Blue Spark treats language models as swappable thinking engines. The memory and habits live on your Windows laptop inside Mahanta OS. You can switch between Claude, GPT-4, or 100% offline open models in seconds—and your assistant remembers every conversation, company procedure, and past file without missing a beat.</p>
+          </div>
+
+          <!-- Model swap strip -->
+          <div class="swapstrip">
+            <div class="swapchip">
+              <h4>Today's AI</h4>
+              <p>Claude 3.7 &middot; GPT-4o &middot; Llama 3</p>
+            </div>
+            <div class="swapchip">
+              <h4>Next Year's AI</h4>
+              <p>Cheaper &middot; Faster &middot; Smarter</p>
+            </div>
+            <div class="swapchip">
+              <h4>Offline Local AI</h4>
+              <p>Air-gapped &middot; Zero internet</p>
+            </div>
+            <div class="swapchip yours">
+              <h4>Your Blue Spark Citadel</h4>
+              <p>Memory &middot; Skills &middot; Records Stay Put</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- ============================================================ CLOSING SECTION ============ -->
+    <div class="band band-ink">
+      <div class="container">
+        <section class="section stack" style="text-align: center; padding-block: calc(var(--rhythm) * 0.75)">
+          <h2 class="h2" style="color: var(--warm); margin: 0 auto 16px; max-width: 24ch">Ready for an assistant you can actually trust?</h2>
+          <p class="lead" style="margin: 0 auto 28px; max-width: 52ch; color: var(--text-on-ink-dim)">Download Blue Spark for Windows. It remembers your work, double-checks real files, and never sends your data to the cloud.</p>
+          <div class="btn-row" style="justify-content: center">
+            <a class="btn btn-primary" href="/download">Download for Windows</a>
+            <a class="btn btn-secondary" href="/pricing">View Pricing &amp; Pro Access</a>
+            <a class="btn btn-quiet" href="/">Return to Home &rarr;</a>
+          </div>
+        </section>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ============================================================ LIVE FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3 class="h3">Product</h3>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#why-different">Why It's Different</a></li>
+            <li><a href="#memory">Memory &amp; Sleep</a></li>
+            <li><a href="#mahanta">Mahanta OS</a></li>
+            <li><a href="#metacognition">Metacognition &amp; Veto</a></li>
+            <li><a href="#capabilities">Eleven Capabilities</a></li>
+            <li><a href="/founding-500">Founding 500</a>
+        <a href="/pricing">Pricing</a></li>
+            <li><a href="/download">Download for Windows</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="h3">Learning and community</h3>
+          <ul>
+            <li><a href="/learn">Learn</a></li>
+            <li><a href="/work">Examples</a></li>
+            <li><a href="/journal">Journal</a></li>
+            <li><a href="/community">Community</a></li>
+            <li><a href="/news">Community news</a></li>
+            <li><a href="/founding-500">Founding 500</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="h3">Company and partnerships</h3>
+          <ul>
+            <li><a href="/about">About us</a></li>
+            <li><a href="/partners">Partnerships</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/transparency">Transparency</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="h3">Trust and legal</h3>
+          <ul>
+            <li><a href="/security">Security posture</a></li>
+            <li><a href="/legal">Terms and privacy</a></li>
+            <li><a href="/status">System status</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-base">
+        <p>Blue Spark — clarity, on your machine.</p>
+        <p>&copy; 2026 Blue Spark <span class="founder-credit">by ben</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

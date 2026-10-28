@@ -74,6 +74,28 @@
       if (!menu.open) return;
       if (!e.relatedTarget || !menu.contains(e.relatedTarget)) menu.open = false;
     });
+
+    /* Clicking any item inside menu panel closes the menu cleanly */
+    var items = menu.querySelectorAll(".menu-panel a");
+    Array.prototype.forEach.call(items, function (a) {
+      a.addEventListener("click", function () {
+        menu.open = false;
+      });
+    });
+
+    /* Desktop hover enhancement */
+    if (window.matchMedia && window.matchMedia("(hover: hover)").matches) {
+      var hoverTimer;
+      menu.addEventListener("mouseenter", function () {
+        clearTimeout(hoverTimer);
+        menu.open = true;
+      });
+      menu.addEventListener("mouseleave", function () {
+        hoverTimer = setTimeout(function () {
+          menu.open = false;
+        }, 180);
+      });
+    }
   });
 
   document.addEventListener("click", function (e) {

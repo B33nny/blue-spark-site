@@ -3,457 +3,868 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#06080F">
   <title>Blue Spark | Clarity, on your machine.</title>
-  <meta name="description" content="Blue Spark is the AI that behaves like a long-time colleague—present, persistent, and private. Built for professionals who live in messy documents all day.">
+  <meta name="description" content="Blue Spark is an autonomous AI colleague that lives on your Windows laptop. It remembers your paperwork, works on its own, and possesses metacognition.">
   <link rel="canonical" href="https://blue-spark.io/">
   <meta property="og:title" content="Blue Spark | Clarity, on your machine.">
-  <meta property="og:description" content="Blue Spark is the AI that behaves like a long-time colleague—present, persistent, and private. Built for professionals who live in messy documents all day.">
+  <meta property="og:description" content="Blue Spark is an autonomous AI colleague that lives on your Windows laptop. It remembers your paperwork, works on its own, and possesses metacognition.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://blue-spark.io/">
   <meta property="og:image" content="https://blue-spark.io/assets/img/og-star-1200x630.png">
+  <meta name="theme-color" content="#06080F">
   <link rel="icon" type="image/png" href="/assets/img/favicon-32.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/styles.css?v=20261019-redesign">
-  <link rel="stylesheet" href="/assets/css/pages/index.css?v=20261019">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=20261027-visual-glance">
+
+  <style>
+    /* ============================================================
+       VISUAL-FIRST DESIGN: EXPLAIN EVERYTHING IN A GLANCE
+       Tokens: --deep: #1E3A8A, --warm: #FFF8E7, --steel: #C5CCD8, --ink: #06080F
+       ============================================================ */
+
+    /* Hero layout */
+    .hero-home-grid {
+      display: grid;
+      gap: clamp(32px, 4vw, 56px);
+      align-items: center;
+    }
+    @media (min-width: 960px) {
+      .hero-home-grid {
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      }
+    }
+
+    /* Hero Visual Mockup Window (Glanceable Desktop Preview) */
+    .hero-window-mockup {
+      background: #0B1020;
+      border: 1px solid #242A38;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75), 0 0 40px rgba(30, 58, 138, 0.35);
+      position: relative;
+    }
+    .hero-window-mockup::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #1E3A8A, #38BDF8, #FFF8E7);
+    }
+    .window-titlebar {
+      padding: 12px 18px;
+      background: #080C18;
+      border-bottom: 1px solid #1E2738;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+    }
+    .window-controls {
+      display: flex;
+      gap: 6px;
+    }
+    .window-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #242A38;
+    }
+    .window-dot.active { background: #38BDF8; box-shadow: 0 0 8px #38BDF8; }
+    .window-title {
+      color: #7FB3FF;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #38BDF8;
+      box-shadow: 0 0 10px #38BDF8;
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.85); }
+    }
+    
+    .window-body {
+      padding: 20px;
+      display: grid;
+      gap: 16px;
+      background: radial-gradient(circle at 80% 20%, rgba(30, 58, 138, 0.28) 0%, transparent 65%), #0B1020;
+    }
+
+    /* Live Task In-Action Preview Card */
+    .mockup-task-preview {
+      background: #10182C;
+      border: 1px solid #1E2B42;
+      border-radius: 8px;
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+      font-family: var(--font-mono);
+    }
+    .task-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+    }
+    .task-badge-active {
+      color: #22C55E;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .task-filename {
+      color: #FFF8E7;
+      font-family: var(--font-display);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    /* Glanceable Visual Infographic in Hero Window */
+    .mockup-action-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      text-align: center;
+    }
+    .action-step-card {
+      background: #060913;
+      border: 1px solid #1A2336;
+      border-radius: 6px;
+      padding: 10px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .step-tag {
+      font-size: 0.625rem;
+      color: #38BDF8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .step-name {
+      font-size: 0.75rem;
+      color: #EDEFF4;
+      font-weight: 600;
+    }
+    .step-status {
+      font-size: 0.625rem;
+      color: #22C55E;
+      font-weight: 500;
+    }
+
+    /* Reality verification seal in hero */
+    .mockup-verification-seal {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: rgba(30, 58, 138, 0.22);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 6px;
+      font-size: 0.75rem;
+    }
+    .seal-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #FFF8E7;
+      font-weight: 500;
+    }
+    .seal-pill {
+      background: #1E3A8A;
+      color: #38BDF8;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.6875rem;
+      font-weight: 600;
+    }
+
+    .window-footer {
+      padding: 12px 18px;
+      background: #080C18;
+      border-top: 1px solid #1E2738;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: #8C96A8;
+    }
+    .window-footer a {
+      color: #38BDF8;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* 3 Pillars: Self-Explanatory Infographic Cards */
+    .pillar-card-visual {
+      background: #FFFFFF;
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: 0 8px 24px rgba(6, 8, 15, 0.06);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .pillar-card-visual:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(30, 58, 138, 0.14);
+      border-color: rgba(30, 58, 138, 0.45);
+    }
+    .pillar-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .pillar-badge-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--deep);
+      background: var(--deep-soft);
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    .pillar-badge-glance {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .pillar-title-text {
+      font-family: var(--font-display);
+      font-size: 1.3125rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 0;
+    }
+    .pillar-desc-text {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--text-dim);
+      margin: 0;
+    }
+
+    /* Visual Infographic 1: Autonomous Pipeline */
+    .infographic-box {
+      background: #0B1020;
+      border: 1px solid #242A38;
+      border-radius: 10px;
+      padding: 16px;
+      color: #EDEFF4;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      margin-top: auto;
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .infographic-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #1E2738;
+      color: #7FB3FF;
+      font-size: 0.6875rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .pipeline-visual-track {
+      display: grid;
+      gap: 8px;
+    }
+    .pipeline-step-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      background: #121A2C;
+      border: 1px solid #1E2B42;
+      border-left: 4px solid #38BDF8;
+      border-radius: 6px;
+      font-size: 0.75rem;
+    }
+    .step-item-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #EDEFF4;
+    }
+    .step-item-check {
+      color: #22C55E;
+      font-weight: 700;
+      font-size: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Visual Infographic 2: Calendar Timeline */
+    .timeline-visual-diagram {
+      display: grid;
+      gap: 10px;
+    }
+    .timeline-bar {
+      display: flex;
+      justify-content: space-between;
+      background: #060913;
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1px solid #1A2336;
+      text-align: center;
+    }
+    .t-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .t-day { font-size: 0.6875rem; font-weight: 700; color: #38BDF8; }
+    .t-action { font-size: 0.625rem; color: #8C96A8; }
+    .amnesia-comparison-row {
+      display: grid;
+      gap: 6px;
+    }
+    .comp-box-bad {
+      padding: 8px 12px;
+      background: rgba(220, 38, 38, 0.15);
+      border-left: 4px solid #EF4444;
+      border-radius: 6px;
+      color: #FCA5A5;
+      font-size: 0.71875rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .comp-box-good {
+      padding: 8px 12px;
+      background: rgba(30, 58, 138, 0.28);
+      border-left: 4px solid #38BDF8;
+      border-radius: 6px;
+      color: #93C5FD;
+      font-size: 0.71875rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Visual Infographic 3: The Libet Veto Reality Gate */
+    .veto-visual-diagram {
+      display: grid;
+      gap: 8px;
+    }
+    .veto-flow-step {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.71875rem;
+    }
+    .flow-proposal {
+      background: #141D30;
+      border-left: 4px solid #FBBF24;
+      color: #FDE68A;
+    }
+    .flow-veto-halt {
+      background: rgba(220, 38, 38, 0.18);
+      border-left: 4px solid #EF4444;
+      color: #FCA5A5;
+    }
+    .flow-veto-pass {
+      background: rgba(34, 197, 94, 0.18);
+      border-left: 4px solid #22C55E;
+      color: #86EFAC;
+    }
+
+    /* Sovereignty Infographic */
+    .citadel-infographic-card {
+      background: #FFFFFF;
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 8px 28px rgba(6, 8, 15, 0.06);
+    }
+    .citadel-glance-diagram {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 14px;
+      background: #0B1020;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #242A38;
+      color: #EDEFF4;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-align: center;
+      margin: 20px 0;
+    }
+    .citadel-zone-box {
+      padding: 12px;
+      border-radius: 8px;
+      background: #121A2C;
+      border: 1px solid #1E2B42;
+    }
+    .citadel-firewall-barrier {
+      color: #EF4444;
+      font-weight: 700;
+      font-size: 0.8125rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Pictorial Showcase Frame for Cautious Readers */
+    .art-showcase {
+      margin: 24px 0;
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--paper);
+      box-shadow: 0 12px 36px rgba(6, 8, 15, 0.08);
+    }
+    .art-showcase img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .art-showcase figcaption {
+      padding: 16px 20px;
+      font-size: 0.875rem;
+      color: var(--text-dim);
+      border-top: 1px solid var(--rule);
+      display: grid;
+      gap: 6px;
+      background: #FFFFFF;
+    }
+    .art-showcase figcaption strong {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: -0.01em;
+      color: var(--deep);
+    }
+
+
+    /* Image Compartment replacing black & blue text boxes */
+    .pillar-img-compartment {
+      margin: 14px 0 0;
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #0B1020;
+      box-shadow: 0 4px 16px rgba(6, 8, 15, 0.08);
+      display: flex;
+      flex-direction: column;
+    }
+    .pillar-img-compartment img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+    .pillar-img-compartment figcaption {
+      padding: 10px 14px;
+      background: #080C18;
+      border-top: 1px solid #1E2738;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: #C5CCD8;
+    }
+    .img-badge-pass { color: #22C55E; font-weight: 700; letter-spacing: 0.05em; font-size: 0.6875rem; }
+    .img-badge-blue { color: #38BDF8; font-weight: 700; letter-spacing: 0.05em; font-size: 0.6875rem; }
+    .img-badge-gold { color: #FBBF24; font-weight: 700; letter-spacing: 0.05em; font-size: 0.6875rem; }
+
+    .proof-grid {
+      display: grid;
+      gap: 24px;
+    }
+    @media (min-width: 960px) {
+      .proof-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      }
+    }
+
+  </style>
 </head>
-<body>
-<a href="#main" class="bs-skip">Skip to content</a>
-<main id="main">
-<div class="bs s-893e081">
+<body class="band-ink" data-page="/">
+  <canvas id="cosmos" aria-hidden="true"></canvas>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- ============ HERO ============ -->
-<section class="s-8ac3906" id="bs-hero" aria-labelledby="hero-title">
-  <div class="bs-stars" aria-hidden="true"></div>
-  <div class="bs-stars2" aria-hidden="true"></div>
-
-  <header class="bs-wrap s-fc464c9">
-    <a class="s-6c31fcc" href="/" aria-current="page">
-      <img class="s-ce1ceb7" src="/assets/img/mark-128.png" alt="">
-      <span class="s-7702ad4">Blue Spark</span>
-    </a>
-    <nav aria-label="Main" class="bs-nav">
-      <a href="/product">Product</a>
-      <a href="/founding-500">Founding 500</a>
-      <a href="/pricing">Pricing</a>
-      <a href="/community">Community</a>
-      <a href="/about">About us</a>
-    </nav>
-    <a href="/download" class="bs-ghost">Get Blue Spark</a>
+  <!-- ============================================================ LIVE HEADER -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="/" aria-label="Blue Spark home">
+        <img class="brand-mark" src="/assets/img/mark-128.png" alt="" width="52" height="52">
+        <span class="wordmark">Blue Spark</span>
+      </a>
+      <nav class="nav-groups" aria-label="Primary">
+        <details class="menu" id="menu-product">
+          <summary>Product</summary>
+          <div class="menu-panel">
+            <a href="/product" style="font-weight: 600; color: var(--deep)">Product Overview &rarr;</a>
+            <a href="/product#why-different">Why It's Different</a>
+            <a href="/product#memory">5-Tier Memory &amp; Sleep</a>
+            <a href="/product#mahanta">Mahanta OS Lineage</a>
+            <a href="/product#metacognition">Metacognition &amp; Conscious Veto</a>
+            <a href="/product#capabilities">Eleven Capabilities</a>
+            <div style="border-top: 1px solid var(--rule); margin: 4px 0;"></div>
+            <a href="/download" style="color: var(--deep); font-weight: 500">Download for Windows</a>
+          </div>
+        </details>
+        <a href="/founding-500">Founding 500</a>
+        <a href="/pricing">Pricing</a>
+        <details class="menu">
+          <summary>Company</summary>
+          <div class="menu-panel">
+            <a href="/about">About us</a>
+            <a href="/community">Community</a>
+            <a href="/news">Community news</a>
+            <a href="/journal">Journal</a>
+            <a href="/contact">Contact us</a>
+          </div>
+        </details>
+      </nav>
+      <a class="btn btn-primary nav-action" href="/pricing">Get Blue Spark</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
   </header>
 
-  <div class="bs-wrap s-6af2808">
-    <div class="bs-stagebox s-821f83f">
-      <div class="bs-glow" aria-hidden="true"></div>
-      <div class="bs-orbit-stage" aria-hidden="true">
-        <div class="bs-orbits">
-          <div class="bs-ring r3"></div>
-          <div class="bs-ring"></div>
-          <div class="bs-ring r2"></div>
-        </div>
-      </div>
-      <div class="bs-star s-c25a073">
-        <img src="/assets/img/star-704.webp" alt="Blue Spark star logo">
-      </div>
-    </div>
-
-    <h1 id="hero-title" class="bs-h1 s-0d69e4b">
-      <span class="bs-word s-2aebcc3">Clarity,</span>
-      <span class="bs-word s-1d79a50">on</span>
-      <span class="bs-word s-d6eb902">your</span>
-      <span class="bs-word s-bfe96b6">machine.</span>
-    </h1>
-    <p class="bs-fade s-aaf6100">Blue Spark is a private AI colleague that lives on your Windows laptop. It remembers your paperwork, checks its own work, and never sends your documents to the cloud.</p>
-
-    <div class="bs-fade s-0cc8f40">
-      <a href="/download" class="bs-primary">
-        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>
-        Download for Windows
-      </a>
-      <span class="s-2e417b8">Launch manifesto <span class="bs-mono s-1b7c2bc">coming soon</span></span>
-    </div>
-
-    <ul class="bs-fade s-6332a30">
-      <li class="s-d888db8">
-        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M2 20h20"></path></svg>Runs on your own laptop</li>
-      <li class="s-d888db8">
-        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>Nothing leaves your disk</li>
-      <li class="s-d888db8">
-        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>No special hardware needed</li>
-    </ul>
-
-    <!-- What it is: not an LLM, not a chatbot -->
-    <figure aria-labelledby="whatis-title" class="bs-fade s-d9ec97b">
-      <p class="bs-mono s-671e9ab"><span class="s-4622000"></span>What it is</p>
-      <div class="bs-example">
-        <div class="s-5374faf">
-          <p class="bs-notword s-b4b83cc">Not an LLM</p>
-          <p class="bs-notword s-14f91df">Not a chatbot</p>
-          <svg class="s-99d0194" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none">
-            <line class="bs-xline s-def20db" pathLength="1" x1="4" y1="8" x2="96" y2="92" stroke="#38BDF8" stroke-width="7" stroke-linecap="round" vector-effect="non-scaling-stroke"></line>
-            <line class="bs-xline s-43fd370" pathLength="1" x1="96" y1="8" x2="4" y2="92" stroke="#38BDF8" stroke-width="7" stroke-linecap="round" vector-effect="non-scaling-stroke"></line>
-          </svg>
-        </div>
-
-        <div aria-hidden="true" class="bs-connector s-1cf1fa1">
-          <div class="bs-flow s-d1e8321"></div>
-          <img class="bs-ministar s-235d33c" src="/assets/img/mark-128.png" alt="">
-        </div>
-
-        <div class="bs-ss s-20887e7">
-          <div class="bs-load-form s-f61479d">
-            <p class="bs-mono s-24e39e0">So what is Blue Spark?</p>
-            <p class="s-f3bc9cc" id="whatis-title">Blue Spark is a first-of-its-kind AI assistant designed to combine initiative, advanced reasoning, and metacognition: the ability to evaluate and refine its own thinking.</p>
-            <p class="s-9516274">It becomes better every time you use it and is designed to grow together with you.</p>
-          </div>
-          <div class="bs-ss-band bs-load-band s-41b00af"></div>
-        </div>
-      </div>
-    </figure>
-  </div>
-</section>
-
-<!-- ============ DONE ISN'T ALWAYS DONE ============ -->
-<section class="s-9974a0f" aria-labelledby="done-title">
-  <div class="bs-wrap bs-grid-2">
-    <div class="bs-rv">
-      <p class="bs-mono s-cc7bd80">Why it matters</p>
-      <div class="bs-line-draw s-dc6d9ea"></div>
-      <h2 id="done-title" class="bs-h2 s-91ab642">AI sometimes says a job is done when it isn't.</h2>
-      <p class="bs-body s-784e591">Ask an ordinary AI to update a file or place an order, and it may tell you it worked when nothing changed. You may not find out until later.</p>
-      <p class="bs-body s-4c0544d">Blue Spark is built to check first. Before it tells you a job is finished, a separate checker looks at the real result. Only checked work goes into its memory.</p>
-    </div>
-
-    <figure aria-label="Example: two job receipts. Ordinary AI says done, but nobody checked. Blue Spark shows job ran, result checked, remembered, with a checked stamp." class="bs-receipts s-2a0ca83">
-      <div class="bs-receipt bs-rv s-a8a9035">
-        <p class="bs-mono s-7d8e96f">Ordinary AI</p>
-        <div class="s-c0289ba" aria-hidden="true">?</div>
-        <p class="s-80748f2">Done.</p>
-        <div class="s-29f6bf1">
-          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2" stroke-dasharray="3 3"><circle cx="12" cy="12" r="9"></circle></svg>
-          Nobody checked.</div>
-        <div class="s-cf8f43e">
-          <p class="bs-mono bs-ex-label">Example</p>
-          <p class="bs-ex-text">Told to reorder the printer paper. Said done. The order never went through.</p>
-        </div>
-      </div>
-
-      <div class="bs-receipt bs-rv s-ab2653d">
-        <p class="bs-mono s-fdf2cee"><img class="s-ffa791a" src="/assets/img/mark-128.png" alt="">Blue Spark</p>
-        <ul class="s-537e201">
-          <li class="bs-t1 s-cbc16a9"><span class="s-c35e5a1"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06080F" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span>Job ran</li>
-          <li class="bs-t2 s-cbc16a9"><span class="s-c35e5a1"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06080F" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span>Result checked</li>
-          <li class="bs-t3 s-cbc16a9"><span class="s-c35e5a1"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06080F" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span>Remembered</li>
-        </ul>
-        <div class="bs-stamp-scroll s-2a323c8">
-          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Checked</div>
-        <div class="s-c5ccaf5">
-          <p class="bs-mono bs-ex-label">Example</p>
-          <p class="bs-ex-text">Told to reorder the printer paper. Checked the order confirmation page. Said done.</p>
-        </div>
-      </div>
-    </figure>
-  </div>
-</section>
-
-<!-- ============ THE WORKPLACE AROUND THE TEMP WORKER ============ -->
-<section class="s-3210598" aria-labelledby="office-title">
-  <div class="bs-stars2 s-8f59c42" aria-hidden="true"></div>
-  <div class="bs-wrap bs-grid-2 bs-flip s-a8a9035">
-    <div class="bs-rv">
-      <p class="bs-mono s-90a2f42">How it works</p>
-      <div class="bs-line-draw s-dc6d9ea"></div>
-      <h2 id="office-title" class="bs-h2 s-97311d2">Picture the AI as a skilled temp worker whose memory wipes every night.</h2>
-      <p class="bs-body s-ebc8c61">Blue Spark is the workplace around them: records that persist, a QA layer that reviews output, and a supervisor that flags what needs a second pass.</p>
-      <p class="bs-body s-84c5bed">Upgrade the AI anytime. Your data and accumulated knowledge never leave.</p>
-    </div>
-
-    <figure aria-label="Illustration: a workplace with records, a desk, a reviewer with a clipboard and a supervisor. The temp worker at the desk changes into a different person while everything else stays the same." class="bs-rv s-996d8c0">
-      <svg class="s-7001da1" aria-hidden="true" viewBox="0 0 640 330" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="24" y1="268" x2="616" y2="268" stroke="rgba(197,204,216,.35)" stroke-width="1.5"></line>
-        <rect x="48" y="120" width="96" height="148" rx="8" stroke="#FFF8E7" stroke-width="2"></rect>
-        <line x1="48" y1="169" x2="144" y2="169" stroke="#FFF8E7" stroke-width="2"></line>
-        <line x1="48" y1="218" x2="144" y2="218" stroke="#FFF8E7" stroke-width="2"></line>
-        <rect x="84" y="138" width="24" height="6" rx="3" fill="#FFF8E7"></rect>
-        <rect x="84" y="187" width="24" height="6" rx="3" fill="#FFF8E7"></rect>
-        <rect x="84" y="236" width="24" height="6" rx="3" fill="#FFF8E7"></rect>
-        <path d="M62 120 L62 104 L86 104 L92 112 L128 112 L128 120" stroke="#38BDF8" stroke-width="2"></path>
-        <rect x="204" y="196" width="184" height="10" rx="3" stroke="#FFF8E7" stroke-width="2"></rect>
-        <line x1="216" y1="206" x2="216" y2="268" stroke="#FFF8E7" stroke-width="2"></line>
-        <line x1="376" y1="206" x2="376" y2="268" stroke="#FFF8E7" stroke-width="2"></line>
-        <rect x="292" y="152" width="70" height="44" rx="5" stroke="#38BDF8" stroke-width="2"></rect>
-        <line x1="306" y1="166" x2="346" y2="166" stroke="#38BDF8" stroke-width="2"></line>
-        <line x1="306" y1="178" x2="334" y2="178" stroke="rgba(56,189,248,.6)" stroke-width="2"></line>
-        <circle cx="470" cy="130" r="14" stroke="#FFF8E7" stroke-width="2"></circle>
-        <path d="M448 268 L452 172 C452 158 460 152 470 152 C480 152 488 158 488 172 L492 268" stroke="#FFF8E7" stroke-width="2"></path>
-        <rect x="490" y="178" width="28" height="36" rx="4" stroke="#38BDF8" stroke-width="2"></rect>
-        <path d="M497 190 l4 4 l8 -8" stroke="#38BDF8" stroke-width="2"></path>
-        <path d="M497 204 l4 4 l8 -8" stroke="#38BDF8" stroke-width="2"></path>
-        <circle cx="574" cy="124" r="15" stroke="#FFF8E7" stroke-width="2"></circle>
-        <path d="M548 268 L552 168 C552 154 562 147 574 147 C586 147 596 154 596 168 L600 268" stroke="#FFF8E7" stroke-width="2"></path>
-        <path d="M574 150 L569 162 L574 190 L579 162 Z" stroke="#38BDF8" stroke-width="2"></path>
-        <path d="M600 84 L616 84 L616 100 L600 100 Z" stroke="#38BDF8" stroke-width="2"></path>
-        <path d="M604 80 L604 88 M612 80 L612 88" stroke="#38BDF8" stroke-width="2"></path>
-        <text x="96" y="300" text-anchor="middle" fill="rgba(255,248,231,.85)" font-size="14" font-family="Inter, sans-serif" stroke="none">Records</text>
-        <text x="296" y="300" text-anchor="middle" fill="rgba(255,248,231,.85)" font-size="14" font-family="Inter, sans-serif" stroke="none">Temp worker (any AI)</text>
-        <text x="472" y="300" text-anchor="middle" fill="rgba(255,248,231,.85)" font-size="14" font-family="Inter, sans-serif" stroke="none">Reviewer</text>
-        <text x="578" y="300" text-anchor="middle" fill="rgba(255,248,231,.85)" font-size="14" font-family="Inter, sans-serif" stroke="none">Supervisor</text>
-      </svg>
-      <div class="bs-hire-out s-13de668" aria-hidden="true">
-        <svg class="s-62ecf61" viewBox="200 120 72 76" fill="none" stroke="#FFF8E7" stroke-width="2" stroke-linecap="round"><circle cx="236" cy="146" r="16"></circle><path d="M220 140 C222 128 250 128 252 140"></path><path d="M212 196 C212 178 222 168 236 168 C250 168 260 178 260 196"></path></svg>
-      </div>
-      <div class="bs-ss s-99ee1a0" aria-hidden="true">
-        <div class="bs-hire-in s-62ecf61">
-          <svg class="s-62ecf61" viewBox="200 120 72 76" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"><circle cx="236" cy="146" r="16"></circle><circle cx="236" cy="125" r="6"></circle><circle cx="230" cy="147" r="4"></circle><circle cx="243" cy="147" r="4"></circle><path d="M234 147 L239 147"></path><path d="M212 196 C212 178 222 168 236 168 C250 168 260 178 260 196"></path></svg>
-        </div>
-        <div class="bs-ss-band bs-hire-band"></div>
-      </div>
-    </figure>
-  </div>
-</section>
-
-<!-- ============ CAREFUL WITH YOUR WORK ============ -->
-<section class="s-9974a0f" aria-labelledby="careful-title">
-  <div class="bs-wrap">
-    <div class="bs-rv s-c06a247">
-      <p class="bs-mono s-cc7bd80">How it behaves</p>
-      <div class="bs-line-draw s-dc6d9ea"></div>
-      <h2 id="careful-title" class="bs-h2 s-91ab642">Built to be careful with your work.</h2>
-    </div>
-
-    <div class="bs-cards s-80963aa">
-      <!-- 1. would rather ask than guess -->
-      <article class="bs-rv s-3c09111">
-        <div class="s-94a3176" aria-hidden="true">
-          <div class="s-d38dd66">
-            <span class="s-ed1ad45"><svg width="10" height="10" viewBox="0 0 10 10"><rect x="1" y="1" width="2.6" height="8" fill="#4A5263"></rect><rect x="6.4" y="1" width="2.6" height="8" fill="#4A5263"></rect></svg></span>
-            <span class="bs-mono">Paused before the next step</span>
-          </div>
-          <div class="bs-t1 s-37eadde">
-            <p class="s-72845a3">Send the new price list to all suppliers?</p>
-            <div class="s-acc3844">
-              <span class="bs-pill s-dbfb1d9">Yes, send</span>
-              <span class="bs-pill s-d0eaa56">Not yet</span>
-            </div>
-          </div>
-        </div>
-        <h3 class="s-9ad8d99">Would rather ask than guess.</h3>
-        <p class="bs-body s-b59f366">If Blue Spark can't confirm the next step is safe, it pauses rather than pressing ahead. When your decision is needed, it asks before continuing.</p>
-      </article>
-
-      <!-- 2. nothing goes out twice -->
-      <article class="bs-rv s-3c09111">
-        <div class="s-e83cddb" aria-hidden="true">
-          <div class="bs-t1 s-9a87b03">
-            <span class="s-36b383b">Payment to supplier</span>
-            <span class="bs-mono s-6d378e8"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0369A1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Logged and sent</span>
-          </div>
-          <div class="bs-t2 bs-mono s-982ec6b">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4A5263" stroke-width="2.4" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>Job interrupted, starting again</div>
-          <div class="bs-t3 s-37f8012">
-            <span class="s-36b383b">Payment to supplier</span>
-            <span class="bs-mono s-6d378e8"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0369A1" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M6 6l12 12"></path></svg>Already sent, skipped</span>
-          </div>
-        </div>
-        <h3 class="s-9ad8d99">Nothing goes out twice.</h3>
-        <p class="bs-body s-b59f366">Every action is logged before it happens. If a job is interrupted, Blue Spark checks its record before trying again, so a duplicate email or payment doesn't slip through.</p>
-      </article>
-
-      <!-- 3. stops a running job -->
-      <article class="bs-rv s-3c09111">
-        <div class="s-de0b8ad" aria-hidden="true">
-          <div class="bs-stop-press bs-stopbtn s-a556f87"><svg width="26" height="26" viewBox="0 0 26 26"><rect x="3" y="3" width="20" height="20" rx="4" fill="#38BDF8"></rect></svg></div>
-          <div class="s-8b4ab7f">
-            <p class="s-7c90351">Sorting this month's invoices</p>
-            <div class="s-f021ec2">
-              <div class="bs-progress s-47985fa"></div>
-            </div>
-            <p class="bs-paused bs-mono s-677eb8e"><svg width="12" height="12" viewBox="0 0 10 10"><rect x="1" y="1" width="2.6" height="8" fill="#0369A1"></rect><rect x="6.4" y="1" width="2.6" height="8" fill="#0369A1"></rect></svg>Stopped here. Waiting for you.</p>
-          </div>
-        </div>
-        <h3 class="s-9ad8d99">Stops a running job.</h3>
-        <p class="bs-body s-b59f366">There's a real stop button, and it works mid-job. Blue Spark halts where it is and waits for you.</p>
-      </article>
-
-      <!-- 4. keeps a receipt -->
-      <article class="bs-rv s-3c09111">
-        <div class="s-6640cf2" aria-hidden="true">
-          <svg class="s-a556f87" width="74" height="120" viewBox="0 0 74 120" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="4" y="4" width="66" height="112" rx="4" fill="rgba(56,189,248,.3)" stroke="#06080F" stroke-width="2"></rect>
-            <path d="M4 4 L46 16 L46 106 L4 116 Z" fill="#FFFFFF" stroke="#06080F" stroke-width="2"></path>
-            <circle cx="38" cy="62" r="3" fill="#06080F"></circle>
-          </svg>
-          <div class="s-ba852b7">
-            <p class="bs-mono s-d805b4a">Activity log</p>
-            <div class="bs-t1 s-dbdbafe"><span>Renamed invoice files</span><span class="bs-mono s-913bec7">Today</span></div>
-            <div class="bs-t2 s-cd039c2"><span>Drafted a supplier reply</span><span class="bs-mono s-913bec7">Today</span></div>
-            <div class="bs-t3 s-cd039c2"><span>Filed the signed contract</span><span class="bs-mono s-913bec7">Yesterday</span></div>
-          </div>
-        </div>
-        <h3 class="s-9ad8d99">Keeps a receipt of everything it does.</h3>
-        <p class="bs-body s-b59f366">Everything goes through one door, and the door keeps a log. Open it any time to see what was done, and when.</p>
-      </article>
-    </div>
-
-    <p class="s-135eb40">
-      <svg class="s-81ffde9" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0369A1" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5"></path><path d="M12 8h.01"></path></svg>
-      The checking system is built and tested on practice jobs. Tests with live AI models are next.</p>
-  </div>
-</section>
-
-<!-- ============ TODAY IN THE COMMUNITY ============ -->
-<section class="s-18455aa" aria-labelledby="news-title">
-  <div class="bs-wrap">
-    <div class="s-9172760">
-      <div class="s-7d7342e">
-        <div class="s-c0d0408" aria-hidden="true">
-          <div class="bs-sun s-ed436ec"></div>
-          <img class="bs-sun s-2a8252d" src="/assets/img/mark-128.png" alt="">
-          <div class="s-31b12df"></div>
-        </div>
-        <h2 class="s-c2bc24f" id="news-title">Today in the community</h2>
-      </div>
-      <div class="s-ced0681">
-        <span class="s-da26670">Updated every morning, in plain English</span>
-        <span class="bs-mono s-73663d1">Sample</span>
-      </div>
-    </div>
-
-    <div class="bs-news s-1f4768d">
-      <article class="bs-rv s-057608a">
-        <div class="s-ced0681">
-          <span class="s-4b1891d"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M8 7h9v9"></path></svg>Try</span>
-          <span class="bs-mono s-4b8b42a">Sample</span>
-        </div>
-        <h3 class="s-2ed6b9e">Malaysia is asking for feedback on new AI data rules.</h3>
-        <dl class="s-f943602">
-          <div class="s-dc9f978">
-            <dt class="bs-mono s-24e39e0">What changed</dt>
-            <dd class="s-e65add3">Malaysia is asking for feedback on new AI data rules. Consultation closes 23 October.</dd>
-          </div>
-          <div class="s-dc9f978">
-            <dt class="bs-mono s-24e39e0">Who it affects</dt>
-            <dd class="s-e65add3">Any business that puts customer data into an AI tool.</dd>
-          </div>
-          <div class="s-dc9f978">
-            <dt class="bs-mono s-24e39e0">Where the opportunity is</dt>
-            <dd class="s-e65add3">Be ready early, and show careful data habits.</dd>
-          </div>
-        </dl>
-      </article>
-
-      <div class="s-d5f4ca6">
-        <article class="bs-rv s-74c04ef">
-          <div class="s-b264e9d">
-            <span class="s-0092554"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0369A1" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg>Watch</span>
-            <span class="bs-mono s-4b8b42a">Sample</span>
-          </div>
-          <h3 class="s-6193321">AI tools that read images are getting much cheaper to run.</h3>
-        </article>
-
-        <aside class="bs-rv s-37490fd" aria-label="Today's practical action">
-          <p class="bs-mono s-e92c678"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Today's practical action</p>
-          <p class="s-51dc175">Pick one weekly task that involves reading and sorting, like supplier emails, and work out what it costs you per month.</p>
-        </aside>
-      </div>
-    </div>
-
-    <a class="s-94820f2" href="/community">Read today's full update
-      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
-  </div>
-</section>
-
-<!-- ============ FOUNDING 500 ============ -->
-<section class="s-c4cfc41" aria-labelledby="f500-title">
-  <div class="bs-stars s-44dd4b4" aria-hidden="true"></div>
-  <div class="bs-wrap bs-grid-2 s-a8a9035">
-    <div class="bs-rv">
-      <p class="bs-mono s-90a2f42">Founding 500</p>
-      <div class="bs-line-draw s-dc6d9ea"></div>
-      <h2 id="f500-title" class="bs-h2 s-97311d2">Learn AI from the business side.</h2>
-      <p class="bs-body s-ebc8c61">Join the Founding 500. Learn with Ben, automate the work in your own industry, and help shape the Blue Spark skills marketplace, which is in development.</p>
-      <div class="s-634b7cd">
-        <a href="/founding-500" class="bs-outline-sky">Explore Founding 500
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
-      </div>
-    </div>
-    <figure class="s-2a0ca83" aria-label="Five hundred dots arranged into the Blue Spark star: 500 seats in total">
-      <div class="bs-dotstar" aria-hidden="true"></div>
-      <figcaption class="bs-mono s-5eae80c">500 seats in total</figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- ============ FOOTER ============ -->
-<footer class="s-3bdaefc">
-  <div class="bs-wrap">
-    <div class="bs-foot">
-      <div>
-        <div class="s-f265ed3">
-          <img class="s-12033ab" src="/assets/img/mark-128.png" alt="">
-          <span class="s-d3b405b">Blue Spark</span>
-        </div>
-        <p class="s-0b6e676">Blue Spark. Clarity, on your machine.</p>
-      </div>
+  <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="stack">
       <nav aria-label="Product">
-        <p class="bs-mono s-4220f91">Product</p>
-        <div class="s-e2cc18d"><a href="/product">How it works</a><a href="/pricing">Pricing</a><a href="/download">Download</a></div>
+        <h3 class="h3">Product</h3>
+        <a href="/product" style="font-weight: 600; color: var(--deep)">Product Overview &rarr;</a>
+        <a href="/product#why-different">Why It's Different</a>
+        <a href="/product#memory">5-Tier Memory &amp; Sleep</a>
+        <a href="/product#mahanta">Mahanta OS Lineage</a>
+        <a href="/product#metacognition">Metacognition &amp; Conscious Veto</a>
+        <a href="/product#capabilities">Eleven Capabilities</a>
+        <a href="/download">Download for Windows</a>
       </nav>
-      <nav aria-label="Learning and community">
-        <p class="bs-mono s-4220f91">Learning and community</p>
-        <div class="s-e2cc18d"><a href="/community">Community news</a><a href="/learn">Learn</a><a href="/founding-500">Founding 500</a></div>
+      <nav aria-label="Company">
+        <h3 class="h3">Company</h3>
+        <a href="/founding-500">Founding 500</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/about">About us</a>
+        <a href="/contact">Contact us</a>
       </nav>
-      <nav aria-label="About us">
-        <p class="bs-mono s-4220f91">About us</p>
-        <div class="s-e2cc18d"><a href="/about">Our story</a><a href="/about">The founders</a></div>
-      </nav>
-      <nav aria-label="Trust and legal">
-        <p class="bs-mono s-4220f91">Trust and legal</p>
-        <div class="s-e2cc18d"><a href="/legal/privacy">Privacy</a><a href="/legal/terms">Terms</a></div>
-      </nav>
+      <a class="btn btn-primary" href="/pricing">Get Blue Spark</a>
     </div>
   </div>
-</footer>
 
-</div>
-</main>
-<script>
-// 500 dots arranged into the Blue Spark star (four long points, four short), in five rings.
-(function () {
-  var hosts = document.querySelectorAll('.bs-dotstar');
-  if (!hosts.length) return;
-  var N = 16, pts = [], rad = [1, 0.3, 0.62, 0.3];
-  for (var k = 0; k < N; k++) { var a = -Math.PI / 2 + k * Math.PI * 2 / N; pts.push([Math.cos(a) * rad[k % 4], Math.sin(a) * rad[k % 4]]); }
-  function inside(x, y) { var c = false; for (var i = 0, j = N - 1; i < N; j = i++) { var xi = pts[i][0], yi = pts[i][1], xj = pts[j][0], yj = pts[j][1]; if (((yi > y) !== (yj > y)) && (x < (xj - xi) * (y - yi) / (yj - yi) + xi)) c = !c; } return c; }
-  var s = 0.12, cand = [];
-  for (var g = 0; g < 80; g++) { cand = []; var row = 0; for (var y = -1; y <= 1; y += s, row++) { var off = (row % 2) * s / 2; for (var x = -1; x <= 1; x += s) { if (inside(x + off, y)) cand.push([x + off, y]); } } if (cand.length >= 500) break; s *= 0.96; }
-  hosts.forEach(function (host) {
-    var groups = [];
-    for (var r = 0; r < 5; r++) { var d = document.createElement('div'); d.className = 'bs-dg' + (r + 1); host.appendChild(d); groups.push(d); }
-    for (var m = 0; m < 500; m++) {
-      var p = cand[Math.floor(m * cand.length / 500)], dist = Math.sqrt(p[0] * p[0] + p[1] * p[1]);
-      var dot = document.createElement('span');
-      dot.className = 'bs-dot' + (dist < 0.2 ? ' sky' : '');
-      dot.style.left = ((p[0] + 1) / 2 * 100).toFixed(2) + '%';
-      dot.style.top = ((p[1] + 1) / 2 * 100).toFixed(2) + '%';
-      groups[Math.min(4, Math.floor(dist * 5))].appendChild(dot);
-    }
-  });
-})();
+  <main id="main">
 
-// The orbit rings tilt a little toward the mouse.
-(function () {
-  var hero = document.getElementById('bs-hero'), stage = document.querySelector('.bs-orbits');
-  if (!hero || !stage) return;
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  hero.addEventListener('mousemove', function (e) {
-    var r = hero.getBoundingClientRect();
-    stage.style.setProperty('--ry', (((e.clientX - r.left) / r.width - 0.5) * 16).toFixed(2) + 'deg');
-    stage.style.setProperty('--rx', (68 - ((e.clientY - r.top) / r.height - 0.5) * 12).toFixed(2) + 'deg');
-  });
-  hero.addEventListener('mouseleave', function () { stage.style.setProperty('--ry', '0deg'); stage.style.setProperty('--rx', '68deg'); });
-})();
-</script>
+    <!-- ============================================================ HERO: GLANCEABLE DESKTOP MOCKUP -->
+    <div class="band band-ink">
+      <div class="container">
+        <section class="section">
+          <div class="hero-home-grid">
+            
+            <!-- Left: Clear Human Narrative -->
+            <div class="stack">
+              <p class="kicker">Simple &middot; Private &middot; Careful</p>
+              <h1 class="h1" data-split>An AI assistant that actually works on your laptop.</h1>
+              <p class="lead">Blue Spark does the heavy lifting on your Windows PC. It reads messy paperwork, remembers what you worked on yesterday, and double-checks every number before showing you the result. Your private files never leave your desk.</p>
+              
+              <div class="btn-row">
+                <a class="btn btn-primary" href="/download">Download for Windows</a>
+                <a class="btn btn-secondary" href="#difference">See in 3 Pictures &darr;</a>
+                <a class="btn btn-quiet" href="/product">Explore Product &rarr;</a>
+              </div>
+
+              <!-- At-A-Glance Metric Strip -->
+              <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.1); font-family: var(--font-mono); font-size: 0.75rem; color: #A9B1C0">
+                <span style="display: inline-flex; align-items: center; gap: 6px"><span style="width: 6px; height: 6px; border-radius: 50%; background: #38BDF8"></span> Runs on the laptop you already own</span>
+                <span style="display: inline-flex; align-items: center; gap: 6px"><span style="width: 6px; height: 6px; border-radius: 50%; background: #22C55E"></span> Never guesses or invents numbers</span>
+                <span style="display: inline-flex; align-items: center; gap: 6px"><span style="width: 6px; height: 6px; border-radius: 50%; background: #FBBF24"></span> Zero files sent to the cloud</span>
+              </div>
+            </div>
+
+            <!-- Right: Self-Explanatory Desktop Mockup Window (Understood in 2 Seconds) -->
+            <div class="hero-window-mockup" role="region" aria-label="Blue Spark Desktop Preview">
+              <div class="window-titlebar">
+                <div class="window-controls">
+                  <div class="window-dot"></div>
+                  <div class="window-dot"></div>
+                  <div class="window-dot active"></div>
+                </div>
+                <span class="window-title"><span class="pulse-dot"></span> Blue Spark Desktop &bull; Local Operator</span>
+                <span style="color: #8C96A8; font-size: 0.6875rem">Windows 11</span>
+              </div>
+
+              <div class="window-body">
+                <!-- In-Action Task Preview -->
+                <div class="mockup-task-preview">
+                  <div class="task-meta-row">
+                    <span style="color: #8C96A8">Working on your PC</span>
+                    <span class="task-badge-active">● Task Finished: 100%</span>
+                  </div>
+                  <div class="task-filename">
+                    <span>📄 Commercial_Lease_2026_Audit.pdf</span>
+                  </div>
+
+                  <!-- Glanceable 3-Step Pipeline -->
+                  <div class="mockup-action-strip">
+                    <div class="action-step-card">
+                      <span class="step-tag">Step 1</span>
+                      <span class="step-name">Read 42 Pages</span>
+                      <span class="step-status">✔ Done</span>
+                    </div>
+                    <div class="action-step-card">
+                      <span class="step-tag">Step 2</span>
+                      <span class="step-name">Check Clause 14</span>
+                      <span class="step-status" style="color: #FBBF24">⚠️ Difference Found</span>
+                    </div>
+                    <div class="action-step-card">
+                      <span class="step-tag">Step 3</span>
+                      <span class="step-name">Save to Desktop</span>
+                      <span class="step-status">✔ Saved on Hard Drive</span>
+                    </div>
+                  </div>
+
+                  <!-- Reality Verification Seal -->
+                  <div class="mockup-verification-seal">
+                    <div class="seal-left">
+                      <span>🛡️ Double-Check Passed</span>
+                      <span style="font-size: 0.6875rem; color: #C5CCD8">Verified against real document bytes</span>
+                    </div>
+                    <span class="seal-pill">HARD DRIVE: VERIFIED</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="window-footer">
+                <span>Remembers your work from Friday 6:14 PM &bull; 0 Cloud Calls</span>
+                <a href="/product">See Full Product &rarr;</a>
+              </div>
+            </div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- ============================================================ 3 CORE PILLARS WITH RICH GRAPHICS -->
+    <div class="band" id="difference">
+      <div class="container">
+        <section class="section stack">
+          <div class="section-intro">
+            <p class="kicker">Understood in 2 seconds</p>
+            <h2 class="h2">Three Things Regular AI Gets Wrong (And How Blue Spark Fixes Them)</h2>
+            <p class="note">No tech buzzwords. Here is what actually happens on your screen:</p>
+          </div>
+
+          <div class="content-grid proof-grid">
+            
+            <!-- Pillar 1: Autonomous with Visual Workflow -->
+            <article class="pillar-card-visual">
+              <div class="pillar-header-row">
+                <span class="pillar-badge-num">01</span>
+                <span class="pillar-badge-glance" style="color: #16A34A">Finishes the job</span>
+              </div>
+              <h3 class="pillar-title-text">Does the work on its own</h3>
+              <p class="pillar-desc-text">Regular chatbots make you babysit every question. Blue Spark takes a whole folder of messy paperwork and works through it independently until the job is done.</p>
+              
+              <!-- Visual Image Compartment 1: Autonomy Workflow -->
+              <figure class="pillar-img-compartment">
+                <img src="/assets/pillar-1-autonomy-flow.jpg" alt="Does the work on its own: messy invoices automatically scanned and matched into a clean spreadsheet on your desktop" loading="lazy">
+                <figcaption>
+                  <span class="img-badge-pass">✔ AUTONOMOUS ACTION</span>
+                  <span>Messy paperwork ➜ Scanned &amp; matched ➜ Ready on your PC</span>
+                </figcaption>
+              </figure>
+            </article>
+
+            <!-- Pillar 2: Persistent with Calendar Timeline -->
+            <article class="pillar-card-visual">
+              <div class="pillar-header-row">
+                <span class="pillar-badge-num">02</span>
+                <span class="pillar-badge-glance" style="color: #2563EB">Never forgets</span>
+              </div>
+              <h3 class="pillar-title-text">Remembers your work on Monday</h3>
+              <p class="pillar-desc-text">You don't need to re-explain your company rules or re-upload your templates every day. Blue Spark remembers your past clients and notes across days and weeks.</p>
+              
+              <!-- Visual Image Compartment 2: Memory Continuity -->
+              <figure class="pillar-img-compartment">
+                <img src="/assets/pillar-2-memory-continuity.jpg" alt="Remembers your work on Monday: Friday laptop closed, Monday morning laptop opened with all files and notes ready" loading="lazy">
+                <figcaption>
+                  <span class="img-badge-blue">✔ ZERO AMNESIA</span>
+                  <span>Close laptop Friday ➜ Open Monday ➜ Full context intact</span>
+                </figcaption>
+              </figure>
+            </article>
+
+            <!-- Pillar 3: Metacognition with Conscious Veto Gate -->
+            <article class="pillar-card-visual">
+              <div class="pillar-header-row">
+                <span class="pillar-badge-num">03</span>
+                <span class="pillar-badge-glance" style="color: #D97706">Double-checks</span>
+              </div>
+              <h3 class="pillar-title-text">Checks its work before answering</h3>
+              <p class="pillar-desc-text">Other AI tools guess when they don't know the answer. Blue Spark has a strict rule: if a number is not in your actual document, it stops and tells you. It never lies to please you.</p>
+              
+              <!-- Visual Image Compartment 3: Double-Check Veto -->
+              <figure class="pillar-img-compartment">
+                <img src="/assets/pillar-3-double-check-veto.jpg" alt="Checks its work before answering: guesses stopped cold, numbers verified on real hard drive" loading="lazy">
+                <figcaption>
+                  <span class="img-badge-gold">✔ DOUBLE-CHECKED</span>
+                  <span>Stops fake guesses ➜ Verifies real files on hard drive</span>
+                </figcaption>
+              </figure>
+            </article>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- ============================================================ SOVEREIGN CITADEL CALLOUT & VISUAL INFOGRAPHIC -->
+    <div class="band band-alt" id="privacy">
+      <div class="container">
+        <section class="section stack">
+          <div class="section-intro">
+            <p class="kicker">Total peace of mind</p>
+            <h2 class="h2">Your files never leave your desk.</h2>
+            <p class="note">If you are cautious about AI stealing your data or leaking client files, you are right to be careful. Blue Spark works like Microsoft Word or Excel: it runs 100% on your laptop's hard drive.</p>
+          </div>
+
+          <!-- Pictorial Story Image: The Private Fortress -->
+          <figure class="art-showcase">
+            <img src="/assets/pictorial-privacy-fortress.jpg" alt="Your Laptop Is A Private Fortress · 100% on your machine, zero cloud leaks" loading="lazy">
+            <figcaption>
+              <strong>FIGURE 1.0 &middot; THE PRIVATE FORTRESS ON YOUR LAPTOP</strong>
+              <span>Your contracts, spreadsheets, client lists, and banking details stay safely inside your machine. Unplug your Wi-Fi, and Blue Spark keeps working. No remote servers, no cloud leaks, and nobody peeking at your work.</span>
+            </figcaption>
+          </figure>
+
+          <div class="two-col" style="align-items: center; margin-top: 24px">
+            <div class="stack">
+              <h3 class="h3">Three simple guarantees for cautious teams:</h3>
+              <div style="display: grid; gap: 14px; font-size: 0.9375rem; line-height: 1.6; color: var(--text-dim)">
+                <div style="display: flex; gap: 12px; align-items: flex-start">
+                  <span style="color: #10B981; font-weight: 700; font-size: 1.125rem">✔</span>
+                  <div><strong style="color: var(--text)">Works offline without internet:</strong> You can pull the plug or turn off Wi-Fi on an airplane. Blue Spark still reads your files and does the work.</div>
+                </div>
+                <div style="display: flex; gap: 12px; align-items: flex-start">
+                  <span style="color: #10B981; font-weight: 700; font-size: 1.125rem">✔</span>
+                  <div><strong style="color: var(--text)">You own your files:</strong> Your memory notes and saved spreadsheets stay in normal folders on your own hard drive. You can copy, back up, or delete them anytime.</div>
+                </div>
+                <div style="display: flex; gap: 12px; align-items: flex-start">
+                  <span style="color: #10B981; font-weight: 700; font-size: 1.125rem">✔</span>
+                  <div><strong style="color: var(--text)">No surprise monthly bills:</strong> No hidden credit meters charging you every time you open a PDF.</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="citadel-infographic-card">
+              <span class="kicker" style="color: var(--deep)">Want to see how it's built?</span>
+              <h3 class="h3" style="margin: 8px 0 12px">Explore the eleven capabilities</h3>
+              <p style="font-size: 0.9375rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 20px">
+                See the full breakdown of how Blue Spark remembers, double-checks its thinking, and helps you finish work faster without making mistakes.
+              </p>
+              <a class="btn btn-primary" href="/product">Explore the Full Product Page &rarr;</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- ============================================================ CLOSING CTA (SWEET & SIMPLE) -->
+    <div class="band band-ink">
+      <div class="container">
+        <section class="section stack" style="text-align: center; padding-block: calc(var(--rhythm) * 0.75)">
+          <h2 class="h2" style="color: var(--warm); margin: 0 auto 16px; max-width: 24ch">Ready for an AI colleague that actually remembers?</h2>
+          <p class="lead" style="margin: 0 auto 28px; max-width: 52ch; color: var(--text-on-ink-dim)">Simple to install on Windows. No subscription lock-in. 100% private.</p>
+          <div class="btn-row" style="justify-content: center">
+            <a class="btn btn-primary" href="/download">Download for Windows</a>
+            <a class="btn btn-secondary" href="/product">How it's built &rarr;</a>
+          </div>
+        </section>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ============================================================ LIVE FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3 class="h3">Product</h3>
+          <ul>
+            <li><a href="/product">Product Overview</a></li>
+            <li><a href="/product#why-different">Why It's Different</a></li>
+            <li><a href="/product#metacognition">Metacognition</a></li>
+            <li><a href="/product#memory">Neuromorphic Memory</a></li>
+            <li><a href="/founding-500">Founding 500</a>
+        <a href="/pricing">Pricing</a></li>
+            <li><a href="/download">Download for Windows</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="h3">Learning and community</h3>
+          <ul>
+            <li><a href="/learn">Learn</a></li>
+            <li><a href="/work">Examples</a></li>
+            <li><a href="/journal">Journal</a></li>
+            <li><a href="/community">Community</a></li>
+            <li><a href="/news">Community news</a></li>
+            <li><a href="/founding-500">Founding 500</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="h3">Company and partnerships</h3>
+          <ul>
+            <li><a href="/about">About us</a></li>
+            <li><a href="/partners">Partnerships</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/transparency">Transparency</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="h3">Trust and legal</h3>
+          <ul>
+            <li><a href="/security">Security posture</a></li>
+            <li><a href="/legal">Terms and privacy</a></li>
+            <li><a href="/status">System status</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-base">
+        <p>Blue Spark — clarity, on your machine.</p>
+        <p>&copy; 2026 Blue Spark <span class="founder-credit">by ben</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/cosmos.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
