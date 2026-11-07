@@ -292,29 +292,34 @@ footer small { font-size: .85rem; }
 .legend { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.1rem; }
 .pill { display: inline-flex; align-items: center; gap: .45rem; padding: .4rem .85rem; border-radius: 999px; border: 1px solid var(--line); font-size: .88rem; color: var(--body); background: rgba(247,244,236,.9); }
 
-/* three ways of remembering -> one answer */
-.recall { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 1rem; align-items: center; margin-top: 1.5rem; }
-.rc { display: grid; gap: .6rem; }
-.rc div { padding: .75rem 1rem; border-radius: 14px; background: rgba(247,244,236,.92); border: 1px solid var(--line); }
-.rc small, .answer small { display: block; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--blue-text); font-weight: 600; }
-.rc span { display: block; margin-top: .15rem; }
+/* science timeline */
 .arrow { color: var(--blue); font-size: 1.6rem; line-height: 1; }
-.answer { padding: 1.2rem 1.3rem; border-radius: 18px; background: #0e2a3a; color: #eaf2ff; }
-.answer small { color: var(--blue-bright); }
-.answer p { margin-top: .4rem; font-size: 1.05rem; }
-@media (max-width: 560px) { .recall { grid-template-columns: 1fr; } .arrow { transform: rotate(90deg); justify-self: center; } }
+.tline { list-style: none; margin-top: 1.5rem; border-left: 2px solid var(--line); padding-left: 0; display: grid; gap: 0; }
+.tline li { position: relative; padding: 0 0 1.35rem 1.6rem; }
+.tline li::before { content: ""; position: absolute; left: -.46rem; top: .5rem; width: .75rem; height: .75rem; border-radius: 50%; background: var(--blue-bright); box-shadow: 0 0 0 4px rgba(56,189,248,.2); }
+.tline .yr { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-style: italic; color: var(--blue-text); font-size: 1.2rem; }
+.tline b { display: block; font-weight: 600; margin-top: .1rem; }
+.tline p { color: var(--body); font-size: .98rem; margin-top: .2rem; }
+.tline .uses { display: inline-block; margin-top: .5rem; padding: .25rem .7rem; border-radius: 999px; font-size: .82rem; color: var(--blue-text); border: 1px solid rgba(43,134,197,.4); background: rgba(247,244,236,.9); }
+.sticky-l { position: sticky; top: 6.5rem; }
+@media (max-width: 860px) { .sticky-l { position: static; } }
+.skills-row { margin-top: clamp(2rem, 4vw, 3rem); padding-top: 1.6rem; border-top: 1px solid var(--line); max-width: 44rem; }
 
-/* swap the AI, keep what it learned */
-.swap { display: grid; grid-template-columns: minmax(0, .9fr) auto minmax(0, 1.1fr); gap: 1rem; align-items: center; margin-top: 1.5rem; }
-.swap .old { display: grid; gap: .5rem; }
-.swap .old div { padding: .7rem 1rem; border-radius: 14px; border: 1px dashed rgba(14,42,58,.32); color: var(--body); font-size: .98rem; }
-.swap .old div:nth-child(1) { opacity: .55; } .swap .old div:nth-child(2) { opacity: .8; }
-.keep { padding: 1.3rem; border-radius: 20px; background: #0e2a3a; color: #eaf2ff; position: relative; overflow: hidden; }
-.keep::after { content: ""; position: absolute; right: -2.5rem; top: -2.5rem; width: 9rem; height: 9rem; border-radius: 50%; background: radial-gradient(circle, rgba(56,189,248,.4), rgba(56,189,248,0) 68%); }
-.keep h4 { font-size: 1.1rem; font-weight: 600; position: relative; z-index: 1; }
-.keep p { margin-top: .35rem; color: rgba(234,242,255,.86); font-size: .98rem; position: relative; z-index: 1; }
-.swap-cap { margin-top: 1rem; font-weight: 600; }
-@media (max-width: 560px) { .swap { grid-template-columns: 1fr; } .swap .arrow { transform: rotate(90deg); justify-self: center; } }
+/* three technologies, one operating system */
+.origins { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; margin-top: clamp(2rem, 4vw, 3rem); }
+.origin { position: relative; border-radius: 22px; padding: clamp(1.4rem, 2.4vw, 1.9rem); background: rgba(247,244,236,.92); border: 1px solid var(--line); }
+.origin .tag { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--blue-text); font-weight: 600; }
+.origin h3 { font-weight: 400; font-size: clamp(1.5rem, 2.6vw, 1.95rem); letter-spacing: -0.02em; margin-top: .4rem; line-height: 1.1; }
+.origin .from { margin-top: .9rem; font-size: 1.02rem; color: var(--body); }
+.origin .from b { color: var(--ink, #0e2a3a); font-weight: 600; }
+.origin + .origin::before { content: "+"; position: absolute; left: -1.1rem; top: 50%; transform: translate(-50%, -50%); font-size: 1.6rem; color: var(--blue); font-weight: 300; }
+.os-bar { margin-top: 1.25rem; padding: clamp(1.5rem, 3vw, 2.2rem); border-radius: 24px; background: #0e2a3a; color: #eaf2ff; position: relative; overflow: hidden; display: grid; gap: .6rem; }
+.os-bar::after { content: ""; position: absolute; right: -3rem; top: -3rem; width: 13rem; height: 13rem; border-radius: 50%; background: radial-gradient(circle, rgba(56,189,248,.38), rgba(56,189,248,0) 68%); }
+.os-bar > * { position: relative; z-index: 1; }
+.os-bar .tag { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--blue-bright); font-weight: 600; }
+.os-bar h3 { font-weight: 400; font-size: clamp(1.6rem, 3vw, 2.3rem); letter-spacing: -0.02em; line-height: 1.12; }
+.os-bar p { color: rgba(234,242,255,.88); max-width: 46rem; font-size: 1.05rem; }
+@media (max-width: 860px) { .origins { grid-template-columns: 1fr; } .origin + .origin::before { left: 50%; top: -.95rem; transform: translate(-50%, -50%); } }
 
 /* where it lives */
 .zones { display: grid; grid-template-columns: minmax(0, 1.45fr) auto minmax(0, 1fr) auto minmax(0, 1fr); gap: .9rem; align-items: stretch; margin-top: clamp(2rem, 4vw, 3rem); }
@@ -360,15 +365,6 @@ footer small { font-size: .85rem; }
 .step3 h3 { font-weight: 400; font-size: clamp(1.6rem, 3vw, 2.1rem); letter-spacing: -0.02em; margin-top: .2rem; }
 .step3 p { margin-top: .5rem; color: var(--body); }
 @media (max-width: 820px) { .steps3 { grid-template-columns: 1fr; } }
-
-/* four ways AI goes wrong */
-.wrongs { margin-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid var(--line); }
-.wrongs .row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(1rem, 4vw, 3rem); padding: 1.2rem 0; border-bottom: 1px solid var(--line); }
-.wrongs .bad { font-weight: 600; }
-.wrongs .bad::before { content: "\2715"; color: var(--faint); margin-right: .7rem; font-weight: 400; }
-.wrongs .good { color: var(--body); }
-.wrongs .good::before { content: "\2713"; color: var(--blue); margin-right: .7rem; font-weight: 700; }
-@media (max-width: 700px) { .wrongs .row { grid-template-columns: 1fr; gap: .4rem; } }
 
 .note { margin-top: clamp(2rem, 4vw, 3rem); padding: 1rem 1.25rem; border-radius: 14px; border: 1px dashed rgba(14,42,58,.3); color: var(--body); font-size: .98rem; max-width: 44rem; }
 </style>
@@ -436,17 +432,17 @@ footer small { font-size: .85rem; }
   </div>
 </section>
 
-<!-- NEW: memory, recall, skills and the swap -->
+<!-- memory, with the science behind it -->
 <section class="band" aria-labelledby="mem-h">
   <div class="wrap">
     <p class="kicker reveal">What it remembers</p>
-    <h2 class="sec-title reveal" id="mem-h" style="max-width:20ch">The model is replaceable. What it learns about you is <em>not.</em></h2>
-    <p class="sec-lead reveal">Most AI is a frozen brain in a box: one model, and a memory that wipes when the chat ends. BlueSpark™ keeps its memory on your own computer, in five layers. What you use gets stronger, what you ignore fades, and the day settles into lasting knowledge overnight.</p>
+    <h2 class="sec-title reveal" id="mem-h" style="max-width:20ch">A memory like a <em>nervous system,</em> not a notebook.</h2>
+    <p class="sec-lead reveal">Five layers, from what is in play right now down to how you like to work. What you use gets stronger, what you ignore fades, and overnight the day settles into lasting knowledge. None of this is a new idea. It is how human memory has been understood for well over a century, and it all lives on your own computer.</p>
 
     <div class="two-col">
-      <div class="reveal">
-        <h3 class="sub-h">A memory like a nervous system, not a notebook.</h3>
-        <p class="sub-p">Five layers, from what is in play right now down to how you like to work. It all lives in one place on your computer, so there is one version of the truth.</p>
+      <div class="reveal sticky-l">
+        <h3 class="sub-h">Five layers, one place.</h3>
+        <p class="sub-p">Everything lives in one place on your computer, so there is one version of the truth.</p>
         <ol class="layers" aria-label="The five memory layers">
           <li style="--o:1"><div><b>Working</b><br><span>what is in play right now</span></div></li>
           <li style="--o:0.85"><div><b>Episodic</b><br><span>what happened, and when</span></div></li>
@@ -454,36 +450,50 @@ footer small { font-size: .85rem; }
           <li style="--o:0.55"><div><b>Procedural</b><br><span>how you usually get things done</span></div></li>
           <li style="--o:0.4"><div><b>Persona</b><br><span>how you like to work</span></div></li>
         </ol>
-        <div class="legend"><span class="pill">↑ Used: gets stronger</span><span class="pill">↓ Ignored: fades</span><span class="pill">☾ Overnight: settles into knowledge</span></div>
+        <div class="legend"><span class="pill">&#8593; Used: gets stronger</span><span class="pill">&#8595; Ignored: fades</span><span class="pill">&#9790; Overnight: settles into knowledge</span></div>
       </div>
       <div class="reveal" style="--d:80ms">
-        <h3 class="sub-h">Three ways of remembering, combined.</h3>
-        <p class="sub-p">When you ask something, BlueSpark™ searches by meaning, by keyword and by exact match, then blends the results. Meaning finds the idea. Keywords and exact match catch the names, numbers and codes a meaning search alone will miss. If one of the three couldn’t run, it says so, instead of pretending it looked everywhere.</p>
-        <div class="recall" role="img" aria-label="Three searches, by meaning, keyword and exact match, blend into one answer about order PO-2291">
-          <div class="rc">
-            <div><small>By meaning</small><span>“supplier delivery terms”</span></div>
-            <div><small>By keyword</small><span>“delivery”</span></div>
-            <div><small>By exact match</small><span>“PO-2291”</span></div>
-          </div>
-          <div class="arrow" aria-hidden="true">→</div>
-          <div class="answer"><small>Blended answer</small><p>Order PO-2291 is due on the supplier’s usual delivery day.</p></div>
-        </div>
+        <h3 class="sub-h">What science found, and where it shows up.</h3>
+        <p class="sub-p">A hundred and forty years of memory research, from the first experiments to the sleeping brain.</p>
+        <ol class="tline" aria-label="A short history of memory science">
+          <li><span class="yr">1885</span><b>Hermann Ebbinghaus</b><p>Memory fades fast unless it is revisited, and every repeat slows the fading.</p><span class="uses">Ignored memories fade</span></li>
+          <li><span class="yr">1894</span><b>Santiago Ram&oacute;n y Cajal</b><p>Memories may form by strengthening the connections between brain cells that already exist.</p><span class="uses">Used memories get stronger</span></li>
+          <li><span class="yr">1900</span><b>Georg M&uuml;ller &amp; Alfons Pilzecker</b><p>New learning is not permanent at once. It needs time to settle.</p><span class="uses">Overnight settling</span></li>
+          <li><span class="yr">1949</span><b>Donald Hebb</b><p>Connections that are used together grow stronger together.</p><span class="uses">Used memories get stronger</span></li>
+          <li><span class="yr">1957</span><b>Brenda Milner &amp; William Scoville</b><p>The famous patient H.M. could no longer form new memories of events, yet could still learn a skill. Remembering what happened and knowing how to do something are separate.</p><span class="uses">Episodic and Procedural layers</span></li>
+          <li><span class="yr">1972</span><b>Endel Tulving</b><p>Remembering events and knowing facts are two different kinds of memory.</p><span class="uses">Episodic and Semantic layers</span></li>
+          <li><span class="yr">1974</span><b>Alan Baddeley &amp; Graham Hitch</b><p>We hold what we are working on in a small mental workspace.</p><span class="uses">Working layer</span></li>
+          <li><span class="yr">1994</span><b>Matthew Wilson &amp; Bruce McNaughton</b><p>Brain cells in sleeping rats replayed the patterns from the day. Sleep is when experience is sorted and kept.</p><span class="uses">Overnight settling</span></li>
+        </ol>
       </div>
     </div>
 
-    <div class="two-col">
-      <div class="reveal">
-        <h3 class="sub-h">Skills are earned, not assumed.</h3>
-        <p class="sub-p">BlueSpark™ notices patterns in how you work and suggests routines. A suggestion only becomes a skill after it passes checks, and a skill that starts failing goes back to being a suggestion. You can hand-craft skills too. They go through the same checks.</p>
-      </div>
-      <div class="reveal" style="--d:80ms">
-        <h3 class="sub-h">Swap the AI. Keep everything it learned about you.</h3>
-        <div class="swap" role="img" aria-label="Last year's AI, today's AI and next year's AI can be swapped while your BlueSpark™ keeps its memory, skills and records">
-          <div class="old"><div>Last year’s AI</div><div>Today’s AI</div><div>Next year’s AI</div></div>
-          <div class="arrow" aria-hidden="true">→</div>
-          <div class="keep"><h4>Your BlueSpark™</h4><p>Memory, skills and records stay put.</p></div>
-        </div>
-      </div>
+    <div class="skills-row reveal">
+      <h3 class="sub-h">Skills are earned, not assumed.</h3>
+      <p class="sub-p" style="max-width:none">BlueSpark™ notices patterns in how you work and suggests routines. A suggestion only becomes a skill after it passes checks, and a skill that starts failing goes back to being a suggestion. You can hand-craft skills too. They go through the same checks.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Mahanta OS -->
+<section class="band" aria-labelledby="os-h">
+  <div class="wrap">
+    <div class="center-head">
+      <p class="kicker reveal">Mahanta OS</p>
+      <h2 class="sec-title reveal" id="os-h">Three technologies. One <em>operating system.</em></h2>
+      <p class="sec-lead reveal">Each of these ideas has decades of research behind it. None of them is new on its own. What makes BlueSpark™ different is that they work together, as one.</p>
+    </div>
+
+    <div class="origins">
+      <article class="origin reveal"><span class="tag">Brain-inspired memory</span><h3>The neuromorphic brain</h3><p class="from"><b>Where it comes from:</b> neuromorphic engineering, the field that asks what computers can learn from the way nervous systems are built. It was pioneered by Carver Mead at Caltech in the 1980s.</p></article>
+      <article class="origin reveal" style="--d:70ms"><span class="tag">Thinking it through</span><h3>First-principles reasoning</h3><p class="from"><b>Where it comes from:</b> the habit of working things out from the ground up, instead of repeating what was done before. Aristotle wrote about first principles more than two thousand years ago.</p></article>
+      <article class="origin reveal" style="--d:140ms"><span class="tag">Thinking about thinking</span><h3>Metacognition</h3><p class="from"><b>Where it comes from:</b> psychology. John Flavell gave it its name in 1979. It is why a good professional will say &ldquo;I&rsquo;m not sure about that.&rdquo;</p></article>
+    </div>
+
+    <div class="os-bar reveal">
+      <span class="tag">The layer that ties them together</span>
+      <h3>Mahanta OS is what makes the three work as one.</h3>
+      <p>It decides when each one is used, and it holds one rule above them all: nothing counts as done until it has been checked. Any one of these ideas makes an AI better. All three, working together, are what make BlueSpark™ something you can trust with your work.</p>
     </div>
   </div>
 </section>
@@ -497,10 +507,9 @@ footer small { font-size: .85rem; }
     </div>
 
     <div class="pair">
-      <article class="who reveal"><span class="tag">The clever one · the language model</span><h3>Fast, and sometimes full of it.</h3><p>It writes the plan, the answer, the draft. Brilliant, quick, and not always right.</p></article>
-      <article class="who careful reveal" style="--d:80ms"><span class="tag">The careful one · BlueSpark™’s checking system</span><h3>Slower, and it holds the keys.</h3><p>It checks everything against your actual files before anything happens. Nothing gets done unless it signs off.</p></article>
+      <article class="who reveal"><span class="tag">The language model</span><h3>Brings the ideas.</h3><p>It writes the plan, the answer and the draft. Every one of them is a suggestion.</p></article>
+      <article class="who careful reveal" style="--d:80ms"><span class="tag">BlueSpark™'s checking system</span><h3>Makes the call.</h3><p>It checks every suggestion against your actual files. Nothing happens unless BlueSpark™ approves it.</p></article>
     </div>
-    <p class="pair-note reveal">Where the picture breaks: two people can talk each other into anything. These two can’t. The careful one doesn’t take the clever one’s word for anything, because its only source is your actual files.</p>
 
     <div class="steps3">
       <div class="step3 reveal"><span class="n">01</span><h3>Propose.</h3><p>The AI suggests an action or an answer, clearly marked as a proposal.</p></div>
@@ -514,27 +523,6 @@ footer small { font-size: .85rem; }
       <article class="tile reveal" style="--d:120ms"><div class="tile-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.2" stroke-width="1.3"/><path d="M8 12.4l2.7 2.7L16.3 9.4"/></svg></div><h3>It knows when to stop.</h3><p>If BlueSpark™ can’t confirm something, it doesn’t guess. It stops, tells you what it couldn’t check, and suggests what to do next.</p></article>
       <article class="tile reveal" style="--d:180ms"><div class="tile-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.2" stroke-width="1.3"/><path d="M8 12.4l2.7 2.7L16.3 9.4"/></svg></div><h3>It doesn’t hallucinate into your memory.</h3><p>Anything unproven is kept out of what BlueSpark™ learns, so one bad guess never becomes a permanent “fact.”</p></article>
       <article class="tile reveal" style="--d:240ms"><div class="tile-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.2" stroke-width="1.3"/><path d="M8 12.4l2.7 2.7L16.3 9.4"/></svg></div><h3>Your files stay home.</h3><p>Your documents, memory and history live on your own machine. No big IT project, no expensive consultants.</p></article>
-    </div>
-  </div>
-</section>
-
-<!-- NEW: when it goes wrong -->
-<section class="band" aria-labelledby="wrong-h">
-  <div class="wrap">
-    <p class="kicker reveal">When things go wrong</p>
-    <h2 class="sec-title reveal" id="wrong-h" style="max-width:20ch">It would rather look stuck than <em>lie to you.</em></h2>
-    <div class="facts">
-      <div class="fact reveal"><h3>It says when a search couldn’t run.</h3><p>Recall runs three ways. If one of them couldn’t, you hear about it, instead of a quiet gap.</p></div>
-      <div class="fact reveal" style="--d:60ms"><h3>No citation, no claim.</h3><p>Answers that use your documents carry references. If it couldn’t read the source, it doesn’t invent one.</p></div>
-      <div class="fact reveal"><h3>A saved reply has to prove it.</h3><p>A reply shows as complete only when the system can prove it was stored. Anything less is marked stale, in plain sight.</p></div>
-      <div class="fact reveal" style="--d:60ms"><h3>Old status beats false comfort.</h3><p>It would rather show an out-of-date status with an explanation than a green light it can’t back.</p></div>
-    </div>
-    <h3 class="sub-h reveal" style="margin-top:clamp(2.5rem,5vw,4rem)">Four ways AI goes wrong, and what stops each one.</h3>
-    <div class="wrongs reveal">
-      <div class="row"><div class="bad">Says “done” when it isn’t</div><div class="good">The claim doesn’t count until the result is checked</div></div>
-      <div class="row"><div class="bad">Retries the same failing step</div><div class="good">It remembers what failed, so the next try has to be different</div></div>
-      <div class="row"><div class="bad">Shows all green while something’s broken</div><div class="good">Honest status: an old reading with a reason, never a false all-clear</div></div>
-      <div class="row"><div class="bad">Gives a confident answer when unsure</div><div class="good">It says it isn’t sure, and stops</div></div>
     </div>
   </div>
 </section>
